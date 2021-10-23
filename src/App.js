@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
 function App() {
-  const baseEndpoint = 'http://piglet-env.eba-u7t4ntpp.us-east-2.elasticbeanstalk.com'
+  const baseEndpoint = 'https://sensoeducation.link'
   const loginEndpoint = '/mockSensoAPI'
   const [data, setData] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
