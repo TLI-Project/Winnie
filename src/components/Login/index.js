@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css';
+import './login.css';
 
 export default function Login({ setToken }) {
     const [username, setUserName] = useState();
@@ -39,7 +39,7 @@ export default function Login({ setToken }) {
 
 // import React from 'react'
 // import { Link } from 'react-router-dom';
-// import "./styles.css";
+// import "./login.css";
 //
 // class Login extends React.Component {
 //   render() {

@@ -11,6 +11,7 @@ class Header extends React.Component {
         <h3>introducing Senso Education: informing car-buyers on the selection and financing of their vehicles, all in under five minutes.</h3>
 
         <img className="main-img" src={require('./../../img/landing/header/main-img.png').default}/>
+
         <img className="left-background" src={require('./../../img/landing/header/left-background.png').default}/>
         <img className="right-background" src={require('./../../img/landing/header/right-background.png').default}/>
         <img className="top-background" src={require('./../../img/landing/header/top-background.png').default}/>
