@@ -1,19 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
-class CreateAccount extends React.Component {
-  render() {
-    return (
-      <div className="CreateAccount">
-        <h1> User creates an account here: </h1>
-
-        <h3>After we save the user info into the db, the user is now logged in and can browse cars:</h3>
-        <Link to='/selection'>
-          <button>Show me the cars!</button>
-        </Link>
-      </div>
-    );
-  }
+export default function Signup({ setToken }) {
+    const [fullname, setFullName] = useState();
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
+    return(
+        <div className="login-wrapper">
+            <h1>Create your free account</h1>
+            <form>
+                <label>
+                    <p>Full name</p>
+                    <input type="text" onChange={e => setFullName(e.target.value)}/>
+                </label>
+                <label>
+                    <p>Username</p>
+                    <input type="text" onChange={e => setUserName(e.target.value)}/>
+                </label>
+                <label>
+                    <p>Password</p>
+                    <input type="password" onChange={e => setPassword(e.target.value)}/>
+                </label>
+                <div>
+                    <Link to='/selection'>
+                    <button type="submit">Signup</button>
+                    </Link>
+                </div>
+                <h3> Already have an account?</h3>
+                <Link to='/login'>
+                    <button>Log in</button>
+                </Link>
+            </form>
+        </div>
+    )
 }
-
-export default CreateAccount;
