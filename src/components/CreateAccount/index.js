@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
-export default function Login({ setToken }) {
+export default function Signup({ setToken }) {
     const [fullname, setFullName] = useState();
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
@@ -23,7 +23,9 @@ export default function Login({ setToken }) {
                     <input type="password" onChange={e => setPassword(e.target.value)}/>
                 </label>
                 <div>
+                    <Link to='/selection'>
                     <button type="submit">Signup</button>
+                    </Link>
                 </div>
                 <h3> Already have an account?</h3>
                 <Link to='/login'>

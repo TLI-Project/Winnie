@@ -9,7 +9,7 @@ import {
 import './App.css';
 
 
-import Home from './components/Home';
+import Index from './components/Home';
 import Login from './components/Login';
 import Selection from './components/Selection';
 import CreateAccount from './components/CreateAccount';
@@ -18,6 +18,7 @@ import Features from './components/Features';
 import FeaturesBreakdown from './components/FeaturesBreakdown';
 import Breakdown from './components/Breakdown';
 import Cart from './components/Cart';
+import Display from './components/Display'
 
 class App extends React.Component {
   render() {
@@ -25,7 +26,7 @@ class App extends React.Component {
         <div>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' render={() => (<Home/>)}/>
+            <Route exact path='/' render={() => (<Index/>)}/>
             <Route exact path='/login' render={() => (<Login/>)}/>
             <Route exact path='/selection' render={() => (<Selection/>)}/>
             <Route exact path='/create-account' render={() => (<CreateAccount/>)}/>
@@ -34,6 +35,7 @@ class App extends React.Component {
             <Route exact path='/features-breakdown' render={() => (<FeaturesBreakdown/>)}/>
             <Route exact path='/breakdown' render={() => (<Breakdown/>)}/>
             <Route exact path='/cart' render={() => (<Cart/>)}/>
+            <Route exact path= '/display' render = {() => (<Display/>)}/>
           </Switch>
         </BrowserRouter>
       </div>

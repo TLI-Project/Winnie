@@ -6,8 +6,10 @@ export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
     return(
+        <body>
         <div className="login-wrapper">
             <h1>Already have an account? Login here!</h1>
+            {/*Add form */}
             <form>
                 <label>
                     <p>Username</p>
@@ -18,7 +20,9 @@ export default function Login({ setToken }) {
                     <input type="password" onChange={e => setPassword(e.target.value)}/>
                 </label>
                 <div>
+                    <Link to='/selection'>
                     <button type="submit">Login</button>
+                    </Link>
                 </div>
                 <h3> Don't have an account yet? Sign up for one</h3>
                     <Link to='/create-account'>
@@ -26,6 +30,7 @@ export default function Login({ setToken }) {
                     </Link>
             </form>
         </div>
+        </body>
     )
 }
 
