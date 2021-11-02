@@ -1,8 +1,15 @@
-## Description
+## Context
+---
 
 Please include a summary of the change and which ticket it addresses. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
 Fixes SE-(Jira Ticket)
+
+### Description
+
+- feature 1
+- feature 2
+- feature 3
 
 ### Type of change
 
@@ -14,13 +21,18 @@ Please select options that are relevant.
 - [ ] This change requires a documentation update
 
 ## How Can This Be Tested?
+---
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration and any other tests you think may be worth running (help out the tester pretty please would be appreciated)
 
 - [ ] Test A
 - [ ] Test B
 
+## Notes:
+---
+
 ## Checklist:
+---
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have commented my code, particularly in hard-to-understand areas
