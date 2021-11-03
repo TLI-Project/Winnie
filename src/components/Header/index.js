@@ -4,7 +4,6 @@ import "./header.scss";
 const Header = () => {
   return (
     <div className="header">
-      {/* NEED TO RE-ORGANIZE SELECTORS AND CLASS NAMES (this was just a test to get things working) */}
       <h1>A revolutionary way to purchase cars.</h1>
       <h3>Introducing Senso Education: informing car-buyers on the selection and financing of their vehicles, all in under five minutes.</h3>
 

@@ -14,3 +14,5 @@ const Features = () => {
 }
 
 export default Features
+
+/*Need to fudge data regarding add ons ticket SE-47*/

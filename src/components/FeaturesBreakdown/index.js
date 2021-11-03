@@ -13,3 +13,5 @@ const FeaturesBreakdown = () => {
 }
 
 export default FeaturesBreakdown
+
+/*Need to fudge data regarding add ons ticket SE-47*/

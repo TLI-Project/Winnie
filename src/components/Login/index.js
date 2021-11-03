@@ -12,7 +12,6 @@ const Login = ({ setToken }) => {
                     <div className="dashboard">
                         <h1> Find out the cost of your dream car in 5 minutes.</h1>
                     </div>
-                    {/*Add form */}
                     <form>
                         <h3> Log in to your account </h3>
                         <label>

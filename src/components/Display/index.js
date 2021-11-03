@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './display.scss';
+/*Needs car dataset to display the pictures, price points, model and name etc*/
 
 const Display = () => {
     return (
