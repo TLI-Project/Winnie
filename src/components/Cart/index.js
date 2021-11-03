@@ -5,8 +5,8 @@ class Cart extends React.Component {
   render() {
     return (
       <div className="Cart">
-        <h1> THIS A CART: </h1>
-        <h1>PDF????</h1>
+        <h1> CART: </h1>
+        <h1>PDF print out option</h1>
       </div>
     );
   }

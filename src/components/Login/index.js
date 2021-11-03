@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css';
+import './login.scss';
 
 export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
-    return(
+    return (
         <body>
-        <div className="login-wrapper">
-            <h1>Already have an account? Login here!</h1>
-            {/*Add form */}
-            <form>
-                <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)}/>
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)}/>
-                </label>
-                <div>
-                    <Link to='/selection'>
-                    <button type="submit">Login</button>
-                    </Link>
+            <div className="login-wrapper">
+                <div className="glass">
+                    <div className="dashboard">
+                        <h1> Find out the cost of your dream car in 5 minutes.</h1>
+                    </div>
+                    {/*Add form */}
+                    <form>
+                        <h3> Log in to your account </h3>
+                        <label>
+                            <p>Username</p>
+                            <input type="text" onChange={e => setUserName(e.target.value)} />
+                        </label>
+                        <label>
+                            <p>Password</p>
+                            <input type="password" onChange={e => setPassword(e.target.value)} />
+                        </label>
+                        <div>
+
+                            <Link to='/selection'>
+                                <button className="btn" type="submit">Login</button>
+                            </Link>
+                        </div>
+                        <h4> Don't have an account yet?</h4>
+                        <Link to='/create-account'>
+                            <button className="btn" >Sign up for one.</button>
+                        </Link>
+                    </form>
                 </div>
-                <h3> Don't have an account yet? Sign up for one</h3>
-                    <Link to='/create-account'>
-                    <button>Sign up</button>
-                    </Link>
-            </form>
-        </div>
+
+            </div>
         </body>
     )
 }
