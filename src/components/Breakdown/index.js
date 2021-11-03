@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-class Breakdown extends React.Component {
-  render() {
-    return (
-      <div className="Breakdown">
-        <h1> Show GRAPH Breakdownwnwnwnnwnwnwnwnwnwnwnwnwnwnwnwnwnwn: </h1>
-        <Link to='/cart'>
-          <button>LET ME GO TO MY CART</button>
-        </Link>
-      </div>
-    );
-  }
+const Breakdown = () => {
+  return (
+    <div className="Breakdown">
+    <h1> Show graph breakdown: </h1>
+    <Link to='/cart'>
+      <button>Go to cart</button>
+    </Link>
+  </div>
+  )
 }
 
-export default Breakdown;
+export default Breakdown
+
+/* Needs work on the skeleton for showing the graphical breakdown*/
