@@ -8,30 +8,33 @@ const CreateAccount = ({ setToken }) => {
     const [password, setPassword] = useState();
     return (
         <div className="login-wrapper">
-            <h1>Create your free account</h1>
-            <form>
-                <label>
-                    <p>Full name</p>
-                    <input type="text" onChange={e => setFullName(e.target.value)} />
-                </label>
-                <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)} />
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)} />
-                </label>
-                <div>
-                    <Link to='/selection'>
-                        <button type="submit">Signup</button>
+
+            <div className="glass-create">
+                <h2>Create your free account</h2>
+                <form>
+                    <label>
+                        <p>Full name</p>
+                        <input type="text" onChange={e => setFullName(e.target.value)} />
+                    </label>
+                    <label>
+                        <p>Username</p>
+                        <input type="text" onChange={e => setUserName(e.target.value)} />
+                    </label>
+                    <label>
+                        <p>Password</p>
+                        <input type="password" onChange={e => setPassword(e.target.value)} />
+                    </label>
+                    <div>
+                        <Link to='/selection'>
+                            <button className="btn" type="submit">Signup</button>
+                        </Link>
+                    </div>
+                    <h3> Already have an account?</h3>
+                    <Link to='/login'>
+                        <button className="btn">Log in</button>
                     </Link>
-                </div>
-                <h3> Already have an account?</h3>
-                <Link to='/login'>
-                    <button>Log in</button>
-                </Link>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }
