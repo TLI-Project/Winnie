@@ -8,8 +8,8 @@ Super easy. Once you push into the git repo it will automatically update the AWS
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Steps to Follow for Initial Run
-1. npm run scss
-2. npm install
+1. npm install
+2. npm run start
 
 ## Available Scripts
 
