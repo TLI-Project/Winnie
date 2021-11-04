@@ -6,9 +6,34 @@ import './finance.scss';
 const Finance = ({ setToken }) => {
   const [preferredVehicle, setPreferredVehicle] = useState();
   const [preferredFeatures, setPreferredFeatures] = useState();
+  const [loanAmount, setLoanAmount] = useState();
   const [creditScore, setCreditScore] = useState();
-  const [yearlyIncome, setYearlyIncome] = useState();
-  const [monthlyBudget, setMonthlyBudget] = useState();
+  const [pytBudget, setPytBudget] = useState();
+  const [listPrice, setListPrice] = useState();
+  const [downpayment, setDownpayment] = useState();
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      "loanAmount": loanAmount,
+      "creditScore": creditScore,
+      "pytBudget": pytBudget,
+      "vehicleMake": "Honda",
+      "vehicleModel": "Civic",
+      "vehicleYear": 2021,
+      "vehicleKms": 1000,
+      "listPrice": listPrice,
+      "downpayment": downpayment
+    })
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    fetch('http://sensoeducation.link/userInputs', requestOptions)
+        .then(response => console.log(response.json()))
+  }
+
   return (
     <div className="Finance">
       <h1> Get started with Senso Education</h1>
@@ -59,26 +84,30 @@ const Finance = ({ setToken }) => {
         </label>
         <label>
           <p>Loan amount</p>
-          <input type="text" onChange={e => setMonthlyBudget(e.target.value)} />
+          <input  type="text" onChange={e => setLoanAmount(e.target.value)}/>
         </label>
         <label>
           <p>Credit score</p>
-          <input type="text" onChange={e => setCreditScore(e.target.value)} />
+          <input  type="text" onChange={e => setCreditScore(e.target.value)}/>
         </label>
         <label>
-          <p>Yearly income</p>
-          <input type="text" onChange={e => setYearlyIncome(e.target.value)} />
+          <p>Payment Budget</p>
+          <input  type="text" onChange={e => setPytBudget(e.target.value)}/>
         </label>
         <label>
-          <p>Monthly budget</p>
-          <input type="text" onChange={e => setMonthlyBudget(e.target.value)} />
+          <p>List Price</p>
+          <input  type="text" onChange={e => setListPrice(e.target.value)}/>
         </label>
         {/* <div>
               <button type="submit">Get Breakdown</button>
           </div> */}
           <label>
           <p>Down payment</p>
-          <input type="text" onChange={e => setMonthlyBudget(e.target.value)} />
+            <input  type="text" onChange={e => setDownpayment(e.target.value)}/>
+        </label>
+        <label>
+          <p>Show Senso Data in Console</p>
+          <button type="submit" onClick={submitHandler}> Calculate </button>
         </label>
       </form>
       <Link to='/features'>

@@ -25,7 +25,7 @@ const UserData = ({ setToken }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        fetch('http://localhost:8080/userInputs', requestOptions)
+        fetch('http://sensoeducation.link/userInputs', requestOptions)
             .then(response => console.log(response.json()))
     }
 
