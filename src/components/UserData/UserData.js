@@ -1,73 +1,62 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 
-class UserData extends Component {
+const UserData = ({ setToken }) => {
+    const [loanAmount, setLoanAmount] = useState();
+    const [creditScore, setCreditScore] = useState();
+    const [pytBudget, setPytBudget] = useState();
+    const [listPrice, setListPrice] = useState();
+    const [downpayment, setDownpayment] = useState();
 
-    componentDidMount() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                "loanAmount": 10000,
-                "creditScore": 780,
-                "pytBudget": 800,
-                "vehicleMake": "Honda",
-                "vehicleModel": "Civic",
-                "vehicleYear": 2021,
-                "vehicleKms": 1000,
-                "listPrice": 10000,
-                "downpayment": 10000
-            })
-        };
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            "loanAmount": loanAmount,
+            "creditScore": creditScore,
+            "pytBudget": pytBudget,
+            "vehicleMake": "Honda",
+            "vehicleModel": "Civic",
+            "vehicleYear": 2021,
+            "vehicleKms": 1000,
+            "listPrice": listPrice,
+            "downpayment": downpayment
+        })
+    };
 
+    const submitHandler = (e) => {
+        e.preventDefault()
         fetch('http://localhost:8080/userInputs', requestOptions)
             .then(response => console.log(response.json()))
     }
 
-    render(){
-        return <div>
-        </div>;
-    }
+
+    return (
+        <div>
+            <h2>Fill in Your Financial Information</h2>
+            <form>
+                <div>
+                    Loan Amount:
+                    <input  type="text" onChange={e => setLoanAmount(e.target.value)}/>
+                </div>
+                <div>
+                    Credit Score:
+                    <input  type="text" onChange={e => setCreditScore(e.target.value)}/>
+                </div>
+                <div>
+                    Payment Budget:
+                    <input  type="text" onChange={e => setPytBudget(e.target.value)}/>
+                </div>
+                <div>
+                    List Price:
+                    <input  type="text" onChange={e => setListPrice(e.target.value)}/>
+                </div>
+                <div>
+                    Downpayment:
+                    <input  type="text" onChange={e => setDownpayment(e.target.value)}/>
+                </div>
+                <button type="submit" onClick={submitHandler}> Submit </button>
+            </form>
+        </div>
+    )
 }
 export default UserData
-
-
-//     constructor(props) {
-//         super(props)
-//
-//         this.state = {
-//             userId: '',
-//             title: '',
-//             body: ''
-//         }
-//     }
-//
-//     changeHandler = (e) => {
-//         this.setState({[e.target.name]: e.target.value})
-//     }
-//
-//     submitHandler = e => {
-//         e.preventDefault()
-//     }
-//
-//
-//     render() {
-//         const { userId, title, body } = this.state
-//         return (
-//             <div>
-//                 <form onSubmit={this.submitHandler}>
-//                     <div>
-//                         <input type="text" name="userId" value={userId} onChange={this.changeHandler}/>
-//                     </div>
-//                     <div>
-//                         <input type="text" name="title" value={title} onChange={this.changeHandler}/>
-//                     </div>
-//                     <div>
-//                         <input  type="text" name="body" value={body} onChange={this.changeHandler}/>
-//                     </div>
-//                     <button type="submit"> Submit </button>
-//                 </form>
-//             </div>
-//         )
-//     }
-// }
-
