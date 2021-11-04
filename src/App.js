@@ -19,6 +19,7 @@ import FeaturesBreakdown from './components/FeaturesBreakdown';
 import Breakdown from './components/Breakdown';
 import Cart from './components/Cart';
 import Display from './components/Display'
+import UserData from './components/UserData/UserData'
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route exact path='/breakdown' render={() => (<Breakdown />)} />
           <Route exact path='/cart' render={() => (<Cart />)} />
           <Route exact path='/display' render={() => (<Display />)} />
+          <Route exact path='/userData' render={() => (<UserData />)} />
         </Switch>
       </BrowserRouter>
     </div>

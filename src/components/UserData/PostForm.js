@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios'
 
-class UserData extends Component {
+class PostForm extends Component {
     constructor(props) {
         super(props)
 
@@ -19,13 +18,6 @@ class UserData extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://sensoeducation.link/inputs', this.state)
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(object)
-            })
     }
 
 
@@ -50,4 +42,4 @@ class UserData extends Component {
     }
 }
 
-export default UserData
+export default PostForm
