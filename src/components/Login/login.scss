@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(to right top, #74e7de, #74bdc2);
+    background: linear-gradient(to right top, #497c8b, #def6f8, #87e6ec) !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,6 @@
         z-index: 2;
         backdrop-filter: blur(2rem);
         display: flex;
-
     }
     form {
         display: flex;
@@ -26,28 +25,24 @@
         align-items: center;
         justify-content: center;
     }
-    .btn{
-
+    .btn {
         all: initial;
         margin-top: 7px;
         margin-bottom: 10px;
         display: block;
         border: 0;
         font-size: 10px;
-        line-height:1 ;
+        line-height: 1;
         padding: 12px 26px;
-        text-decoration: none !important;
-        border-radius:30px;
+        // text-decoration: none !important;
+        border-radius: 30px;
         background: #6edbdb;
         transition: all 0.3s linear;
-
     }
     .btn:hover {
         cursor: pointer;
         background-color: black;
         color: white;
-
-
     }
     $dashboard-width: 35%;
     .dashboard {
