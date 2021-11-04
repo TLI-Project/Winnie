@@ -30,7 +30,7 @@ const Finance = ({ setToken }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    fetch('http://sensoeducation.link/userInputs', requestOptions)
+    fetch('https://sensoeducation.link/userInputs', requestOptions)
         .then(response => console.log(response.json()))
   }
 
