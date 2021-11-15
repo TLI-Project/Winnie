@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$" libraries="{Chart.js}" />
+=======
+    <file url="file://$PROJECT_DIR$" libraries="{Node.js Core}" />
+>>>>>>> ad1dc1da42a21f675279875973111baa727cb2a8
   </component>
 </project>

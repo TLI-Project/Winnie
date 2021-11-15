@@ -1,22 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import "./styles.scss";
-
 import Header from "./../Header";
+import "./home.scss";
 
-class Home extends React.Component {
-    render() {
-        return (
-            <div className="App">
-                <Link to='/login'>
-                    <button> Login
-                    </button>
-                </Link>
-                <Header></Header>
+const Home = () => {
+    return (
+        <div className="App">
+   
+            <Header></Header>
+            <Link to='/login'>
+                <button className='btn1'> Get started
+                </button>
+            </Link>
 
-            </div>
-        );
-    }
+        </div>
+    )
 }
 
-export default Home;
+export default Home
