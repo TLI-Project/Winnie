@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './createaccount.scss';
+// import './signup.scss';
 
-const CreateAccount = ({ setToken }) => {
+const SignUp = ({ setToken }) => {
     const [fullname, setFullName] = useState();
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
@@ -25,7 +25,7 @@ const CreateAccount = ({ setToken }) => {
                         <input type="password" onChange={e => setPassword(e.target.value)} />
                     </label>
                     <div>
-                        <Link to='/selection'>
+                        <Link to='/finance'>
                             <button className="btn" type="submit">Signup</button>
                         </Link>
                     </div>
@@ -39,4 +39,4 @@ const CreateAccount = ({ setToken }) => {
     )
 }
 
-export default CreateAccount
+export default SignUp

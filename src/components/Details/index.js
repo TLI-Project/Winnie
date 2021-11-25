@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import './display.scss';
+// import './details.scss';
 /*Needs car dataset to display the pictures, price points, model and name etc*/
 
-const Display = () => {
+const Details = () => {
     return (
-        <div className="Display">
+        <div className="Details">
             <main className="container">
                 <div className="left-column">
                     <img src="https://affinitycarrentals.com/wp-content/uploads/bfi_thumb/MDX-p5ohmlyhg58ums62auoyx0gh32olvo8f4qs7xbxhno.png">
@@ -48,4 +47,4 @@ const Display = () => {
     )
 }
 
-export default Display
+export default Details

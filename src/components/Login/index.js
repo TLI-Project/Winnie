@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.scss';
+// import './login.scss';
 
 const Login = ({ setToken }) => {
     const [username, setUserName] = useState();
@@ -24,12 +24,12 @@ const Login = ({ setToken }) => {
                         </label>
                         <div>
 
-                            <Link to='/selection'>
+                            <Link to='/finance'>
                                 <button className="btn" type="submit">Login</button>
                             </Link>
                         </div>
                         <h4> Don't have an account yet?</h4>
-                        <Link to='/create-account'>
+                        <Link to='/signup'>
                             <button className="btn" >Sign up for one.</button>
                         </Link>
                     </form>
