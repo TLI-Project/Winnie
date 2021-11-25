@@ -7,7 +7,13 @@ const Finance = ({ setToken }) => {
   const [preferredVehicle, setPreferredVehicle] = useState();
   const [preferredFeatures, setPreferredFeatures] = useState();
   const [loanAmount, setLoanAmount] = useState();
+  const [address, setAddress] = useState();
+  const [city, setCity] = useState();
   const [creditScore, setCreditScore] = useState();
+  const [SIN, setSIN] = useState();
+  const [cardnum, setCreditCardNum] = useState();
+  const [securitynum, setSecurityNum] = useState();
+  const [postalCode, setPostalCode] = useState();
   const [pytBudget, setPytBudget] = useState();
   const [listPrice, setListPrice] = useState();
   const [downpayment, setDownpayment] = useState();
@@ -17,14 +23,27 @@ const Finance = ({ setToken }) => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       "loanAmount": loanAmount,
-      "creditScore": creditScore,
       "pytBudget": pytBudget,
       "vehicleMake": "Honda",
       "vehicleModel": "Civic",
+      "creditScore": creditScore,
       "vehicleYear": 2021,
       "vehicleKms": 1000,
       "listPrice": listPrice,
       "downpayment": downpayment
+    })
+  };
+
+  const creditOptions = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      "address": address,
+      "city": city,
+      "SIN": SIN,
+      "cardnum": cardnum,
+      "securitynum": securitynum,
+      "postalCode": postalCode
     })
   };
 
@@ -33,7 +52,11 @@ const Finance = ({ setToken }) => {
     fetch('https://sensoeducation.link/userInputs', requestOptions)
         .then(response => console.log(response.json()))
   }
-
+  const submitCreditScoreInfo = (e) => {
+    e.preventDefault()
+    fetch('https://sensoeducation.link/creditScoreInfo',creditOptions)
+        .then(response => console.log(response.json()))
+  }
   return (
     <div className="Finance">
       <h1> Get started with Senso Education</h1>
@@ -87,8 +110,48 @@ const Finance = ({ setToken }) => {
           <input  type="text" onChange={e => setLoanAmount(e.target.value)}/>
         </label>
         <label>
-          <p>Credit score</p>
+          <p>Address and Unit Number</p>
+          <input  type="text" onChange={e => setAddress(e.target.value)}/>
+        </label>
+        <label>
+          <p>City</p>
+          <input  type="text" onChange={e => setCity(e.target.value)}/>
+        </label>
+        <label>
+            <p>Province/Territory</p>
+            <select name="dropdown">
+              <option value="Alberta">Alberta</option>
+              <option value="British Columbia">British Columbia</option>
+              <option value="Manitoba">Manitoba</option>
+              <option value="New Brunswick">New Brunswick</option>
+              <option value="Northwest Territories">Northwest Territories</option>
+              <option value="Nova Scotia">Nova Scotia</option>
+              <option value="Nunavut">Nunavut</option>
+              <option value="Ontario">Ontario</option>
+              <option value="Prince Edward Island">Prince Edward Island</option>
+              <option value="Saskatchewan">Saskatchewan</option>
+              <option value="Quebec">Quebec</option>
+            </select>
+        </label>
+          <label>
+          <p>Social Insurance Number</p>
+          <input  type="text" onChange={e => setSIN(e.target.value)}/>
+        </label>
+        <label>
+          <p>Credit Scorer</p>
           <input  type="text" onChange={e => setCreditScore(e.target.value)}/>
+        </label>
+        <label>
+          <p>Postal Code</p>
+          <input  type="text" onChange={e => setPostalCode(e.target.value)}/>
+        </label>
+        <label>
+          <p>Credit Card Number</p>
+          <input  type="text" onChange={e => setCreditCardNum(e.target.value)}/>
+        </label>
+        <label>
+          <p>Security Number</p>
+          <input  type="text" onChange={e => setSecurityNum(e.target.value)}/>
         </label>
         <label>
           <p>Payment Budget</p>
@@ -108,6 +171,7 @@ const Finance = ({ setToken }) => {
         <label>
           <p>Show Senso Data in Console</p>
           <button type="submit" onClick={submitHandler}> Calculate </button>
+          <button type="submit" onClick={submitCreditScoreInfo}> Get Credit Score </button>
         </label>
       </form>
       <Link to='/features'>

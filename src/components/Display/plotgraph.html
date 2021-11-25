@@ -5,9 +5,44 @@
 <canvas id="carData" style="width:100%;max-width:600px"></canvas>
 
 <script>
-    var xValues = [];
-    var yValues = [];
-    const input = {
+    function generateTotalCapitalAndInterest(input){
+        var xValues = [];
+        var yValues = [];
+        const num_installments = input["installments"].length //Object.keys(input)[0].length
+        console.log(num_installments)
+        const installments = input["installments"][0]["capital"]
+        console.log(installments)
+        for(let i = 1; i <= num_installments; i++){
+            xValues.push(i);
+        }
+        for (let i = 0; i < num_installments; i++){
+            yValues.push(input["installments"][i]["capital"]);
+            console.log(input["installments"][i]["capital"]);
+        }
+        console.log(yValues);
+        console.log(xValues);
+        console.log(yValues.length);
+
+        new Chart("carData", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    yAxes: [{ticks: {min: yValues[0], max:yValues[yValues.length -1]}}],
+                }
+            }
+        });}
+    generateTotalCapitalAndInterest({
         "installments": [{
             "capital": 270.79,
             "interest": 14.5,
@@ -225,40 +260,6 @@
         "sum": 10270.53,
         "interestRate": 1.74,
         "term": "36"
-    };
-    const num_installments = input["installments"].length //Object.keys(input)[0].length
-    console.log(num_installments)
-    const installments = input["installments"][0]["capital"]
-    console.log(installments)
-    for(let i = 1; i <= num_installments; i++){
-        xValues.push(i);
-    }
-    for (let i = 0; i < num_installments; i++){
-        yValues.push(input["installments"][i]["capital"]);
-        console.log(input["installments"][i]["capital"]);
-    }
-    console.log(yValues);
-    console.log(xValues);
-    console.log(yValues.length);
-
-    new Chart("carData", {
-        type: "line",
-        data: {
-            labels: xValues,
-            datasets: [{
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: yValues
-            }]
-        },
-        options: {
-            legend: {display: false},
-            scales: {
-                yAxes: [{ticks: {min: yValues[0], max:yValues[yValues.length -1]}}],
-            }
-        }
     });
 </script>
 
