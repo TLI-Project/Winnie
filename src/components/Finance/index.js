@@ -10,7 +10,7 @@ const Finance = ({ setToken }) => {
   const [yearlyIncome, setYearlyIncome] = useState();
   const [monthlyBudget, setMonthlyBudget] = useState();
   return (
-    <div className="Finance">
+    <div className="page page-finance">
       <h1>Tell us a bit about yourself...</h1>
       <form>
         <label>

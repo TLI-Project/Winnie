@@ -1,5 +1,5 @@
 import React from 'react'
-// import './details.scss';
+import './details.scss';
 /*Needs car dataset to display the pictures, price points, model and name etc*/
 
 const Details = () => {
