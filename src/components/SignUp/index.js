@@ -1,41 +1,60 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 // import './signup.scss';
+import CarImg from '../../img/landing/login/CarLogin.png';
+
 
 const SignUp = ({ setToken }) => {
-    const [fullname, setFullName] = useState();
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-    return (
-        <div className="login-wrapper">
+    const [fullname, setFullName] = useState('');
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const history = useHistory();
+        
+        const handleFullNameChange = e => {
+            setFullName(e.target.value)
+        }
+        const handleUsernameChange = e => {
+            setUserName(e.target.value)
+        }
+        const handlePasswordChange = e => {
+            // Check that value is ASCII-readable
+            setPassword(e.target.value)
+        }
+        const submit = () => {
+            // fetch to verify, if ok, history.push
+            if (fullname === ''){
+                console.log('full name cannot be empty');
+            }
+            else if (username === '') {
+                console.log('please enter your username');
+            } else if (password === '') {
+                console.log('please enter a password');
+            } else {
+                history.push('/finance')
+            }
+            
+        }
 
-            <div className="glass-create">
-                <h2>Create your free account</h2>
-                <form>
-                    <label>
-                        <p>Full name</p>
-                        <input type="text" onChange={e => setFullName(e.target.value)} />
-                    </label>
-                    <label>
-                        <p>Username</p>
-                        <input type="text" onChange={e => setUserName(e.target.value)} />
-                    </label>
-                    <label>
-                        <p>Password</p>
-                        <input type="password" onChange={e => setPassword(e.target.value)} />
-                    </label>
-                    <div>
-                        <Link to='/finance'>
-                            <button className="btn" type="submit">Signup</button>
-                        </Link>
-                    </div>
-                    <h3> Already have an account?</h3>
-                    <Link to='/login'>
-                        <button className="btn">Log in</button>
-                    </Link>
-                </form>
+    return (
+        <div className='page page-login-signup'>
+        <div className="left">
+            <h1> Find out the cost of your dream car in 5 minutes.</h1>
+            <img className="car-login" src={CarImg} />
+        </div>
+        <div className="right">
+            <div className='wrapper'>
+                <h3>Create your Free Account</h3>
+                <p className='left-text'>Full Name</p>
+                <input type="text" onChange={handleFullNameChange} value={fullname} />
+                <p className='left-text'>Username</p>
+                <input type="text" onChange={handleUsernameChange} value={username} />
+                <p className='left-text'>Password</p>
+                <input type="password" onChange={handlePasswordChange} value={password} />
+                <button onClick={submit}>Create Account</button>
+                <h4 className='left-text'>Have an account already? <Link to='/login'>Login here</Link></h4>
             </div>
         </div>
+    </div>
     )
 }
 

@@ -28,7 +28,7 @@ const Login = ({ setToken }) => {
     }
 
     return (
-        <div className='page page-login'>
+        <div className='page page-login-signup'>
             <div className="left">
                 <h1> Find out the cost of your dream car in 5 minutes.</h1>
                 <img className="car-login" src={CarImg} />

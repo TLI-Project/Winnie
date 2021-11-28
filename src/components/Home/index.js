@@ -23,8 +23,8 @@ const Home = () => {
                     <Link to='/'>Contact</Link>
                 </div>
                 <div className='right'>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/signup'>Sign Up</Link>
+                    <Link to='/login'>The Next Car Owner</Link>
+                    <Link to='/finance'>Dealership</Link>
                 </div>
             </nav>
             <div className='wrapper'>
