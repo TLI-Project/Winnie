@@ -18,9 +18,9 @@ const Login = ({ setToken }) => {
     const submit = () => {
         // fetch to verify, if ok, history.push
         if (username === '') {
-            console.log('please enter your username');
+            alert('please enter your username');
         } else if (password === '') {
-            console.log('please enter a password');
+            alert('please enter a password');
         } else {
             history.push('/finance')
         }

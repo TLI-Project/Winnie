@@ -177,5 +177,42 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    h1 {
+      padding-bottom: 1rem;
+    }
+
+    button {
+      text-decoration: none !important;
+      border-radius: 30px;
+      background: #6edbdb;
+      transition: all 0.3s linear;
+      padding: 12px 14px;
+      display: block;
+      border: 0;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+    }
+
+    .ellipse-green {
+      position: absolute;
+      z-index: 0;
+      width: 70rem;
+      left: 0;
+      top: 0;
+    }
+    .ellipse-blue {
+      position: absolute;
+      z-index: 0;
+      width: 70rem;
+      right: 0;
+      bottom: 0;
+    }
   }
 }

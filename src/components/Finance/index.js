@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
+import blueEllipse from '../../img/landing/finance/Ellipse-blue.png';
+import greenEllipse from '../../img/landing/finance/Ellipse-green.png';
 
 /* Vehicle mileage should be 0*/
 const Finance = ({ setToken }) => {
@@ -33,15 +35,15 @@ const Finance = ({ setToken }) => {
   const submit = () => {
     // fetch to verify, if ok, history.push
     if (!(300 <= creditScore <= 900)) {
-      console.log('please enter a valid credit score');
+      alert('please enter a valid credit score');
     } else if (!(loanAmount > 0)) {
-      console.log('please enter a valid loan amount');
+      alert('please enter a valid loan amount');
     } else if (!(monthlyBudget > 0)) {
-      console.log('please enter a valid monthly budget');
+      alert('please enter a valid monthly budget');
     } else if (!(yearlyIncome > 0)) {
-      console.log('please enter a valid yearly income');
+      alert('please enter a valid yearly income');
     } else if (!(downPayment > 0)) {
-      console.log('please enter a valid down payment amount')
+      alert('please enter a valid down payment amount')
     } else {
       history.push('/catalogue')
     }
@@ -50,6 +52,8 @@ const Finance = ({ setToken }) => {
 
   return (
     <div className="page page-finance">
+      <img className="ellipse-blue" src={blueEllipse} />
+      <img className="ellipse-green" src={greenEllipse} />
       <h1>Tell us a bit about yourself...</h1>
 
       <p>Loan amount</p>
