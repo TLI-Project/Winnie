@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import blueEllipse from '../../img/landing/finance/Ellipse-blue.png';
-import greenEllipse from '../../img/landing/finance/Ellipse-green.png';
+import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
+import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
 /* Vehicle mileage should be 0*/
 const Finance = ({ setToken }) => {
@@ -34,7 +34,8 @@ const Finance = ({ setToken }) => {
 
   const submit = () => {
     // fetch to verify, if ok, history.push
-    if (!(300 <= creditScore <= 900)) {
+    // Credit score must be [300, 850] inclusive in order to be accepted by the senso api
+    if (!(300 <= creditScore <= 850)) {
       alert('please enter a valid credit score');
     } else if (!(loanAmount > 0)) {
       alert('please enter a valid loan amount');
