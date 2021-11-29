@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import Header from "./../Header";
-// import "./home.scss";
+import { Link, useHistory } from 'react-router-dom';
 import Stat1Img from '../../img/landing/header/stat-1.png';
 import Stat2Img from '../../img/landing/header/stat-2.png';
 import MainImg from '../../img/landing/header/main-img.png';
@@ -12,6 +10,14 @@ import SensoLogo from '../../img/landing/navbar/logo.png';
 import DetailCar from '../../img/landing/detail/car.png';
 
 const Home = () => {
+    const history = useHistory();
+    const submitBuyer = () => {
+        history.push('/login')
+    }
+
+    const submitDealership = () => {
+        history.push('/finance')
+    }
     return (
         <div className='page page-home'>
             <nav>
@@ -24,8 +30,8 @@ const Home = () => {
                     <Link to='/'>Contact</Link>
                 </div>
                 <div className='right'>
-                    <Link to='/login'>The Next Car Owner</Link>
-                    <Link to='/finance'>Dealership</Link>
+                    <button onClick={submitBuyer}>The Next Car Owner</button>
+                    <button onClick={submitDealership}>Dealership</button>
                 </div>
             </nav>
             <div className='wrapper'>
@@ -59,6 +65,11 @@ const Home = () => {
             <img className='detail-car' src={DetailCar}></img>
             <div className='detail-right'>
                 <h2>A tastier description with all the details.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Quam id leo in vitae. Non pulvinar neque laoreet suspendisse interdum libero id faucibus. Diam nulla porttitor massa id neque aliquam.</p>
             </div>
 
         </div>
