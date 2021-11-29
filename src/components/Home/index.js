@@ -9,6 +9,7 @@ import TopBg from '../../img/landing/header/top-background.png';
 import LeftBg from '../../img/landing/header/left-background.png';
 import RightBg from '../../img/landing/header/right-background.png';
 import SensoLogo from '../../img/landing/navbar/logo.png';
+import DetailCar from '../../img/landing/detail/car.png';
 
 const Home = () => {
     return (
@@ -55,6 +56,7 @@ const Home = () => {
             <img className='bg bg-top' src={TopBg}/>
             <img className='bg bg-left' src={LeftBg}/>
             <img className='bg bg-right' src={RightBg}/>
+            <img className='detail-car' src={DetailCar}></img>
         </div>
     )
 }

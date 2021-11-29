@@ -115,11 +115,14 @@ button:hover {
       }
       .main-img {
         position: absolute;
-        // width: rem;
         height: 50rem;
         top: 4rem;
         right: 0;
       }
+    }
+    .detail-car {
+      position: absolute;
+      left: 0;
     }
     .bg {
       position: absolute;
@@ -204,21 +207,21 @@ button:hover {
       font-size: 2rem;
     }
 
-    input { 
+    input {
       margin-bottom: 2rem;
     }
 
     .ellipse-green {
       position: absolute;
       z-index: 0;
-      width: 70rem;
+      width: 100rem;
       left: 0;
       top: 0;
     }
     .ellipse-blue {
       position: absolute;
       z-index: 0;
-      width: 100rem;
+      width: 150rem;
       right: 0;
       bottom: 0;
     }
@@ -231,14 +234,14 @@ button:hover {
     .ellipse-green {
       position: absolute;
       z-index: 0;
-      width: 70rem;
+      width: 100rem;
       left: 0;
       top: 0;
     }
     .ellipse-blue {
       position: absolute;
+      width: 150rem;
       z-index: 0;
-      width: 100rem;
       right: 0;
       bottom: 0;
     }
@@ -277,6 +280,26 @@ button:hover {
     div.desc {
       padding: 15px;
       text-align: center;
+    }
+  }
+
+  &-compare {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ellipse-green {
+      position: absolute;
+      z-index: 0;
+      width: 100rem;
+      left: 0;
+      top: 0;
+    }
+    .ellipse-blue {
+      position: absolute;
+      width: 150rem;
+      z-index: 0;
+      right: 0;
+      bottom: 0rem;
     }
   }
 }
