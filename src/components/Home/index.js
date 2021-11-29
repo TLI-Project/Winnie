@@ -16,7 +16,7 @@ const Home = () => {
         <div className='page page-home'>
             <nav>
                 <div className='left'>
-                    <img className='senso-logo' src={SensoLogo}/>
+                    <img className='senso-logo' src={SensoLogo} />
                 </div>
                 <div className='mid'>
                     <Link to='/'>Product</Link>
@@ -53,10 +53,14 @@ const Home = () => {
                 </div>
                 <img className='main-img' src={MainImg} alt='a' />
             </div>
-            <img className='bg bg-top' src={TopBg}/>
-            <img className='bg bg-left' src={LeftBg}/>
-            <img className='bg bg-right' src={RightBg}/>
+            <img className='bg bg-top' src={TopBg} />
+            <img className='bg bg-left' src={LeftBg} />
+            <img className='bg bg-right' src={RightBg} />
             <img className='detail-car' src={DetailCar}></img>
+            <div className='detail-right'>
+                <h2>A tastier description with all the details.</h2>
+            </div>
+
         </div>
     )
 }

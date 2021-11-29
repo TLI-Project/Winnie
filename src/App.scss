@@ -65,7 +65,7 @@ button:hover {
     }
     .wrapper {
       width: 100%;
-      padding: 8rem 8rem;
+      padding: 8rem 10rem;
       display: flex;
       flex-direction: column;
       z-index: 3;
@@ -117,12 +117,20 @@ button:hover {
         position: absolute;
         height: 50rem;
         top: 4rem;
-        right: 0;
+        right: 5rem;
       }
     }
     .detail-car {
       position: absolute;
       left: 0;
+      top: 65rem;
+    }
+    .detail-right {
+      h2 {
+        font-size: 2rem;
+        color:rgb(30, 46, 66)
+      }
+
     }
     .bg {
       position: absolute;
