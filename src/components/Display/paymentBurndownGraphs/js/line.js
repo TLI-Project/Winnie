@@ -1,9 +1,477 @@
-$(document).ready(function graph2(){
+function graphCapitalOneModel(newModel, usedModel){
 
     //get the line chart canvas
     var ctx = $("#line-chartcanvas");
-    input1 = {
-        "installments": [{
+    var xValues = [];
+    var yValuesNM1 = [];
+    var yValuesUM1 = [];
+    const num_installments = newModel["installments"].length
+    console.log(num_installments)
+    const installments = newModel["installments"][0]["capital"]
+    console.log(installments)
+    for(let i = 1; i <= num_installments; i++){
+        xValues.push(i);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM1.push(newModel["installments"][i]["capital"]);
+        console.log(newModel["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM1.push(usedModel["installments"][i]["capital"]);
+        console.log(usedModel["installments"][i]["capital"]);
+    }
+    //line chart data
+    var data = {
+        labels: xValues,
+        datasets: [
+            {
+                label: "New " + newModel["model"],
+                data: yValuesNM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel["model"],
+                data: yValuesUM1,
+                backgroundColor: "green",
+                borderColor: "lightgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Capital and Interest",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+
+    //create Chart class object
+    var chart = new Chart(ctx, {
+        type: "line",
+        data: data,
+        options: options
+    });
+}
+
+function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
+
+    //get the line chart canvas
+    var ctx2 = $("#line-chartcanvas");
+    var xValues = [];
+    var yValuesNM1 = [];
+    var yValuesUM1 = [];
+    var yValuesNM2 = [];
+    var yValuesUM2 = [];
+    const num_installments = newModel1["installments"].length
+    console.log(num_installments)
+    const installments = newModel1["installments"][0]["capital"]
+    console.log(installments)
+    for(let i = 1; i <= num_installments; i++){
+        xValues.push(i);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM1.push(newModel1["installments"][i]["capital"]);
+        console.log(newModel["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
+        console.log(usedModel1["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM2.push(newModel2["installments"][i]["capital"]);
+        console.log(newModel2["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
+        console.log(usedModel2["installments"][i]["capital"]);
+    }
+    //line chart data
+    var data = {
+        labels: xValues,
+        datasets: [
+            {
+                label: "New " + newModel1["model"],
+                data: yValuesNM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel1["model"],
+                data: yValuesUM1,
+                backgroundColor: "green",
+                borderColor: "lightgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel2["model"],
+                data: yValuesNM2,
+                backgroundColor: "blue",
+                borderColor: "darkblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel2["model"],
+                data: yValuesUM2,
+                backgroundColor: "green",
+                borderColor: "darkgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Capital and Interest",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+
+    //create Chart class object
+    var chart = new Chart(ctx2, {
+        type: "line",
+        data: data,
+        options: options
+    });
+}
+
+
+function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, usedModel2, usedModel3){
+
+    //get the line chart canvas
+    var ctx3 = $("#line-chartcanvas");
+    var xValues = [];
+    var yValuesNM1 = [];
+    var yValuesUM1 = [];
+    var yValuesNM2 = [];
+    var yValuesUM2 = [];
+    var yValuesNM3 = [];
+    var yValuesUM3 = [];
+    const num_installments = newModel["installments"].length
+    console.log(num_installments)
+    const installments = newModel["installments"][0]["capital"]
+    console.log(installments)
+    for(let i = 1; i <= num_installments; i++){
+        xValues.push(i);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM1.push(newModel1["installments"][i]["capital"]);
+        console.log(newModel["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
+        console.log(usedModel1["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM2.push(newModel2["installments"][i]["capital"]);
+        console.log(newModel2["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
+        console.log(usedModel2["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM3.push(newModel3["installments"][i]["capital"]);
+        console.log(newModel3["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM3.push(usedModel3["installments"][i]["capital"]);
+        console.log(usedModel3["installments"][i]["capital"]);
+    }
+
+    //line chart data
+    var data = {
+        labels: xValues,
+        datasets: [
+            {
+                label: "New " + newModel1["model"],
+                data: yValuesNM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel1["model"],
+                data: yValuesUM1,
+                backgroundColor: "green",
+                borderColor: "lightgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel2["model"],
+                data: yValuesNM2,
+                backgroundColor: "blue",
+                borderColor: "darkblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel2["model"],
+                data: yValuesUM2,
+                backgroundColor: "green",
+                borderColor: "darkgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel3["model"],
+                data: yValuesNM3,
+                backgroundColor: "pink",
+                borderColor: "lightpink",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel3["model"],
+                data: yValuesUM3,
+                backgroundColor: "gray",
+                borderColor: "darkgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Capital and Interest",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+
+    //create Chart class object
+    var chart = new Chart(ctx3, {
+        type: "line",
+        data: data,
+        options: options
+    });
+}
+
+function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedModel1, usedModel2, usedModel3, usedModel4){
+
+    //get the line chart canvas
+    var ctx4 = $("#line-chartcanvas");
+    var xValues = [];
+    var yValuesNM1 = [];
+    var yValuesUM1 = [];
+    var yValuesNM2 = [];
+    var yValuesUM2 = [];
+    var yValuesNM3 = [];
+    var yValuesUM3 = [];
+    var yValuesNM4 = [];
+    var yValuesUM4 = [];
+    const num_installments = newModel1["installments"].length
+    console.log(num_installments)
+    const installments = newModel1["installments"][0]["capital"]
+    console.log(installments)
+    for(let i = 1; i <= num_installments; i++){
+        xValues.push(i);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM1.push(newModel1["installments"][i]["capital"]);
+        console.log(newModel["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
+        console.log(usedModel1["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM2.push(newModel2["installments"][i]["capital"]);
+        console.log(newModel2["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
+        console.log(usedModel2["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM3.push(newModel3["installments"][i]["capital"]);
+        console.log(newModel3["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM3.push(usedModel3["installments"][i]["capital"]);
+        console.log(usedModel3["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesNM4.push(newModel4["installments"][i]["capital"]);
+        console.log(newModel4["installments"][i]["capital"]);
+    }
+    for (let i = 0; i < num_installments; i++){
+        yValuesUM4.push(usedModel4["installments"][i]["capital"]);
+        console.log(usedModel4["installments"][i]["capital"]);
+    }
+
+    //line chart data
+    var data = {
+        labels: xValues,
+        datasets: [
+            {
+                label: "New " + newModel1["model"],
+                data: yValuesNM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel1["model"],
+                data: yValuesUM1,
+                backgroundColor: "green",
+                borderColor: "lightgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel2["model"],
+                data: yValuesNM2,
+                backgroundColor: "blue",
+                borderColor: "darkblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel2["model"],
+                data: yValuesUM2,
+                backgroundColor: "green",
+                borderColor: "darkgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel3["model"],
+                data: yValuesNM3,
+                backgroundColor: "pink",
+                borderColor: "lightpink",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel3["model"],
+                data: yValuesUM3,
+                backgroundColor: "gray",
+                borderColor: "darkgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "New " + newModel4["model"],
+                data: yValuesNM4,
+                backgroundColor: "red",
+                borderColor: "darkred",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: "Used " + usedModel4["model"],
+                data: yValuesUM4,
+                backgroundColor: "gray",
+                borderColor: "lightgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Capital and Interest",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+
+    //create Chart class object
+    var chart = new Chart(ctx4, {
+        type: "line",
+        data: data,
+        options: options
+    });
+}
+
+
+graphCapitalOneModel({
+    "installments": [{
         "capital": 270.79,
         "interest": 14.5,
         "installment": 285.29,
@@ -214,85 +682,14 @@ $(document).ready(function graph2(){
         "remain": 284.9700000000021,
         "interestSum": 270.11999999999995
     }, {"capital": 284.88, "interest": 0.41, "installment": 285.29, "remain": 0, "interestSum": 270.53}],
-        "amount": 10000,
-        "interestSum": 270.53,
-        "capitalSum": 10000,
-        "sum": 10270.53,
-        "interestRate": 1.74,
-        "term": "36"
-    }
-    input2 = {
-        "installments":[{"capital":268.02000000000004,"interest":20.33,"installment":288.35,"remain":9731.98,"interestSum":20.33},{"capital":268.56,"interest":19.79,"installment":288.35,"remain":9463.42,"interestSum":40.12},{"capital":269.11,"interest":19.24,"installment":288.35,"remain":9194.31,"interestSum":59.36},{"capital":269.65000000000003,"interest":18.7,"installment":288.35,"remain":8924.66,"interestSum":78.06},{"capital":270.20000000000005,"interest":18.15,"installment":288.35,"remain":8654.46,"interestSum":96.21000000000001},{"capital":270.75,"interest":17.6,"installment":288.35,"remain":8383.71,"interestSum":113.81},{"capital":271.3,"interest":17.05,"installment":288.35,"remain":8112.409999999999,"interestSum":130.86},{"capital":271.85,"interest":16.5,"installment":288.35,"remain":7840.5599999999995,"interestSum":147.36},{"capital":272.41,"interest":15.94,"installment":288.35,"remain":7568.15,"interestSum":163.3},{"capital":272.96000000000004,"interest":15.39,"installment":288.35,"remain":7295.19,"interestSum":178.69},{"capital":273.52000000000004,"interest":14.83,"installment":288.35,"remain":7021.67,"interestSum":193.52},{"capital":274.07000000000005,"interest":14.28,"installment":288.35,"remain":6747.6,"interestSum":207.8},{"capital":274.63,"interest":13.72,"installment":288.35,"remain":6472.97,"interestSum":221.52},{"capital":275.19,"interest":13.16,"installment":288.35,"remain":6197.78,"interestSum":234.68},{"capital":275.75,"interest":12.6,"installment":288.35,"remain":5922.03,"interestSum":247.28},{"capital":276.31,"interest":12.04,"installment":288.35,"remain":5645.719999999999,"interestSum":259.32},{"capital":276.87,"interest":11.48,"installment":288.35,"remain":5368.849999999999,"interestSum":270.8},{"capital":277.43,"interest":10.92,"installment":288.35,"remain":5091.419999999999,"interestSum":281.72},{"capital":278,"interest":10.35,"installment":288.35,"remain":4813.419999999999,"interestSum":292.07000000000005},{"capital":278.56,"interest":9.79,"installment":288.35,"remain":4534.859999999999,"interestSum":301.86000000000007},{"capital":279.13,"interest":9.22,"installment":288.35,"remain":4255.729999999999,"interestSum":311.0800000000001},{"capital":279.70000000000005,"interest":8.65,"installment":288.35,"remain":3976.029999999999,"interestSum":319.7300000000001},{"capital":280.27000000000004,"interest":8.08,"installment":288.35,"remain":3695.759999999999,"interestSum":327.81000000000006},{"capital":280.84000000000003,"interest":7.51,"installment":288.35,"remain":3414.9199999999983,"interestSum":335.32000000000005},{"capital":281.41,"interest":6.94,"installment":288.35,"remain":3133.5099999999984,"interestSum":342.26000000000005},{"capital":281.98,"interest":6.37,"installment":288.35,"remain":2851.5299999999984,"interestSum":348.63000000000005},{"capital":282.55,"interest":5.8,"installment":288.35,"remain":2568.9799999999987,"interestSum":354.43000000000006},{"capital":283.13,"interest":5.22,"installment":288.35,"remain":2285.8499999999985,"interestSum":359.6500000000001},{"capital":283.70000000000005,"interest":4.65,"installment":288.35,"remain":2002.1499999999985,"interestSum":364.30000000000007},{"capital":284.28000000000003,"interest":4.07,"installment":288.35,"remain":1717.8699999999988,"interestSum":368.37000000000006},{"capital":284.86,"interest":3.49,"installment":288.35,"remain":1433.0099999999989,"interestSum":371.86000000000007},{"capital":285.44,"interest":2.91,"installment":288.35,"remain":1147.5699999999983,"interestSum":374.7700000000001},{"capital":286.02000000000004,"interest":2.33,"installment":288.35,"remain":861.5499999999979,"interestSum":377.1000000000001},{"capital":286.6,"interest":1.75,"installment":288.35,"remain":574.9499999999974,"interestSum":378.8500000000001},{"capital":287.18,"interest":1.17,"installment":288.35,"remain":287.7699999999971,"interestSum":380.0200000000001},{"capital":287.76000000000005,"interest":0.59,"installment":288.35,"remain":0,"interestSum":380.61000000000007}],"amount":10000,"interestSum":380.61,"capitalSum":10000,"sum":10380.61,"interestRate":2.44,"term":"36"}
-
-
-    var xValues = [];
-    var yValues1 = [];
-    var yValues2 = [];
-    const num_installments = input1["installments"].length
-    console.log(num_installments)
-    const installments = input1["installments"][0]["capital"]
-    console.log(installments)
-    for(let i = 1; i <= num_installments; i++){
-        xValues.push(i);
-    }
-    for (let i = 0; i < num_installments; i++){
-        yValues1.push(input1["installments"][i]["capital"]);
-        console.log(input1["installments"][i]["capital"]);
-    }
-    for (let i = 0; i < num_installments; i++){
-        yValues2.push(input2["installments"][i]["capital"]);
-        console.log(input2["installments"][i]["capital"]);
-    }
-    //line chart data
-    var data = {
-        labels: xValues,
-        datasets: [
-            {
-                label: "Honda CR-V",
-                data: yValues1,
-                backgroundColor: "blue",
-                borderColor: "lightblue",
-                fill: false,
-                lineTension: 0,
-                radius: 5
-            },
-            {
-                label: "Honda Clarity",
-                data: yValues2,
-                backgroundColor: "green",
-                borderColor: "lightgreen",
-                fill: false,
-                lineTension: 0,
-                radius: 5
-            }
-        ]
-    };
-
-    //options
-    var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Capital and Interest",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
-            }
-        }
-    };
-
-    //create Chart class object
-    var chart = new Chart(ctx, {
-        type: "line",
-        data: data,
-        options: options
-    });
-});
+    "amount": 10000,
+    "interestSum": 270.53,
+    "capitalSum": 10000,
+    "sum": 10270.53,
+    "interestRate": 1.74,
+    "term": "36",
+    "model": "Honda Civic"
+}, {
+    "installments":[{"capital":268.02000000000004,"interest":20.33,"installment":288.35,"remain":9731.98,"interestSum":20.33},{"capital":268.56,"interest":19.79,"installment":288.35,"remain":9463.42,"interestSum":40.12},{"capital":269.11,"interest":19.24,"installment":288.35,"remain":9194.31,"interestSum":59.36},{"capital":269.65000000000003,"interest":18.7,"installment":288.35,"remain":8924.66,"interestSum":78.06},{"capital":270.20000000000005,"interest":18.15,"installment":288.35,"remain":8654.46,"interestSum":96.21000000000001},{"capital":270.75,"interest":17.6,"installment":288.35,"remain":8383.71,"interestSum":113.81},{"capital":271.3,"interest":17.05,"installment":288.35,"remain":8112.409999999999,"interestSum":130.86},{"capital":271.85,"interest":16.5,"installment":288.35,"remain":7840.5599999999995,"interestSum":147.36},{"capital":272.41,"interest":15.94,"installment":288.35,"remain":7568.15,"interestSum":163.3},{"capital":272.96000000000004,"interest":15.39,"installment":288.35,"remain":7295.19,"interestSum":178.69},{"capital":273.52000000000004,"interest":14.83,"installment":288.35,"remain":7021.67,"interestSum":193.52},{"capital":274.07000000000005,"interest":14.28,"installment":288.35,"remain":6747.6,"interestSum":207.8},{"capital":274.63,"interest":13.72,"installment":288.35,"remain":6472.97,"interestSum":221.52},{"capital":275.19,"interest":13.16,"installment":288.35,"remain":6197.78,"interestSum":234.68},{"capital":275.75,"interest":12.6,"installment":288.35,"remain":5922.03,"interestSum":247.28},{"capital":276.31,"interest":12.04,"installment":288.35,"remain":5645.719999999999,"interestSum":259.32},{"capital":276.87,"interest":11.48,"installment":288.35,"remain":5368.849999999999,"interestSum":270.8},{"capital":277.43,"interest":10.92,"installment":288.35,"remain":5091.419999999999,"interestSum":281.72},{"capital":278,"interest":10.35,"installment":288.35,"remain":4813.419999999999,"interestSum":292.07000000000005},{"capital":278.56,"interest":9.79,"installment":288.35,"remain":4534.859999999999,"interestSum":301.86000000000007},{"capital":279.13,"interest":9.22,"installment":288.35,"remain":4255.729999999999,"interestSum":311.0800000000001},{"capital":279.70000000000005,"interest":8.65,"installment":288.35,"remain":3976.029999999999,"interestSum":319.7300000000001},{"capital":280.27000000000004,"interest":8.08,"installment":288.35,"remain":3695.759999999999,"interestSum":327.81000000000006},{"capital":280.84000000000003,"interest":7.51,"installment":288.35,"remain":3414.9199999999983,"interestSum":335.32000000000005},{"capital":281.41,"interest":6.94,"installment":288.35,"remain":3133.5099999999984,"interestSum":342.26000000000005},{"capital":281.98,"interest":6.37,"installment":288.35,"remain":2851.5299999999984,"interestSum":348.63000000000005},{"capital":282.55,"interest":5.8,"installment":288.35,"remain":2568.9799999999987,"interestSum":354.43000000000006},{"capital":283.13,"interest":5.22,"installment":288.35,"remain":2285.8499999999985,"interestSum":359.6500000000001},{"capital":283.70000000000005,"interest":4.65,"installment":288.35,"remain":2002.1499999999985,"interestSum":364.30000000000007},{"capital":284.28000000000003,"interest":4.07,"installment":288.35,"remain":1717.8699999999988,"interestSum":368.37000000000006},{"capital":284.86,"interest":3.49,"installment":288.35,"remain":1433.0099999999989,"interestSum":371.86000000000007},{"capital":285.44,"interest":2.91,"installment":288.35,"remain":1147.5699999999983,"interestSum":374.7700000000001},{"capital":286.02000000000004,"interest":2.33,"installment":288.35,"remain":861.5499999999979,"interestSum":377.1000000000001},{"capital":286.6,"interest":1.75,"installment":288.35,"remain":574.9499999999974,"interestSum":378.8500000000001},{"capital":287.18,"interest":1.17,"installment":288.35,"remain":287.7699999999971,"interestSum":380.0200000000001},{"capital":287.76000000000005,"interest":0.59,"installment":288.35,"remain":0,"interestSum":380.61000000000007}],"amount":10000,"interestSum":380.61,"capitalSum":10000,"sum":10380.61,"interestRate":2.44,"term":"36", "model": "Honda Civic"}
+)
 
