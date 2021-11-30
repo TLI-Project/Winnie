@@ -243,6 +243,10 @@ button:hover {
 
     input {
       margin-bottom: 2rem;
+      z-index: 1;
+      background: transparent;
+      border: 1px solid grey;
+      padding: 0.5rem;
     }
 
     .ellipse-green {
