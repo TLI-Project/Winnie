@@ -31,6 +31,44 @@ const handleMonthlyBudgetChange = e => {
 const handleDownPaymentChange = e => {
   setDownPayment(e.target.value)
 }
+// const requestOptions = {
+//   method: 'POST',
+//   headers: {'Content-Type': 'application/json'},
+//   body: JSON.stringify({
+//       "id": 1
+     
+//   })
+// };
+
+const requestOptions = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //    "body":1"
+  // })
+  "body": 10
+};
+// const requestOptions = {
+//   method: 'POST',
+//   headers: {'Content-Type': 'application/json'},
+//   body: JSON.stringify({
+//       "loanAmount": loanAmount,
+//       "creditScore": creditScore,
+//       "pytBudget": monthlyBudget,
+//       "vehicleMake": "Honda",
+//       "vehicleModel": "Civic",
+//       "vehicleYear": 2021,
+//       "vehicleKms": 1000,
+//       "listPrice": 10000,
+//       "downpayment": downPayment
+//   })
+// };
+
+const submitHandler = (e) => {
+  e.preventDefault()
+  fetch('http://localhost:8080/carDetails', requestOptions)
+      .then(response => console.log(response.json()))
+}
 
 const submit = () => {
   // fetch to verify, if ok, history.push
@@ -72,7 +110,7 @@ return (
     <p>Down payment</p>
     <input type="text" onChange={handleDownPaymentChange} value={downPayment} />
 
-    <button onClick={submit}>Browse Cars</button>
+    <button onClick={submitHandler}>Browse Cars</button>
 
     </div>
   )
