@@ -110,7 +110,7 @@ return (
     <p>Down payment</p>
     <input type="text" onChange={handleDownPaymentChange} value={downPayment} />
 
-    <button onClick={submitHandler}>Browse Cars</button>
+    <button onClick={submit}>Browse Cars</button>
 
     </div>
   )
