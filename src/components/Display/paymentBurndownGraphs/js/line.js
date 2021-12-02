@@ -1,31 +1,33 @@
-function graphCapitalOneModel(newModel, usedModel){
+import React from 'react';
+
+export function graphCapitalOneModel(props) {
 
     //get the line chart canvas
     var ctx = $("#line-chartcanvas");
     var xValues = [];
     var yValuesNM1 = [];
     var yValuesUM1 = [];
-    const num_installments = newModel["installments"].length
+    const num_installments = props.newModel["installments"].length
     console.log(num_installments)
-    const installments = newModel["installments"][0]["capital"]
+    const installments = props.newModel["installments"][0]["capital"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM1.push(newModel["installments"][i]["capital"]);
-        console.log(newModel["installments"][i]["capital"]);
+        yValuesNM1.push(props.newModel["installments"][i]["capital"]);
+        console.log(props.newModel["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM1.push(usedModel["installments"][i]["capital"]);
-        console.log(usedModel["installments"][i]["capital"]);
+        yValuesUM1.push(props.usedModel["installments"][i]["capital"]);
+        console.log(props.usedModel["installments"][i]["capital"]);
     }
     //line chart data
     var data = {
         labels: xValues,
         datasets: [
             {
-                label: "New " + newModel["model"],
+                label: "New " + props.newModel["model"],
                 data: yValuesNM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -34,7 +36,7 @@ function graphCapitalOneModel(newModel, usedModel){
                 radius: 5
             },
             {
-                label: "Used " + usedModel["model"],
+                label: "Used " + props.usedModel["model"],
                 data: yValuesUM1,
                 backgroundColor: "green",
                 borderColor: "lightgreen",
@@ -65,15 +67,16 @@ function graphCapitalOneModel(newModel, usedModel){
         }
     };
 
-    //create Chart class object
-    var chart = new Chart(ctx, {
-        type: "line",
-        data: data,
-        options: options
-    });
+    // //create Chart class object
+    // var chart = new Chart(ctx, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+    return <Line options={options} data={data}  type={"line"}/>;
 }
 
-function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
+export function graphCapitalTwoModels(props) {
 
     //get the line chart canvas
     var ctx2 = $("#line-chartcanvas");
@@ -82,35 +85,35 @@ function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
     var yValuesUM1 = [];
     var yValuesNM2 = [];
     var yValuesUM2 = [];
-    const num_installments = newModel1["installments"].length
+    const num_installments = props.newModel1["installments"].length
     console.log(num_installments)
-    const installments = newModel1["installments"][0]["capital"]
+    const installments = props.newModel1["installments"][0]["capital"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM1.push(newModel1["installments"][i]["capital"]);
-        console.log(newModel["installments"][i]["capital"]);
+        yValuesNM1.push(props.newModel1["installments"][i]["capital"]);
+        console.log(props.newModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
-        console.log(usedModel1["installments"][i]["capital"]);
+        yValuesUM1.push(props.usedModel1["installments"][i]["capital"]);
+        console.log(props.usedModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM2.push(newModel2["installments"][i]["capital"]);
-        console.log(newModel2["installments"][i]["capital"]);
+        yValuesNM2.push(props.newModel2["installments"][i]["capital"]);
+        console.log(props.newModel2["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
-        console.log(usedModel2["installments"][i]["capital"]);
+        yValuesUM2.push(props.usedModel2["installments"][i]["capital"]);
+        console.log(props.usedModel2["installments"][i]["capital"]);
     }
     //line chart data
     var data = {
         labels: xValues,
         datasets: [
             {
-                label: "New " + newModel1["model"],
+                label: "New " + props.newModel1["model"],
                 data: yValuesNM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -119,7 +122,7 @@ function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
                 radius: 5
             },
             {
-                label: "Used " + usedModel1["model"],
+                label: "Used " + props.usedModel1["model"],
                 data: yValuesUM1,
                 backgroundColor: "green",
                 borderColor: "lightgreen",
@@ -128,7 +131,7 @@ function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
                 radius: 5
             },
             {
-                label: "New " + newModel2["model"],
+                label: "New " + props.newModel2["model"],
                 data: yValuesNM2,
                 backgroundColor: "blue",
                 borderColor: "darkblue",
@@ -137,7 +140,7 @@ function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
                 radius: 5
             },
             {
-                label: "Used " + usedModel2["model"],
+                label: "Used " + props.usedModel2["model"],
                 data: yValuesUM2,
                 backgroundColor: "green",
                 borderColor: "darkgreen",
@@ -169,15 +172,15 @@ function graphCapitalTwoModels(newModel1, usedModel1, newModel2, usedModel2){
     };
 
     //create Chart class object
-    var chart = new Chart(ctx2, {
-        type: "line",
-        data: data,
-        options: options
-    });
+    // var chart = new Chart(ctx2, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+    return <Line options={options} data={data}  type={"line"}/>;
 }
 
-
-function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, usedModel2, usedModel3){
+export function graphCapitalThreeModels(props) {
 
     //get the line chart canvas
     var ctx3 = $("#line-chartcanvas");
@@ -188,36 +191,36 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
     var yValuesUM2 = [];
     var yValuesNM3 = [];
     var yValuesUM3 = [];
-    const num_installments = newModel["installments"].length
+    const num_installments = props.newModel1["installments"].length
     console.log(num_installments)
-    const installments = newModel["installments"][0]["capital"]
+    const installments = props.newModel1["installments"][0]["capital"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM1.push(newModel1["installments"][i]["capital"]);
-        console.log(newModel["installments"][i]["capital"]);
+        yValuesNM1.push(props.newModel1["installments"][i]["capital"]);
+        console.log(props.newModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
-        console.log(usedModel1["installments"][i]["capital"]);
+        yValuesUM1.push(props.usedModel1["installments"][i]["capital"]);
+        console.log(props.usedModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM2.push(newModel2["installments"][i]["capital"]);
-        console.log(newModel2["installments"][i]["capital"]);
+        yValuesNM2.push(props.newModel2["installments"][i]["capital"]);
+        console.log(props.newModel2["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
-        console.log(usedModel2["installments"][i]["capital"]);
+        yValuesUM2.push(props.usedModel2["installments"][i]["capital"]);
+        console.log(props.usedModel2["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM3.push(newModel3["installments"][i]["capital"]);
-        console.log(newModel3["installments"][i]["capital"]);
+        yValuesNM3.push(props.newModel3["installments"][i]["capital"]);
+        console.log(props.newModel3["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM3.push(usedModel3["installments"][i]["capital"]);
-        console.log(usedModel3["installments"][i]["capital"]);
+        yValuesUM3.push(props.usedModel3["installments"][i]["capital"]);
+        console.log(props.usedModel3["installments"][i]["capital"]);
     }
 
     //line chart data
@@ -225,7 +228,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
         labels: xValues,
         datasets: [
             {
-                label: "New " + newModel1["model"],
+                label: "New " + props.newModel1["model"],
                 data: yValuesNM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -234,7 +237,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
                 radius: 5
             },
             {
-                label: "Used " + usedModel1["model"],
+                label: "Used " + props.usedModel1["model"],
                 data: yValuesUM1,
                 backgroundColor: "green",
                 borderColor: "lightgreen",
@@ -243,7 +246,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
                 radius: 5
             },
             {
-                label: "New " + newModel2["model"],
+                label: "New " + props.newModel2["model"],
                 data: yValuesNM2,
                 backgroundColor: "blue",
                 borderColor: "darkblue",
@@ -252,7 +255,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
                 radius: 5
             },
             {
-                label: "Used " + usedModel2["model"],
+                label: "Used " + props.usedModel2["model"],
                 data: yValuesUM2,
                 backgroundColor: "green",
                 borderColor: "darkgreen",
@@ -261,7 +264,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
                 radius: 5
             },
             {
-                label: "New " + newModel3["model"],
+                label: "New " + props.newModel3["model"],
                 data: yValuesNM3,
                 backgroundColor: "pink",
                 borderColor: "lightpink",
@@ -270,7 +273,7 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
                 radius: 5
             },
             {
-                label: "Used " + usedModel3["model"],
+                label: "Used " + props.usedModel3["model"],
                 data: yValuesUM3,
                 backgroundColor: "gray",
                 borderColor: "darkgray",
@@ -302,14 +305,16 @@ function graphCapitalThreeModels(newModel1, newModel2, newModel3, usedModel1, us
     };
 
     //create Chart class object
-    var chart = new Chart(ctx3, {
-        type: "line",
-        data: data,
-        options: options
-    });
+    // var chart = new Chart(ctx3, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+    return <Line options={options} data={data}  type={"line"}/>;
 }
 
-function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedModel1, usedModel2, usedModel3, usedModel4){
+export function graphCapitalFourModels(props) {
+// function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedModel1, usedModel2, usedModel3, usedModel4){
 
     //get the line chart canvas
     var ctx4 = $("#line-chartcanvas");
@@ -322,44 +327,44 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
     var yValuesUM3 = [];
     var yValuesNM4 = [];
     var yValuesUM4 = [];
-    const num_installments = newModel1["installments"].length
+    const num_installments = props.newModel1["installments"].length
     console.log(num_installments)
-    const installments = newModel1["installments"][0]["capital"]
+    const installments = props.newModel1["installments"][0]["capital"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM1.push(newModel1["installments"][i]["capital"]);
-        console.log(newModel["installments"][i]["capital"]);
+        yValuesNM1.push(props.newModel1["installments"][i]["capital"]);
+        console.log(props.newModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM1.push(usedModel1["installments"][i]["capital"]);
-        console.log(usedModel1["installments"][i]["capital"]);
+        yValuesUM1.push(props.usedModel1["installments"][i]["capital"]);
+        console.log(props.usedModel1["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM2.push(newModel2["installments"][i]["capital"]);
-        console.log(newModel2["installments"][i]["capital"]);
+        yValuesNM2.push(props.newModel2["installments"][i]["capital"]);
+        console.log(props.newModel2["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM2.push(usedModel2["installments"][i]["capital"]);
-        console.log(usedModel2["installments"][i]["capital"]);
+        yValuesUM2.push(props.usedModel2["installments"][i]["capital"]);
+        console.log(props.usedModel2["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM3.push(newModel3["installments"][i]["capital"]);
-        console.log(newModel3["installments"][i]["capital"]);
+        yValuesNM3.push(props.newModel3["installments"][i]["capital"]);
+        console.log(props.newModel3["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM3.push(usedModel3["installments"][i]["capital"]);
-        console.log(usedModel3["installments"][i]["capital"]);
+        yValuesUM3.push(props.usedModel3["installments"][i]["capital"]);
+        console.log(props.usedModel3["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesNM4.push(newModel4["installments"][i]["capital"]);
-        console.log(newModel4["installments"][i]["capital"]);
+        yValuesNM4.push(props.newModel4["installments"][i]["capital"]);
+        console.log(props.newModel4["installments"][i]["capital"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesUM4.push(usedModel4["installments"][i]["capital"]);
-        console.log(usedModel4["installments"][i]["capital"]);
+        yValuesUM4.push(props.usedModel4["installments"][i]["capital"]);
+        console.log(props.usedModel4["installments"][i]["capital"]);
     }
 
     //line chart data
@@ -367,7 +372,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
         labels: xValues,
         datasets: [
             {
-                label: "New " + newModel1["model"],
+                label: "New " + props.newModel1["model"],
                 data: yValuesNM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -376,7 +381,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "Used " + usedModel1["model"],
+                label: "Used " + props.usedModel1["model"],
                 data: yValuesUM1,
                 backgroundColor: "green",
                 borderColor: "lightgreen",
@@ -385,7 +390,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "New " + newModel2["model"],
+                label: "New " + props.newModel2["model"],
                 data: yValuesNM2,
                 backgroundColor: "blue",
                 borderColor: "darkblue",
@@ -394,7 +399,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "Used " + usedModel2["model"],
+                label: "Used " + props.usedModel2["model"],
                 data: yValuesUM2,
                 backgroundColor: "green",
                 borderColor: "darkgreen",
@@ -403,7 +408,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "New " + newModel3["model"],
+                label: "New " + props.newModel3["model"],
                 data: yValuesNM3,
                 backgroundColor: "pink",
                 borderColor: "lightpink",
@@ -412,7 +417,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "Used " + usedModel3["model"],
+                label: "Used " + props.usedModel3["model"],
                 data: yValuesUM3,
                 backgroundColor: "gray",
                 borderColor: "darkgray",
@@ -421,7 +426,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "New " + newModel4["model"],
+                label: "New " + props.newModel4["model"],
                 data: yValuesNM4,
                 backgroundColor: "red",
                 borderColor: "darkred",
@@ -430,7 +435,7 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
                 radius: 5
             },
             {
-                label: "Used " + usedModel4["model"],
+                label: "Used " + props.usedModel4["model"],
                 data: yValuesUM4,
                 backgroundColor: "gray",
                 borderColor: "lightgray",
@@ -462,11 +467,12 @@ function graphCapitalFourModels(newModel1, newModel2, newModel3,newModel4, usedM
     };
 
     //create Chart class object
-    var chart = new Chart(ctx4, {
-        type: "line",
-        data: data,
-        options: options
-    });
+    // var chart = new Chart(ctx4, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+    return <Line options={options} data={data}  type={"line"}/>;
 }
 
 
