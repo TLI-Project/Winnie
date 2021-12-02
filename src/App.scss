@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:lighter,regular,bold&subset=Latin);
+
 html {
   font-size: 10px;
   font-family: 'Roboto', sans-serif;
@@ -25,7 +28,7 @@ li {
   letter-spacing: 1px;
 }
 
-button {
+button, input[type=reset] {
   white-space: nowrap;
   font-family: 'Ubuntu', sans-serif;
   font-style: normal;
@@ -33,10 +36,12 @@ button {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
 
   &:hover,
   &:active {
-      transform: translateY(0.1rem);
+      transform: translateY(0.2rem);
   }
 }
 
@@ -61,7 +66,7 @@ button {
 .detail {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 1.25rem;
   line-height: 2.25rem;
   text-align: center;
@@ -100,7 +105,7 @@ button {
       &__menu {
           display: flex;
           list-style: none;
-          padding-left: 21.5rem;
+          padding-left: 7.5rem;
       }
 
       &__link {
@@ -121,16 +126,6 @@ button {
           list-style: none;
       }
       
-      &__button--owner {
-          background: transparent;
-          border: 1px solid #0A1053;
-          border-radius: 6px;
-          color: #424B5A;
-          padding: 1rem;
-          width: 16rem;
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
-      } 
-
       &__button--dealership {
           background: #0A1053;
           border-radius: 4px;
@@ -151,7 +146,6 @@ button {
           right: 0;
           top: 0;
           position: absolute;
-          z-index: 1;
       }
   
       &__background-right {
@@ -192,7 +186,7 @@ button {
           &-subtitle {
               width: 40%;
               font-style: normal;
-              font-weight: 200;
+              font-weight: 300;
               font-size: 1.5rem;
               line-height: 2rem;
               color: #223B6A;
@@ -207,7 +201,7 @@ button {
           &-field {
               box-sizing: border-box;
               font-family: 'Ubuntu', sans-serif;
-              font-size: 1.5rem;
+              font-size: 1.25rem;
               font-weight: 200;
               padding: 1.25rem;
               width: 25rem;
@@ -226,14 +220,8 @@ button {
               border-radius: 5px;
               border: none;
               height: 3.5rem;
-              width: 9rem;
+              width: 10.5rem;
               filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-              &:hover,
-              &:active {
-                  transform: translateY(0.1rem);
-                  cursor: pointer;
-              }
           }
       }
   
@@ -283,15 +271,16 @@ button {
       }
 
       &__text {
-        margin-top: 6rem;
+        margin-top: 5rem;
         float: right;
         margin-right: 12.5%;
-        width: 45%;
+        width: 40%;
       }
 
       #description__text-title {
-        width: 60%;
-        margin-left: 22.5%;
+        width: 65%;
+        margin-left: 20%;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -356,9 +345,9 @@ button {
         }
 
         &-info {
-          margin-top: 1.7rem;
+          margin-top: 1rem;
           text-align: right;
-          width: 57.5%;
+          width: 60%;
           margin-right: 8%;
           float: right;
 
@@ -366,17 +355,16 @@ button {
             font-family: 'Ubuntu', sans-serif;
             font-style: normal;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: #505D68;
           }
   
           &-detail {
-            padding-top: 1.5rem;
+            padding-top: 1rem;
             font-family: 'Ubuntu', sans-serif;
             font-style: normal;
             font-weight: 200;
-            font-size: 1.25rem;
-            line-height: 1.75rem;
+            font-size: 1.2rem;
             color: #8F8F8F;
           }
         }
@@ -396,7 +384,7 @@ button {
           font-weight: normal;
           color: #99ADB8;
           mix-blend-mode: normal;
-          opacity: 0.25;
+          opacity: 0.3;
           font-size: 17.5rem;
         }
       }
@@ -404,6 +392,22 @@ button {
 
     .advantages {
       margin-top: 7.5rem;
+
+      &__bg {
+        &-left {
+          height: 125rem;
+          position: absolute;
+          margin-left: 0%;
+          margin-top: -30%;
+        }
+
+        &-right {
+          height: 75rem;
+          position: absolute;
+          margin-left: 75%;
+          margin-top: -5%;
+        }
+      }
 
       &__img  {
         right: 0;
@@ -473,112 +477,110 @@ button {
         }
       }
     }
-
-    #footer-container {
-        width: 100%;
-        margin-top: 12.5rem;
-    }
   
-    #socials {
+    .socials {
+        margin-top: 12rem;
         display: inline-block;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 5rem;
+        margin-bottom: 2.5rem;
+
+        &__text {
+          width: 15rem;
+          font-family: 'Roboto', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.5rem;
+          text-align: center;
+          letter-spacing: 1px;
+          color: #2ACA95;
+        }
+
+        &__icon {
+          padding-right: 0.45rem;
+          width: 3rem;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+        }
     }
-  
-    .connect {
-        width: 20rem;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.5rem;
-        text-align: center;
-        letter-spacing: 1px;
-        color: #B0B3B1;
-    }
-  
-    .socials-icon {
-        padding-right: 0.45rem;
-        width: 3rem;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
-    }
-  
-    // .footer {
-    //     position: absolute;
-    //     left: 0rem;
-    //     right: 0rem;
-    // }
-  
-    .footer-img {
-        width: 100%;
+
+    .footer {
         position: absolute;
+        left: 0rem;
+        right: 0rem;
+
+        &__img {
+          width: 100%;
+          position: absolute;
+        }
+
+        &__main {
+          float: left;
+          width: 70%;
+          padding-left: 20%;
+          padding-right: 15%;
+          height: 15rem;
+          box-sizing: border-box;
+          margin-top: 16rem;
+          position: relative;
+
+          &-title {
+            text-align: center;
+            margin-bottom: 0rem;
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2rem;
+            text-align: center;
+            color: #FFFFFF;
+          }
+
+          &-info {
+            margin-top: 2.5rem;
+            text-align: center;
+            width: 100%;
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 1.25rem;
+            line-height: 2.5rem;
+            text-align: center;
+            color: #CDCDCD;
+          }
+        }
+
+        &__contacts {
+          float: right;
+          width: 25%;
+          line-height: 0rem;
+          height: 8rem;
+          padding-top: 1rem;
+          box-sizing: border-box;
+          margin-top: 14rem;
+          position: relative;
+
+          &-container {
+            display: flex;
+            align-items: center;
+          }
+
+          &-text {
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 1.25rem;
+            line-height: 3.5rem;
+            padding: 0rem;
+            color: #ffffff;
+          }
+
+          &-icon {
+            width: 2.5rem;
+            padding-right: 0.7rem;
+          }
+      }
     }
-  
-    #footer-main {
-        float: left;
-        width: 75%;
-        padding-left: 15%;
-        padding-right: 15%;
-        height: 15rem;
-        box-sizing: border-box;
-        margin-top: 4.5rem;
-    }
-  
-    #footer-title {
-        text-align: center;
-        margin-bottom: 0rem;
-        font-family: 'Ubuntu', sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2rem;
-        text-align: center;
-        color: #ffffff;
-    }
-  
-    #footer-info {
-        margin-top: 0rem;
-        text-align: center;
-        width: 100%;
-        font-family: 'Ubuntu', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 0.68rem;
-        line-height: 1.25rem;
-        text-align: center;
-        color: #737373;
-    }
-  
-    #footer-contact {
-        float: right;
-        width: 25%;
-        line-height: 0rem;
-        height: 8rem;
-        padding-top: 1rem;
-        box-sizing: border-box;
-        margin-top: 4.5rem;
-    }
-  
-    .contacts {
-      font-family: 'Ubuntu', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 2rem;
-        padding: 0rem;
-        color: #6F6F6F;
-    }
-  
-    .contacts-icon {
-        width: 2.5rem;
-        padding-right: 0.7rem;
-    }
-  
-    .contacts-container {
-        display: flex;
-        align-items: center;
-    } 
   }
 
   &-login-signup {
@@ -636,7 +638,7 @@ button {
     justify-content: center;
 
     h1 {
-      padding-bottom: 1rem;
+      padding-bottom: 3rem;
     }
 
     p {
@@ -651,16 +653,26 @@ button {
       padding: 0.5rem;
     }
 
+    button {
+      margin-top: 2rem;
+      z-index: 10;
+      background: #0A1053;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      height: 3.5rem;
+      width: 12rem;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
     .ellipse-green {
       position: absolute;
-      z-index: 0;
       width: 100rem;
       left: 0;
       top: 0;
     }
     .ellipse-blue {
       position: absolute;
-      z-index: 0;
       width: 150rem;
       right: 0;
       bottom: 0;

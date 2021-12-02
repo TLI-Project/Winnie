@@ -11,13 +11,21 @@ import SensoLogo from '../../img/landing/navbar/logo.png';
 
 import DetailCar from '../../img/landing/detail/car.png';
 
-import Temp from '../../img/landing/steps/temp.png';
+import Step1 from '../../img/landing/steps/step1.png';
+import Step2 from '../../img/landing/steps/step2.png';
+import Step3 from '../../img/landing/steps/step3.png';
+import Step4 from '../../img/landing/steps/step4.png';
 import StepsLeftBg from '../../img/landing/steps/left-background.png';
 import StepsCenterBg from '../../img/landing/steps/center-background.png';
 import StepsRightBg from '../../img/landing/steps/right-background.png';
 
 import AdvantagesCar from '../../img/landing/advantages/car.png';
-import Temp2 from '../../img/landing/advantages/icon.png';
+import Customer from '../../img/landing/advantages/customer.png';
+import Retailer from '../../img/landing/advantages/retailer.png';
+import Manufacturer from '../../img/landing/advantages/manufacturer.png';
+import Stakeholder from '../../img/landing/advantages/stakeholder.png';
+import AdvantagesLeftBg from '../../img/landing/advantages/left-background.png';
+import AdvantagesRightBg from '../../img/landing/advantages/right-background.png';
 
 import Facebook from '../../img/landing/footer/fb-icon.png';
 import Instagram from '../../img/landing/footer/ig-icon.png';
@@ -45,27 +53,24 @@ const Home = () => {
                 </Link>
                 <ul className='navbar__menu'>
                     <li className='navbar__item'>
-                        <Link to='/' className='navbar__link'>
-                            Product
-                        </Link>
+                        <a href="#section1" className='navbar__link'>
+                            Description
+                        </a>
                     </li>
                     <li className='navbar__item'>
-                        <Link to='/' className='navbar__link'>
-                            About
-                        </Link>
+                        <a href="#section2" className='navbar__link'>
+                            How it Works
+                        </a>
                     </li>
                     <li className='navbar__item'>
-                        <Link to='/' className='navbar__link'>
-                            Contact
-                        </Link>
+                        <a href="#section3" className='navbar__link'>
+                            Advantages
+                        </a>
                     </li>
                 </ul>
                 <ul className='navbar__buttons'>
                     <li className='navbar__button'>
-                        <button className='navbar__button--owner' onClick={submitBuyer}>Prospective Owner</button>
-                    </li>
-                    <li className='navbar__button'>
-                        <button className='navbar__button--dealership' onClick={submitDealership}>Dealership</button>
+                        <button className='navbar__button--dealership' onClick={submitDealership}>Let's Go</button>
                     </li>
                 </ul>
             </div>
@@ -77,17 +82,15 @@ const Home = () => {
                     <img className="header__background-top" src={TopBg} /> 
                     <img className="header__background-main" src={MainImg} />
                 </div>
+
                 <div className="header__text">
                     <h1 className="header__text-title">a <span className="emph">revolutionary</span> way to purchase cars.</h1>
-                    <h3 className="header__text-subtitle">introducing <span className="bold">Senso Education</span>: informing car-buyers on the selection and financing of their vehicles, all in under five minutes.</h3>
-                    <div className="header__form">
-                        <input type="text" className="header__form-field" placeholder='Email'></input>
-                        <Link to='/sign-up'>
-                            <button type= "submit" className="header__form-button">
-                                Let's Go!
-                            </button>
-                        </Link>
-                    </div>
+                    <h3 className="header__text-subtitle">introducing <span className="bold">Senso Education</span>: informing car-buyers on the selection and purchasing options of their vehicles, all in under five minutes.</h3>
+                    <form className="header__form">
+                        <input type="text" className="header__form-field" placeholder='Subscribe to our newsletter!'/>
+                        <input type="reset" className="header__form-button" value="Subscribe" /> 
+                    </form>
+
                     <div className="header__stats">
                         <div className="header__stats-1">
                             <img className="header__stats-img" src={Stat1Img} />
@@ -107,29 +110,29 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='description'>
+            <div className='description' id="section1">
                 <img className='description__img' src={DetailCar}></img>
                 <div className="description__text">
-                    <h2 className="subtitle" id="description__text-title">a tastier description with all the juicy details.</h2>
+                    <h2 className="subtitle" id="description__text-title">buying a car is a <span className="bold">complicated decision</span>, and we're here to help.</h2>
                     <p className="detail" id="description__text-detail">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Customers have inherent biases when buying cars, such as the choice between always buying second-hand cars versus always buying new vehicles. 
+                        As a consequence, they may make worse purchasing decisions (for instance, buying a new car when a used car may suffice in their situation), 
+                        which can create problems for retailers (e.g. having to order a custom car as opposed to moving a car out of their lot). 
+                        <span className="bold"> Senso Education helps Mercedes retailers by educating customers in the choice between second-hand 
+                        models available in the dealer's lot, versus purchasing a new, custom car.</span>
                     </p>
                 </div>
             </div>
             
-            <div className='steps'>
+            <div className='steps' id="section2">
                 <div className='steps__text'>
                     <h2 className="subtitle" id="steps__text-title">how it works.</h2>
                     <p className="detail" id="steps__text-detail">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <span className="bold">The Question:</span> Let's say that you are looking for a new Mercedes SUV. 
+                        How do you choose between the GLB SUV (mid-range) and the GLS SUV (high-end), 
+                        or maybe between the GLS from 2018, versus the new GLS that was just released this year?
+                        You could buy the GLS from this year (which maxes out your budget), or maybe you can pick the GLS AMG (the sports version) from 2018 
+                        with a premium interior, or possibly even the maxed-out GLB which ultimately comes in at the same price as the new GLS.
                     </p>
                 </div>
 
@@ -141,10 +144,10 @@ const Home = () => {
                 
                 <div className="steps__grid">
                     <div className="steps__grid-item">
-                        <img className='steps__grid-item-img' alt="" src={Temp}/>
+                        <img className='steps__grid-item-img' alt="" src={Step1}/>
                         <div className='steps__grid-info'>
-                            <h3 className='steps__grid-info-title'>lorem ipsum dolor sit amet</h3>
-                            <h3 className='steps__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur.</h3>
+                            <h3 className='steps__grid-info-title'>the client visits the retailer, looking to buy a car</h3>
+                            <h3 className='steps__grid-info-detail'>They have an estimate of their budget & preferred cars.</h3>
                         </div>
                         <div className='steps__number'>
                             <p className='steps__number-fig'>1</p>
@@ -152,10 +155,10 @@ const Home = () => {
                     </div>
 
                     <div className="steps__grid-item">
-                        <img className='steps__grid-item-img' alt="" src={Temp}/>
+                        <img className='steps__grid-item-img' alt="" src={Step2}/>
                         <div className='steps__grid-info'>
-                            <h3 className='steps__grid-info-title'>lorem ipsum dolor sit amet</h3>
-                            <h3 className='steps__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur.</h3>
+                            <h3 className='steps__grid-info-title'>the salesperson inputs financial info into the app</h3>
+                            <h3 className='steps__grid-info-detail'>They are presented with cars that the client is eligible for.</h3>
                         </div>
                         <div className='steps__number'>
                             <p className='steps__number-fig'>2</p>
@@ -163,10 +166,10 @@ const Home = () => {
                     </div>
 
                     <div className="steps__grid-item">
-                        <img className='steps__grid-item-img' alt="" src={Temp}/>
+                        <img className='steps__grid-item-img' alt="" src={Step3}/>
                         <div className='steps__grid-info'>
-                            <h3 className='steps__grid-info-title'>lorem ipsum dolor sit amet</h3>
-                            <h3 className='steps__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur.</h3>
+                            <h3 className='steps__grid-info-title'>they select the preferred car (e.g. the new GLS)</h3>
+                            <h3 className='steps__grid-info-detail'>The salesperson also selects cars in a similar price range.</h3>
                         </div>
                         <div className='steps__number'>
                             <p className='steps__number-fig'>3</p>
@@ -174,10 +177,10 @@ const Home = () => {
                     </div>
 
                     <div className="steps__grid-item">
-                        <img className='steps__grid-item-img' alt="" src={Temp}/>
+                        <img className='steps__grid-item-img' alt="" src={Step4}/>
                         <div className='steps__grid-info'>
-                            <h3 className='steps__grid-info-title'>lorem ipsum dolor sit amet</h3>
-                            <h3 className='steps__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur.</h3>
+                            <h3 className='steps__grid-info-title'>Senso Education graphs difference between the cars</h3>
+                            <h3 className='steps__grid-info-detail'>The salesperson can sell to the client using the graphs as an aid.</h3>
                         </div>
                         <div className='steps__number'>
                             <p className='steps__number-fig'>4</p>
@@ -186,83 +189,97 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="advantages">
+            <div className="advantages" id="section3">
+                <div className='advantages__bg'>
+                    <img className='advantages__bg-left' alt="" src={AdvantagesLeftBg}/>
+                    <img className='advantages__bg-right' alt="" src={AdvantagesRightBg}/>
+                </div>
+
                 <img className='advantages__img' src={AdvantagesCar}></img>
+
                 <div className='advantages__text'>
-                    <h2 className="subtitle" id="advantages__text-title">Why Senso Education?</h2>
+                    <h2 className="subtitle" id="advantages__text-title"><span className="bold">Why</span> Senso Education?</h2>
                     <p className="detail" id="advantages__text-detail">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Buying a car is a complicated decision that takes into account various factors, such as your budget, 
+                        car lifespan expectancy, and so on.
+                        Senso Education educates the customer on the <span className="bold">actual differences</span> between a base model, 
+                        a used model, and a specced-out model.
                     </p>
                 </div>
 
                 <div className="advantages__grid">
                     <div className="advantages__grid-item">
-                        <img className='advantages__grid-item-img' alt="" src={Temp2}/>
+                        <img className='advantages__grid-item-img' alt="" src={Customer}/>
                         <div className='advantages__grid-info'>
-                            <h3 className='advantages__grid-info-title'>Lorem Ipsum</h3>
-                            <h3 className='advantages__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.</h3>
+                            <h3 className='advantages__grid-info-title'>Empower the Customer</h3>
+                            <h3 className='advantages__grid-info-detail'>
+                                Clients will be educated on the difference between new and second-hand cars, tiers, perks, etc.
+                            </h3>
                         </div>
                     </div>
 
                     <div className="advantages__grid-item">
-                        <img className='advantages__grid-item-img' alt="" src={Temp2}/>
+                        <img className='advantages__grid-item-img' alt="" src={Retailer}/>
                         <div className='advantages__grid-info'>
-                            <h3 className='advantages__grid-info-title'>Lorem Ipsum</h3>
-                            <h3 className='advantages__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.</h3>
+                            <h3 className='advantages__grid-info-title'>Empower the Retailer</h3>
+                            <h3 className='advantages__grid-info-detail'>
+                                Senso Education enables retailers to move along their display cars as quickly as possible.
+                            </h3>
                         </div>
                     </div>
 
                     <div className="advantages__grid-item">
-                        <img className='advantages__grid-item-img' alt="" src={Temp2}/>
+                        <img className='advantages__grid-item-img' alt="" src={Manufacturer}/>
                         <div className='advantages__grid-info'>
-                            <h3 className='advantages__grid-info-title'>Lorem Ipsum</h3>
-                            <h3 className='advantages__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.</h3>
+                            <h3 className='advantages__grid-info-title'>Empower the Manufacturer</h3>
+                            <h3 className='advantages__grid-info-detail'>
+                                Car manufacturers can maximize their ability to make and sell cars, particularly base models.
+                            </h3>
                         </div>
                     </div>
 
                     <div className="advantages__grid-item">
-                        <img className='advantages__grid-item-img' alt="" src={Temp2}/>
+                        <img className='advantages__grid-item-img' alt="" src={Stakeholder}/>
                         <div className='advantages__grid-info'>
-                            <h3 className='advantages__grid-info-title'>Lorem Ipsum</h3>
-                            <h3 className='advantages__grid-info-detail'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.</h3>
+                            <h3 className='advantages__grid-info-title'>Keep the Stakeholders Happy</h3>
+                            <h3 className='advantages__grid-info-detail'>
+                                Senso Educations benefits investors, financial institutions, suppliers, partners, and much more! 
+                            </h3>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id='footer-container'>
-                <div id='socials'>
-                    <p className='connect'>connect with us!</p>
-                    <img className='socials-icon' alt="linkedin" src={LinkedIn}/>
-                    <img className='socials-icon' alt="instagram" src={Instagram}/>
-                    <img className='socials-icon' alt="facebook" src={Facebook}/>
-                    <img className='socials-icon' alt="twitter" src={Twitter}/>
+            <div className='socials'>
+                <p className='socials__text'>connect with us!</p>
+                <img className='socials__icon' alt="linkedin" src={LinkedIn}/>
+                <img className='socials__icon' alt="instagram" src={Instagram}/>
+                <img className='socials__icon' alt="facebook" src={Facebook}/>
+                <img className='socials__icon' alt="twitter" src={Twitter}/>
+            </div>
+
+            <div className='footer'>
+                <img className='footer__img' alt="footer" src={FooterBg}/>
+                <div className='footer__main'>
+                    <h2 className='footer__main-title'>You made it all the way here! :)</h2>
+                    <p className='footer__main-info'>
+                        Thank you for visiting our website. Please give our product a try! We welcome all feedback. <br></br>
+                        Made with <span>&#128151;</span> by Anna, Callum, Joanne, and Sophia for CSC207.
+                    </p>
                 </div>
-                <div className='footer'>
-                    <img className='footer-img' alt="footer" src={FooterBg}/>
-                    <div id="footer-description">
-                        <div id='footer-main'>
-                            <h2 id="footer-title">Footer</h2>
-                            <p id="footer-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div id="footer-contact">
-                            <div className='contacts-container'>
-                                <img className='contacts-icon' alt="location" src={Location}/>
-                                <p className='contacts'>123 Wallaby Way</p>
-                            </div>
-                            <div className='contacts-container'>
-                                <img className='contacts-icon' alt="phone" src={Phone}/>
-                                <p className='contacts'>123-456-7890</p>
-                            </div>
-                            <div className='contacts-container'>
-                                <img className='contacts-icon' alt="email" src={Email}/>
-                                <p className='contacts'>info@form.com</p>
-                            </div>
-                        </div>
+
+                <div className="footer__contacts">
+                    <div className='footer__contacts-container'>
+                        <img className='footer__contacts-icon' alt="location" src={Location}/>
+                        <p className='footer__contacts-text'>4 Privet Drive</p>
+                    </div>
+                    <div className='footer__contacts-container'>
+                        <img className='footer__contacts-icon' alt="phone" src={Phone}/>
+                        <p className='footer__contacts-text'>123-456-7890</p>
+                    </div>
+                    <div className='footer__contacts-container'>
+                        <img className='footer__contacts-icon' alt="email" src={Email}/>
+                        <p className='footer__contacts-text'>bilbobagginses@gmail.com</p>
                     </div>
                 </div>
             </div>
