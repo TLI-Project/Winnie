@@ -330,7 +330,7 @@ button {
 
       &__grid {
         display: grid;
-        gap: 3%;
+        gap: 5%;
         grid-template-columns: repeat(4, minmax(15%, 1fr) );
         padding-top: 3.5rem;
         box-sizing: border-box;
@@ -339,34 +339,34 @@ button {
 
         &-item {
           border: none;
-          height: 29rem;
+          height: 25rem;
           text-align: center;
           background-size: contain;
           position: relative;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
           background-color: #FFFFFF;
           border-radius: 25px;
-        }
 
-        &-img {
-          border-radius: 15px 15px 0px 0px;
-          margin-top: 7.5%;
-          width: 85%;
-          height: 45%;
+          &-img {
+            border-radius: 15px 15px px 0px;
+            margin-top: 7.5%;
+            width: 85%;
+            height: 45%;
+          }
         }
 
         &-info {
-          margin-top: 1.5rem;
+          margin-top: 1.7rem;
           text-align: right;
-          width: 55%;
-          margin-right: 7.5%;
+          width: 57.5%;
+          margin-right: 8%;
           float: right;
 
           &-title {
             font-family: 'Ubuntu', sans-serif;
             font-style: normal;
-            font-weight: normal;
-            font-size: 2rem;
+            font-weight: bold;
+            font-size: 1.5rem;
             color: #505D68;
           }
   
@@ -376,7 +376,7 @@ button {
             font-style: normal;
             font-weight: 200;
             font-size: 1.25rem;
-            line-height: 2rem;
+            line-height: 1.75rem;
             color: #8F8F8F;
           }
         }
@@ -397,10 +397,188 @@ button {
           color: #99ADB8;
           mix-blend-mode: normal;
           opacity: 0.25;
-          font-size: 20rem;
+          font-size: 17.5rem;
         }
       }
     }
+
+    .advantages {
+      margin-top: 7.5rem;
+
+      &__img  {
+        right: 0;
+        width: 50rem;
+        float: right;
+      }
+
+      &__text {
+        margin-top: 2.5rem;
+        margin-left: 17.5%;
+        text-align: center;
+        width: 35%;
+        float: left;
+      }
+      
+      &__grid {
+        display: grid;
+        gap: 7.5%;
+        grid-template-columns: repeat(2, minmax(60%, 1fr) );
+        grid-template-columns: repeat(2, minmax(60%, 1fr) );
+        padding-top: 3.5rem;
+        box-sizing: border-box;
+        padding-left: 7.5%;
+        padding-right: 15.5%;
+
+        &-item {
+          border: none;
+          height: 10rem;
+          text-align: center;
+          background-size: contain;
+          position: relative;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+          background-color: #FFFFFF;
+
+          &-img {
+            width: 10%;
+            float: left;
+            margin-top: 1.75rem;
+            margin-left: 1rem;
+          }
+        }
+
+        &-info {
+          margin-top: 1.75rem;
+          text-align: left;
+          width: 80%;
+          margin-right: 1.5rem;
+          float: right;
+
+          &-title {
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #505D68;
+          }
+  
+          &-detail {
+            padding-top: 1rem;
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 1.25rem;
+            line-height: 2rem;
+            color: #8F8F8F;
+          }
+        }
+      }
+    }
+
+    #footer-container {
+        width: 100%;
+        margin-top: 12.5rem;
+    }
+  
+    #socials {
+        display: inline-block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+    }
+  
+    .connect {
+        width: 20rem;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #B0B3B1;
+    }
+  
+    .socials-icon {
+        padding-right: 0.45rem;
+        width: 3rem;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    }
+  
+    // .footer {
+    //     position: absolute;
+    //     left: 0rem;
+    //     right: 0rem;
+    // }
+  
+    .footer-img {
+        width: 100%;
+        position: absolute;
+    }
+  
+    #footer-main {
+        float: left;
+        width: 75%;
+        padding-left: 15%;
+        padding-right: 15%;
+        height: 15rem;
+        box-sizing: border-box;
+        margin-top: 4.5rem;
+    }
+  
+    #footer-title {
+        text-align: center;
+        margin-bottom: 0rem;
+        font-family: 'Ubuntu', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2rem;
+        text-align: center;
+        color: #ffffff;
+    }
+  
+    #footer-info {
+        margin-top: 0rem;
+        text-align: center;
+        width: 100%;
+        font-family: 'Ubuntu', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 0.68rem;
+        line-height: 1.25rem;
+        text-align: center;
+        color: #737373;
+    }
+  
+    #footer-contact {
+        float: right;
+        width: 25%;
+        line-height: 0rem;
+        height: 8rem;
+        padding-top: 1rem;
+        box-sizing: border-box;
+        margin-top: 4.5rem;
+    }
+  
+    .contacts {
+      font-family: 'Ubuntu', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 2rem;
+        padding: 0rem;
+        color: #6F6F6F;
+    }
+  
+    .contacts-icon {
+        width: 2.5rem;
+        padding-right: 0.7rem;
+    }
+  
+    .contacts-container {
+        display: flex;
+        align-items: center;
+    } 
   }
 
   &-login-signup {
