@@ -11,11 +11,8 @@ import DetailCar from '../../img/landing/detail/car.png';
 
 const Home = () => {
     const history = useHistory();
-    const submitBuyer = () => {
-        history.push('/login')
-    }
-
-    const submitDealership = () => {
+    
+    const submit = () => {
         history.push('/finance')
     }
     return (
@@ -30,8 +27,7 @@ const Home = () => {
                     <Link to='/'>Contact</Link>
                 </div>
                 <div className='right'>
-                    <button onClick={submitBuyer}>The Next Car Owner</button>
-                    <button onClick={submitDealership}>Dealership</button>
+                    <button onClick={submit}>Let's Go</button>
                 </div>
             </nav>
             <div className='wrapper'>
