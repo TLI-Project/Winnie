@@ -9,36 +9,26 @@ import {
 import './App.scss';
 
 
-import Index from './components/Home';
+import Home from './components/Home';
 import Login from './components/Login';
-import Selection from './components/Selection';
-import CreateAccount from './components/CreateAccount';
+import Catalogue from './components/Catalogue';
+import SignUp from './components/SignUp';
 import Finance from './components/Finance';
-import Features from './components/Features';
-import FeaturesBreakdown from './components/FeaturesBreakdown';
-import Breakdown from './components/Breakdown';
-import Cart from './components/Cart';
-import Display from './components/Display'
-import UserData from './components/UserData/UserData'
-import CreditScoreInfo from "./components/CreditScoreInfo/CreditScoreInfo";
+import Details from './components/Details';
+import Compare from './components/Compare';
 
 const App = () => {
   return (
-    <div>
+    <div id='app'>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' render={() => (<Index />)} />
+          <Route exact path='/' render={() => (<Home />)} />
           <Route exact path='/login' render={() => (<Login />)} />
-          <Route exact path='/selection' render={() => (<Selection />)} />
-          <Route exact path='/create-account' render={() => (<CreateAccount />)} />
+          <Route exact path='/catalogue' render={() => (<Catalogue />)} />
+          <Route exact path='/signup' render={() => (<SignUp />)} />
           <Route exact path='/finance' render={() => (<Finance />)} />
-          <Route exact path='/features' render={() => (<Features />)} />
-          <Route exact path='/features-breakdown' render={() => (<FeaturesBreakdown />)} />
-          <Route exact path='/breakdown' render={() => (<Breakdown />)} />
-          <Route exact path='/cart' render={() => (<Cart />)} />
-          <Route exact path='/display' render={() => (<Display />)} />
-          <Route exact path='/userData' render={() => (<UserData />)} />
-          <Route exact path='/creditScoreInfo' render={() => (<CreditScoreInfo />)} />
+          <Route exact path='/details' render={() => (<Details />)} />
+          <Route exact path='/compare' render={() => (<Compare />)} />
         </Switch>
       </BrowserRouter>
     </div>

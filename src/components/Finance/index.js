@@ -1,182 +1,117 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import './finance.scss';
+import { Link, useHistory } from 'react-router-dom';
+import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
+import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
 /* Vehicle mileage should be 0*/
 const Finance = ({ setToken }) => {
-  const [preferredVehicle, setPreferredVehicle] = useState();
-  const [preferredFeatures, setPreferredFeatures] = useState();
-  const [loanAmount, setLoanAmount] = useState();
-  const [address, setAddress] = useState();
-  const [city, setCity] = useState();
-  const [creditScore, setCreditScore] = useState();
-  const [SIN, setSIN] = useState();
-  const [cardnum, setCreditCardNum] = useState();
-  const [securitynum, setSecurityNum] = useState();
-  const [postalCode, setPostalCode] = useState();
-  const [pytBudget, setPytBudget] = useState();
-  const [listPrice, setListPrice] = useState();
-  const [downpayment, setDownpayment] = useState();
+const [loanAmount, setLoanAmount] = useState('');
+const [creditScore, setCreditScore] = useState('');
+const [yearlyIncome, setYearlyIncome] = useState('');
+const [monthlyBudget, setMonthlyBudget] = useState('');
+const [downPayment, setDownPayment] = useState('');
+const history = useHistory();
 
-  const requestOptions = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      "loanAmount": loanAmount,
-      "pytBudget": pytBudget,
-      "vehicleMake": "Honda",
-      "vehicleModel": "Civic",
-      "creditScore": creditScore,
-      "vehicleYear": 2021,
-      "vehicleKms": 1000,
-      "listPrice": listPrice,
-      "downpayment": downpayment
-    })
-  };
+const handleLoanAmountChange = e => {
+  setLoanAmount(e.target.value)
+}
 
-  const creditOptions = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      "address": address,
-      "city": city,
-      "SIN": SIN,
-      "cardnum": cardnum,
-      "securitynum": securitynum,
-      "postalCode": postalCode
-    })
-  };
+const handleCreditScoreChange = e => {
+  setCreditScore(e.target.value)
+}
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    fetch('https://sensoeducation.link/userInputs', requestOptions)
-        .then(response => console.log(response.json()))
+const handleYearlyIncomeChange = e => {
+  setYearlyIncome(e.target.value)
+}
+
+const handleMonthlyBudgetChange = e => {
+  setMonthlyBudget(e.target.value)
+}
+
+const handleDownPaymentChange = e => {
+  setDownPayment(e.target.value)
+}
+// const requestOptions = {
+//   method: 'POST',
+//   headers: {'Content-Type': 'application/json'},
+//   body: JSON.stringify({
+//       "id": 1
+     
+//   })
+// };
+
+const requestOptions = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //    "body":1"
+  // })
+  "body": 10
+};
+// const requestOptions = {
+//   method: 'POST',
+//   headers: {'Content-Type': 'application/json'},
+//   body: JSON.stringify({
+//       "loanAmount": loanAmount,
+//       "creditScore": creditScore,
+//       "pytBudget": monthlyBudget,
+//       "vehicleMake": "Honda",
+//       "vehicleModel": "Civic",
+//       "vehicleYear": 2021,
+//       "vehicleKms": 1000,
+//       "listPrice": 10000,
+//       "downpayment": downPayment
+//   })
+// };
+
+const submitHandler = (e) => {
+  e.preventDefault()
+  fetch('http://localhost:8080/carDetails', requestOptions)
+      .then(response => console.log(response.json()))
+}
+
+const submit = () => {
+  // fetch to verify, if ok, history.push
+  // Credit score must be [300, 850] inclusive in order to be accepted by the senso api
+  if (!(300 <= creditScore <= 850)) {
+    alert('please enter a valid credit score');
+  } else if (!(loanAmount > 0)) {
+    alert('please enter a valid loan amount');
+  } else if (!(monthlyBudget > 0)) {
+    alert('please enter a valid monthly budget');
+  } else if (!(yearlyIncome > 0)) {
+    alert('please enter a valid yearly income');
+  } else if (!(downPayment > 0)) {
+    alert('please enter a valid down payment amount')
+  } else {
+    history.push('/catalogue')
   }
-  const submitCreditScoreInfo = (e) => {
-    e.preventDefault()
-    fetch('https://sensoeducation.link/creditScoreInfo',creditOptions)
-        .then(response => console.log(response.json()))
-  }
-  return (
-    <div className="Finance">
-      <h1> Get started with Senso Education</h1>
-      <form>
-        <label>
-          <p>Vehicle Make</p>
-          <select name="dropdown">
-            <option value="Ford">Ford</option>
-            <option value="Mercedes">Mercedes</option>
-            <option value="Kia">Kia</option>
-            <option value="Dodge">Dodge</option>
-            <option value="Toyota">Toyota</option> 
-            <option value="GMC">GMC</option>
-            <option value="Chrysler">Chrysler</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="Jeep">Jeep</option>
-            <option value="Buick">Buick</option>
-            <option value="BMW">BMW</option>
-            <option value="Cadillac">Cadillac</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Mazda">Mazda</option>
-          </select>
-        </label>
-        <label>
-          <p>Vehicle Model</p>
-          <select name="dropdown">
-            <option value="Civic">Civic</option>
-            <option value="Malibu">Malibu</option>
-            <option value="Mpv">Mpv</option>
-            <option value="Chassis">Chassis</option>
-          </select>
-        </label>
-        <label>
-          <p>Vehicle Year</p>
-          <select name="dropdown">
-            <option value="2010">2010</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
 
-          </select>
-        </label>
-        <label>
-          <p>Loan amount</p>
-          <input  type="text" onChange={e => setLoanAmount(e.target.value)}/>
-        </label>
-        <label>
-          <p>Address and Unit Number</p>
-          <input  type="text" onChange={e => setAddress(e.target.value)}/>
-        </label>
-        <label>
-          <p>City</p>
-          <input  type="text" onChange={e => setCity(e.target.value)}/>
-        </label>
-        <label>
-            <p>Province/Territory</p>
-            <select name="dropdown">
-              <option value="Alberta">Alberta</option>
-              <option value="British Columbia">British Columbia</option>
-              <option value="Manitoba">Manitoba</option>
-              <option value="New Brunswick">New Brunswick</option>
-              <option value="Northwest Territories">Northwest Territories</option>
-              <option value="Nova Scotia">Nova Scotia</option>
-              <option value="Nunavut">Nunavut</option>
-              <option value="Ontario">Ontario</option>
-              <option value="Prince Edward Island">Prince Edward Island</option>
-              <option value="Saskatchewan">Saskatchewan</option>
-              <option value="Quebec">Quebec</option>
-            </select>
-        </label>
-          <label>
-          <p>Social Insurance Number</p>
-          <input  type="text" onChange={e => setSIN(e.target.value)}/>
-        </label>
-        <label>
-          <p>Credit Scorer</p>
-          <input  type="text" onChange={e => setCreditScore(e.target.value)}/>
-        </label>
-        <label>
-          <p>Postal Code</p>
-          <input  type="text" onChange={e => setPostalCode(e.target.value)}/>
-        </label>
-        <label>
-          <p>Credit Card Number</p>
-          <input  type="text" onChange={e => setCreditCardNum(e.target.value)}/>
-        </label>
-        <label>
-          <p>Security Number</p>
-          <input  type="text" onChange={e => setSecurityNum(e.target.value)}/>
-        </label>
-        <label>
-          <p>Payment Budget</p>
-          <input  type="text" onChange={e => setPytBudget(e.target.value)}/>
-        </label>
-        <label>
-          <p>List Price</p>
-          <input  type="text" onChange={e => setListPrice(e.target.value)}/>
-        </label>
-        {/* <div>
-              <button type="submit">Get Breakdown</button>
-          </div> */}
-          <label>
-          <p>Down payment</p>
-            <input  type="text" onChange={e => setDownpayment(e.target.value)}/>
-        </label>
-        <label>
-          <p>Show Senso Data in Console</p>
-          <button type="submit" onClick={submitHandler}> Calculate </button>
-          <button type="submit" onClick={submitCreditScoreInfo}> Get Credit Score </button>
-        </label>
-      </form>
-      <Link to='/features'>
-        <button className="btn">Show me the features!</button>
-      </Link>
+}
+
+return (
+  <div className="page page-finance">
+    <img className="ellipse-blue" src={blueEllipse} />
+    <img className="ellipse-green" src={greenEllipse} />
+    <h1>Tell us a bit about yourself...</h1>
+
+    <p>Loan amount</p>
+    <input type="text" onChange={handleLoanAmountChange} value={loanAmount} />
+
+    <p>Credit score</p>
+    <input type="text" onChange={handleCreditScoreChange} value={creditScore} />
+
+    <p>Yearly income</p>
+    <input type="text" onChange={handleYearlyIncomeChange} value={yearlyIncome} />
+
+    <p>Monthly budget</p>
+    <input type="text" onChange={handleMonthlyBudgetChange} value={monthlyBudget} />
+
+    <p>Down payment</p>
+    <input type="text" onChange={handleDownPaymentChange} value={downPayment} />
+
+    <button onClick={submitHandler}>Browse Cars</button>
+
     </div>
   )
 }
