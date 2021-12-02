@@ -15,9 +15,10 @@ const Selection = () => {
             const data = await res.json();
             console.log(data)
             const processed = []
-            for (let i = 1; i < 12; i++) {
+            for (let i = 1; i < 13; i++) {
                 processed.push(JSON.parse(data[i]))
             }
+            console.log(processed)
             setProcessedData(processed)
         }
         fetchCarMeta();
@@ -57,41 +58,24 @@ const Selection = () => {
         <div className="page page-catalogue">
             <img className="ellipse-blue" src={blueEllipse} />
             <img className="ellipse-green" src={greenEllipse} />
-            <h1> Browse for your desired vehicle</h1>
+            <h1>Browse for your desired vehicle</h1>
             <div className="container">
                 {processedData !== null &&
                     processedData.map(entry => (
-                        <div className='gallery'>
-                            <p>{selected.includes(entry.id) ? 'SELECTED' : 'NOT SELECTED'}</p>
+                        <div className='gallery' key={entry.id + entry.carMake + entry.carModel}>
+                            {selected.includes(entry.id) &&
+                                <div className='checkmark'>✔️</div>}
                             <Link to={`/details/${entry.id}`}>
                                 <img src={entry.imageURL} alt={entry.carModel} />
                             </Link>
-                            <div className="desc">Add a description of the image here</div>
-                            <button onClick={() => handleAddCar(entry.id)}></button>
+                            <h2 className="name">{`${entry.year} ${entry.carMake} ${entry.carModel}`}</h2>
+                            <div className='price-btn-container'>
+                                <p className='price'>{entry.listPrice}</p>
+                                <button onClick={() => handleAddCar(entry.id)}>Select</button>
+                            </div>
                         </div>
                     ))
                 }
-                <div className="gallery">
-
-                </div>
-                <div className="gallery">
-                    {/* <a target="_blank" href="https://images.dealer.com/ddc/vehicles/2022/BMW/228%20Gran%20Coupe/Sedan/trim_i_sDrive_fb2469/color/Alpine%20White-300-233%2C238%2C232-640-en_US.jpg?impolicy=downsize_bkpt&imdensity=1&w=520"> */}
-                    <Link to="/details">
-                        <img src="https://images.dealer.com/ddc/vehicles/2022/BMW/228%20Gran%20Coupe/Sedan/trim_i_sDrive_fb2469/color/Alpine%20White-300-233%2C238%2C232-640-en_US.jpg?impolicy=downsize_bkpt&imdensity=1&w=520" alt="Cinque Terre" width="600" height="400">
-                        </img>
-                    </Link>
-                    {/* </a> */}
-                    <div className="desc">Add a description of the image here</div>
-                </div>
-                <div className="gallery">
-                    <a target="_blank" href="https://images.dealer.com/ddc/vehicles/2022/BMW/228%20Gran%20Coupe/Sedan/trim_i_sDrive_fb2469/color/Alpine%20White-300-233%2C238%2C232-640-en_US.jpg?impolicy=downsize_bkpt&imdensity=1&w=520">
-                        <Link to="/details">
-                            <img src="https://images.dealer.com/ddc/vehicles/2022/BMW/228%20Gran%20Coupe/Sedan/trim_i_sDrive_fb2469/color/Alpine%20White-300-233%2C238%2C232-640-en_US.jpg?impolicy=downsize_bkpt&imdensity=1&w=520" alt="Cinque Terre" width="600" height="400">
-                            </img>
-                        </Link>
-                    </a>
-                    <div className="desc">Add a description of the image here</div>
-                </div>
             </div>
             <button className="btn" onClick={submit}>Next</button>
         </div>
