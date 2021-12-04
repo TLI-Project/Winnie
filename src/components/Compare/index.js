@@ -3,7 +3,7 @@ import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 import {Line} from 'react-chartjs-2';
 import {Graph1Model} from "./depreciation";
-import {GraphCapitalOneModel} from "./ammoritization";
+
 
 const Compare = () => {
     return (
