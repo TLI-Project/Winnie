@@ -3,17 +3,26 @@ import { Link, useHistory } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
-const Selection = () => {
+const Selection = ({ finance }) => {
+    // const print = () => {
+    //     console.log(props.body)
+    // }
     const [selected, setSelected] = useState([])
     const history = useHistory();
 
     const [processedData, setProcessedData] = useState(null);
+    // const finance = props.body;
 
+    // const inputData = {
+    //     finance: finance,
+    //     carIds: selected
+    // }
     useEffect(() => {
         const fetchCarMeta = async () => {
             const res = await fetch('http://localhost:8080/carMetaData', requestOptions);
             const data = await res.json();
             console.log(data)
+            console.log(finance)
             const processed = []
             for (let i = 1; i < 13; i++) {
                 processed.push(JSON.parse(data[i]))
@@ -31,7 +40,9 @@ const Selection = () => {
         if (selected.length == 0) {
             alert('please select a car')
         } else {
+            // console.log(finance)
             history.push('/compare')
+            // history.push('/compare', JSON.stringify(inputData))
         }
     }
 
@@ -78,6 +89,7 @@ const Selection = () => {
                 }
             </div>
             <button className="btn" onClick={submit}>Next</button>
+            {/* <button onClick={print}>AAAA</button> */}
         </div>
     )
 }
