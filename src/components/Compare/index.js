@@ -11,7 +11,7 @@ const Compare = () => {
             <img className="ellipse-blue" src={blueEllipse} />
             <img className="ellipse-green" src={greenEllipse} />
             <div className='detail-right'>
-                <h2>Interpreting the Graph</h2>
+                <h1>Interpreting the Graph</h1>
                 <p>View the Ammoritization graph: In order to understand what your monthly payments will look like
                     and how much of it will be going towards your interest and how much will be going towards your
                     capital. </p>

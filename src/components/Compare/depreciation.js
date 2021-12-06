@@ -25,15 +25,22 @@ ChartJS.register(
 export function Graph1Model(props) {
     //get the line chart canvas
     var yValuesNew = [];
+    var ranking = {};
     for (let i = 0; i < props.newModelA["depreciation"].length; i++){
         yValuesNew.push(props.newModelA["depreciation"][i]* props.newModelA["listPrice"]);
         console.log(props.newModelA["depreciation"][i]* props.newModelA["listPrice"]);
+        if (i === props.newModelA["depreciation"].length -1){
+            ranking[props.newModelA["model"]] = props.newModelA["depreciation"][i]* props.newModelA["listPrice"];
+        }
     }
 
     var yValuesUsed = [];
     for (let i = 0; i < props.usedModelA["depreciation"].length; i++){
         yValuesUsed.push(props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"]);
         console.log(props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"]);
+        if (i === props.usedModelA["depreciation"].length -1){
+            ranking[props.usedModelA["model"]] = props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"];
+        }
     }
     //line chart data
     var data = {
