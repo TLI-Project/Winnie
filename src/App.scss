@@ -61,6 +61,18 @@ button, input[type=reset] {
   line-height: 4.5rem;
   text-align: center;
   color: #1E224F;
+
+button {
+  text-decoration: none !important;
+  border-radius: 30px;
+  background: #6edbdb;
+  transition: all 0.3s linear;
+  padding: 12px 14px;
+  display: block;
+  border: 0;
+  margin-top: 1rem;
+  z-index: 3;
+
 }
 
 .detail {
@@ -699,40 +711,105 @@ button, input[type=reset] {
     }
 
     h1 {
-      padding-top: 1rem;
+      color: #505D68;
+      font-size: 3rem;
+      padding: 2rem 0;
     }
 
-    div.gallery {
-      margin: 5px;
-      border: 1px solid #ccc;
-      float: left;
-      width: 180px;
-      transition: all 0.3s linear;
-      margin-top: 10px;
-      margin-left: 20px;
-      margin-right: 20px;
-      transition: all 0.5s linear;
-    }
-
-    div.gallery:hover {
-      border: 1px solid #777;
-      background-color: #9df1f1;
-      cursor: pointer;
-    }
-
-    div.gallery img {
-      width: 100%;
-      height: auto;
+    
+    .container {
+      max-width: 100vw;
+      padding: 0 20%;
+      z-index: 1;
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3rem;
       align-items: center;
       justify-content: center;
+      .gallery {
+        height: 26rem;
+        width: 26rem;
+        background-color: #8DB3D9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        .checkmark {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          background-color: #cee7ff;
+        }
+        a {
+          img {
+            height: 12rem;
+          }
+        }
+        .name {
+          background-color: #629bd3;
+          color: #fff;
+          text-align: center;
+          padding: 1rem 1rem;
+        }
+        .price-btn-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 1rem;
+          .price {
+            color: #f7f7f7;
+            font-size: 2rem;
+            margin-bottom: -1rem;
+            margin-right: 1rem;
+          }
+          button {
+            color: #fff;
+            font-weight: 700;
+          }
+        }
+      }
     }
 
-    div.desc {
-      padding: 15px;
-      text-align: center;
-    }
+    // div.gallery {
+    //   z-index:3;
+    //   margin: 5px;
+    //   border: 1px solid #ccc;
+    //   float: left;
+    //   width: 180px;
+    //   transition: all 0.3s linear;
+    //   margin-top: 10px;
+    //   margin-left: 20px;
+    //   margin-right: 20px;
+    //   transition: all 0.5s linear;
+    // }
+
+    // div.gallery:hover {
+    //   border: 1px solid #777;
+    //   background-color: #9df1f1;
+    //   cursor: pointer;
+    // }
+
+    // div.gallery img {
+    //   width: 100%;
+    //   height: auto;
+    //   display: flex;
+    //   flex-direction: row;
+    //   align-items: center;
+    //   justify-content: center;
+    // }
+
+    // div.desc {
+    //   padding: 15px;
+    //   text-align: center;
+    // }
   }
 
   &-compare {

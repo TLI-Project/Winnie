@@ -38,11 +38,8 @@ import Email from '../../img/landing/footer/email.png';
 
 const Home = () => {
     const history = useHistory();
-    const submitBuyer = () => {
-        history.push('/login')
-    }
-
-    const submitDealership = () => {
+    
+    const submit = () => {
         history.push('/finance')
     }
     return (
@@ -187,12 +184,17 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div className="advantages" id="section3">
                 <div className='advantages__bg'>
                     <img className='advantages__bg-left' alt="" src={AdvantagesLeftBg}/>
                     <img className='advantages__bg-right' alt="" src={AdvantagesRightBg}/>
+
+                <div className='right'>
+                    <button onClick={submit}>Let's Go</button>
+
                 </div>
 
                 <img className='advantages__img' src={AdvantagesCar}></img>
