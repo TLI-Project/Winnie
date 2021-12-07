@@ -48,20 +48,22 @@ export function Graph1Model(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Depreciation Projection",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Depreciation Projection",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     }
@@ -98,8 +100,8 @@ export function Graph2Models(props) {
     for (let i = 0; i < props.model2["depreciation"].length; i++){
         yValuesM2.push(props.model2["depreciation"][i]* props.model2["listPrice"]);
         console.log(props.model2["depreciation"][i]* props.model2["listPrice"]);
-        if (i === props.model2["depreciation"][props.model2["depreciation"].length -1]){
-            if( props.model2["depreciation"][i] > leastDepreciating[0]){
+        if (i === props.model2["depreciation"].length -1){
+            if(props.model2["depreciation"][i] > leastDepreciating[0]){
                 leastDepreciating = [props.model2["depreciation"][props.model2["depreciation"].length -1],
                     props.model2["model"]];
             }
@@ -116,7 +118,7 @@ export function Graph2Models(props) {
         labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
         datasets: [
             {
-                label: props.model1["model"]+ " New",
+                label: props.model1["model"],
                 data: yValuesM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -125,7 +127,7 @@ export function Graph2Models(props) {
                 radius: 5
             },
             {
-                label: props.model2["model"]+ " New",
+                label: props.model2["model"],
                 data: yValuesM2,
                 backgroundColor: "gray",
                 borderColor: "lightgray",
@@ -139,20 +141,22 @@ export function Graph2Models(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Depreciation Projection \n Best Option Over 10 Years: "+ leastDepreciating[1],
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Depreciation Projection \n Best Option Over 10 Years: " + leastDepreciating[1],
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
@@ -228,20 +232,22 @@ export function Graph3Models(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Depreciation Projection",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Depreciation Projection",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
@@ -332,20 +338,22 @@ export function Graph4Models(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Depreciation Projection",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Depreciation Projection",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };

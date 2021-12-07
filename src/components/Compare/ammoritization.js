@@ -53,20 +53,22 @@ export function GraphCapitalOneModel(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Capital and Interest",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Capital and Interest",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
@@ -129,20 +131,22 @@ export function GraphCapitalTwoModels(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Capital and Interest",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Capital and Interest",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
@@ -218,20 +222,22 @@ export function GraphCapitalThreeModels(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Capital and Interest",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Capital and Interest",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
@@ -323,20 +329,22 @@ export function GraphCapitalFourModels(props) {
 
     //options
     var options = {
-        responsive: true,
-        title: {
-            display: true,
-            position: "top",
-            text: "Vehicle Capital and Interest",
-            fontSize: 18,
-            fontColor: "#111"
-        },
-        legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-                fontColor: "#333",
-                fontSize: 16
+        plugins: {
+            responsive: true,
+            title: {
+                display: true,
+                position: "top",
+                text: "Vehicle Capital and Interest",
+                fontSize: 18,
+                fontColor: "#111"
+            },
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                }
             }
         }
     };
