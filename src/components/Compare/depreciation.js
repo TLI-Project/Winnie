@@ -85,6 +85,10 @@ export function Graph1Model(props) {
 export function Graph2Models(props) {
     //get the line chart canvas
     var yValuesM1 = [];
+    // Initialize the least depreciating variable to be the first model's final depreciation value
+    var leastDepreciating = [props.model1["depreciation"][props.model1["depreciation"].length -1],
+        props.model1["model"]];
+    var ranking = "";
     for (let i = 0; i < props.model1["depreciation"].length; i++){
         yValuesM1.push(props.model1["depreciation"][i]* props.model1["listPrice"]);
         console.log(props.model1["depreciation"][i]* props.model1["listPrice"]);
@@ -94,6 +98,17 @@ export function Graph2Models(props) {
     for (let i = 0; i < props.model2["depreciation"].length; i++){
         yValuesM2.push(props.model2["depreciation"][i]* props.model2["listPrice"]);
         console.log(props.model2["depreciation"][i]* props.model2["listPrice"]);
+        if (i === props.model2["depreciation"][props.model2["depreciation"].length -1]){
+            if( props.model2["depreciation"][i] > leastDepreciating[0]){
+                leastDepreciating = [props.model2["depreciation"][props.model2["depreciation"].length -1],
+                    props.model2["model"]];
+            }
+        }
+    }
+
+    for (let i = 0; i < ranking.length; i++){
+
+
     }
 
     //line chart data
@@ -128,7 +143,7 @@ export function Graph2Models(props) {
         title: {
             display: true,
             position: "top",
-            text: "Vehicle Depreciation Projection",
+            text: "Vehicle Depreciation Projection \n Best Option Over 10 Years: "+ leastDepreciating[1],
             fontSize: 18,
             fontColor: "#111"
         },

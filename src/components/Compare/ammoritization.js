@@ -187,7 +187,7 @@ export function GraphCapitalThreeModels(props) {
         labels: xValues,
         datasets: [
             {
-                label: "New " + props.model1["model"],
+                label: props.model1["model"],
                 data: yValuesM1,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
@@ -196,7 +196,7 @@ export function GraphCapitalThreeModels(props) {
                 radius: 5
             },
             {
-                label: "Used " + props.model2["model"],
+                label: props.model2["model"],
                 data: yValuesM2,
                 backgroundColor: "green",
                 borderColor: "lightgreen",
@@ -205,7 +205,7 @@ export function GraphCapitalThreeModels(props) {
                 radius: 5
             },
             {
-                label: "New " + props.model3["model"],
+                label: props.model3["model"],
                 data: yValuesM3,
                 backgroundColor: "blue",
                 borderColor: "darkblue",
