@@ -32,6 +32,68 @@ button:hover {
   background-color: black;
   color: white;
 }
+.rightcolumn {
+  float: right;
+  width: 45%;
+}
+.leftcolumn {
+  float: left;
+  width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Set the information of the containers */
+.graphContainer {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+  0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+  max-width: 80%;
+  min-width:800px;
+  max-height: 40%;
+  min-height: 300px;
+  padding: 30px;
+  width: 100%;
+  padding: 8rem 20rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    width: 30rem;
+    span.highlight {
+      color: rgb(79, 179, 179);
+    }
+  }
+  p {
+    padding: 2rem 0 0 0;
+    font-size: 1.5rem;
+    width: 40rem;
+  }
+}
+
+.section-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+instruction-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+
+}
 
 .page {
   width: 100%;
