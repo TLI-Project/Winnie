@@ -1,5 +1,25 @@
 import React from 'react';
+import { Line } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
 
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 export function GraphCapitalOneModel(props) {
 
     //get the line chart canvas
@@ -230,14 +250,10 @@ export function GraphCapitalFourModels(props) {
 
     //get the line chart canvas
     var xValues = [];
-    var yValuesNM1 = [];
-    var yValuesUM1 = [];
-    var yValuesNM2 = [];
-    var yValuesUM2 = [];
-    var yValuesNM3 = [];
-    var yValuesUM3 = [];
-    var yValuesNM4 = [];
-    var yValuesUM4 = [];
+    var yValuesM1 = [];
+    var yValuesM2 = [];
+    var yValuesM3 = [];
+    var yValuesM4 = [];
     const num_installments = props.model1["installments"].length
     console.log(num_installments)
     const installments = props.model1["installments"][0]["capital"]
