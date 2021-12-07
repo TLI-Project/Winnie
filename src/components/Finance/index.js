@@ -6,8 +6,6 @@ import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 /* Vehicle mileage should be 0*/
 const Finance = ({ setToken }) => {
   const [loanAmount, setLoanAmount] = useState('');
-  // const [creditScore, setCreditScore] = useState('');
-  // const [yearlyIncome, setYearlyIncome] = useState('');
   const [monthlyBudget, setMonthlyBudget] = useState('');
   const [downPayment, setDownPayment] = useState('');
   const [address, setAddress] = useState('');
@@ -47,40 +45,12 @@ const Finance = ({ setToken }) => {
     setSinNumber(e.target.value)
   }
 
-  // const handleYearlyIncomeChange = e => {
-  //   setYearlyIncome(e.target.value)
-  // }
-
   const handleMonthlyBudgetChange = e => {
     setMonthlyBudget(e.target.value)
   }
 
   const handleDownPaymentChange = e => {
     setDownPayment(e.target.value)
-  }
-  // const requestOptions = {
-  //   method: 'POST',
-  //   headers: {'Content-Type': 'application/json'},
-  //   body: JSON.stringify({
-  //       "id": 1
-
-  //   })
-  // };
-
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    // body: JSON.stringify({
-    //    "body":1"
-    // })
-    "body": 10
-  };
-
-
-  const submitHandler = (e) => {
-    e.preventDefault()
-    fetch('http://localhost:8080/carDetails', requestOptions)
-      .then(response => console.log(response.json()))
   }
 
   const inputData = {
@@ -114,7 +84,12 @@ const Finance = ({ setToken }) => {
     // } else if (!(downPayment > 0)) {
     //   alert('please enter a valid down payment amount')
     // } else {
-      history.push('/catalogue', { finance: "testtest" })
+      history.push({
+        pathname: '/catalogue', 
+        state: { 
+          inputData
+        }
+      })
 
   }
 
