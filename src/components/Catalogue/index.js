@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
 const Selection = () => {
     const [selected, setSelected] = useState([])
     const history = useHistory();
-
+    const location = useLocation();
+    const { state } = location;
+    console.log(state)
+    const inputData = state.inputData
+    console.log(inputData)
     const [processedData, setProcessedData] = useState(null);
 
     useEffect(() => {
@@ -31,7 +35,13 @@ const Selection = () => {
         if (selected.length == 0) {
             alert('please select a car')
         } else {
-            history.push('/compare')
+            history.push({
+                pathname: '/compare',
+                state: {
+                    inputData,
+                    selected
+                }
+            })
         }
     }
 
@@ -78,8 +88,10 @@ const Selection = () => {
                 }
             </div>
             <button className="btn" onClick={submit}>Next</button>
+
         </div>
     )
 }
+
 
 export default Selection
