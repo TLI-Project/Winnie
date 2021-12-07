@@ -24,42 +24,21 @@ ChartJS.register(
 
 export function Graph1Model(props) {
     //get the line chart canvas
-    var yValuesNew = [];
-    var ranking = {};
-    for (let i = 0; i < props.newModelA["depreciation"].length; i++){
-        yValuesNew.push(props.newModelA["depreciation"][i]* props.newModelA["listPrice"]);
-        console.log(props.newModelA["depreciation"][i]* props.newModelA["listPrice"]);
-        if (i === props.newModelA["depreciation"].length -1){
-            ranking[props.newModelA["model"]] = props.newModelA["depreciation"][i]* props.newModelA["listPrice"];
-        }
+    var yValues = [];
+    for (let i = 0; i < props.model["depreciation"].length; i++){
+        yValues.push(props.model["depreciation"][i]* props.model["listPrice"]);
+        console.log(props.model["depreciation"][i]* props.model["listPrice"]);
     }
 
-    var yValuesUsed = [];
-    for (let i = 0; i < props.usedModelA["depreciation"].length; i++){
-        yValuesUsed.push(props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"]);
-        console.log(props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"]);
-        if (i === props.usedModelA["depreciation"].length -1){
-            ranking[props.usedModelA["model"]] = props.usedModelA["depreciation"][i]* props.usedModelA["listPrice"];
-        }
-    }
     //line chart data
     var data = {
         labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
         datasets: [
             {
-                label: "New",
-                data: yValuesNew,
+                label: props.model["model"],
+                data: yValues,
                 backgroundColor: "blue",
                 borderColor: "lightblue",
-                fill: false,
-                lineTension: 0,
-                radius: 5
-            },
-            {
-                label: "Used",
-                data: yValuesUsed,
-                backgroundColor: "green",
-                borderColor: "lightgreen",
                 fill: false,
                 lineTension: 0,
                 radius: 5
@@ -87,7 +66,6 @@ export function Graph1Model(props) {
         }
     }
 
-    //create Chart class object
 
 
         return <Line options={options} data={data}  type={"line"}/>;
@@ -103,399 +81,268 @@ export function Graph1Model(props) {
 //     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, usedModel = {"listPrice":  27600, "model": "Honda Clarity",
 //     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}))
 
-// //
-// export function Graph2Models(props) {
-//     //get the line chart canvas
-//     var yValuesNM1 = [];
-//     for (let i = 0; i < props.newModel1["depreciation"].length; i++){
-//         yValuesNM1.push(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//         console.log(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//     }
 //
-//     var yValuesNM2 = [];
-//     for (let i = 0; i < props.newModel2["depreciation"].length; i++){
-//         yValuesNM2.push(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//         console.log(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//     }
-//
-//     var yValuesUM1 = [];
-//     for (let i = 0; i < props.usedModel1["depreciation"].length; i++){
-//         yValuesUM1.push(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//         console.log(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//     }
-//
-//     var yValuesUM2 = [];
-//     for (let i = 0; i < props.usedModel2["depreciation"].length; i++){
-//         yValuesUM2.push(props.usedModel2["depreciation"][i]* props.usedModel2["listPrice"]);
-//         console.log(props.usedModel2["depreciation"][i]* props.usedModel2["listPrice"]);
-//     }
-//     //line chart data
-//     var data = {
-//         labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
-//         datasets: [
-//             {
-//                 label: props.newModel1["model"]+ " New",
-//                 data: yValuesNM1,
-//                 backgroundColor: "blue",
-//                 borderColor: "lightblue",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel2["model"]+ " New",
-//                 data: yValuesNM2,
-//                 backgroundColor: "gray",
-//                 borderColor: "lightgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel1["model"]+ " Used",
-//                 data: yValuesUM1,
-//                 backgroundColor: "pink",
-//                 borderColor: "lightpink",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel2["model"]+ " Used",
-//                 data: yValuesUM2,
-//                 backgroundColor: "green",
-//                 borderColor: "lightgreen",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             }
-//         ]
-//     };
-//
-//     //options
-//     var options = {
-//         responsive: true,
-//         title: {
-//             display: true,
-//             position: "top",
-//             text: "Vehicle Depreciation Projection",
-//             fontSize: 18,
-//             fontColor: "#111"
-//         },
-//         legend: {
-//             display: true,
-//             position: "bottom",
-//             labels: {
-//                 fontColor: "#333",
-//                 fontSize: 16
-//             }
-//         }
-//     };
-//     return <Line options={options} data={data}  type={"line"}/>;
-//     //create Chart class object
-//     // var chart = new Chart(ctx1, {
-//     //     type: "line",
-//     //     data: data,
-//     //     options: options
-//     // });
-// }
-//
-// // graph2Models({"listPrice": 27600, "model": "Honda CR-V",
-// //     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 27600, "model": "Honda CR-V",
-// //     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  27600, "model": "Honda Clarity",
-// //     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 27600, "model": "Honda CR-V",
-// //     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
-// export function Graph3Models(props) {
-//
-//     //get the line chart canvas
-//     var yValuesNM1 = [];
-//     for (let i = 0; i < props.newModel1["depreciation"].length; i++){
-//         yValuesNM1.push(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//         console.log(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//     }
-//
-//     var yValuesNM2 = [];
-//     for (let i = 0; i < props.newModel2["depreciation"].length; i++){
-//         yValuesNM2.push(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//         console.log(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//     }
-//
-//     var yValuesNM3 = [];
-//     for (let i = 0; i < props.newModel3["depreciation"].length; i++){
-//         yValuesNM3.push(props.newModel3["depreciation"][i]* props.newModel3["listPrice"]);
-//         console.log(props.newModel3["depreciation"][i]* props.newModel3["listPrice"]);
-//     }
-//
-//     var yValuesUM1 = [];
-//     for (let i = 0; i < props.usedModel1["depreciation"].length; i++){
-//         yValuesUM1.push(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//         console.log(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//     }
-//
-//     var yValuesUM2 = [];
-//     for (let i = 0; i < props.usedModel2["depreciation"].length; i++){
-//         yValuesUM2.push(props.usedModel2["depreciation"][i]* props.usedModel2["listPrice"]);
-//         console.log(props.usedModel2["depreciation"][i]* props.usedModel2["listPrice"]);
-//     }
-//
-//     var yValuesUM3 = [];
-//     for (let i = 0; i < props.usedModel3["depreciation"].length; i++){
-//         yValuesUM3.push(props.usedModel3["depreciation"][i]* props.usedModel3["listPrice"]);
-//         console.log(props.usedModel3["depreciation"][i]* props.usedModel3["listPrice"]);
-//     }
-//
-//     //line chart data
-//     var data = {
-//         labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
-//         datasets: [
-//             {
-//                 label: props.newModel1["model"]+ " New",
-//                 data: yValuesNM1,
-//                 backgroundColor: "blue",
-//                 borderColor: "lightblue",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel2["model"]+ " New",
-//                 data: yValuesNM2,
-//                 backgroundColor: "gray",
-//                 borderColor: "lightgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel3["model"]+ " New",
-//                 data: yValuesNM3,
-//                 backgroundColor: "gray",
-//                 borderColor: "darkgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel1["model"]+ " Used",
-//                 data: yValuesUM1,
-//                 backgroundColor: "pink",
-//                 borderColor: "lightpink",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel2["model"]+ " Used",
-//                 data: yValuesUM2,
-//                 backgroundColor: "green",
-//                 borderColor: "lightgreen",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel3["model"]+ " Used",
-//                 data: yValuesUM3,
-//                 backgroundColor: "black",
-//                 borderColor: "darkgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             }
-//         ]
-//     };
-//
-//     //options
-//     var options = {
-//         responsive: true,
-//         title: {
-//             display: true,
-//             position: "top",
-//             text: "Vehicle Depreciation Projection",
-//             fontSize: 18,
-//             fontColor: "#111"
-//         },
-//         legend: {
-//             display: true,
-//             position: "bottom",
-//             labels: {
-//                 fontColor: "#333",
-//                 fontSize: 16
-//             }
-//         }
-//     };
-//     return <Line options={options} data={data}  type={"line"}/>;
-//     // //create Chart class object
-//     // var chart = new Chart(ctx2, {
-//     //     type: "line",
-//     //     data: data,
-//     //     options: options
-//     // });
-// }
-// // graph3Models({"listPrice": 27600, "model": "Honda CR-V",
-// //     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 23600, "model": "Honda CR-V",
-// //     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  37600, "model": "Honda Clarity",
-// //     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 21600, "model": "Honda CR-V",
-// //     "depreciation": [0.85, 0.83, 0.81, 0.79, 0.73, 0.67, 0.64, 0.57, 0.48, 0.44]}, {"listPrice": 36600, "model": "Honda CR-V",
-// //     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]}, {"listPrice": 24600, "model": "Honda CR-V",
-// //     "depreciation": [0.91, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
-// export function Graph4Models(props) {
-//     //get the line chart canvas
-//     var yValuesNM1 = [];
-//     for (let i = 0; i < props.newModel1["depreciation"].length; i++){
-//         yValuesNM1.push(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//         console.log(props.newModel1["depreciation"][i]* props.newModel1["listPrice"]);
-//     }
-//
-//     var yValuesNM2 = [];
-//     for (let i = 0; i < props.newModel2["depreciation"].length; i++){
-//         yValuesNM2.push(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//         console.log(props.newModel2["depreciation"][i]* props.newModel2["listPrice"]);
-//     }
-//
-//     var yValuesNM3 = [];
-//     for (let i = 0; i < props.newModel3["depreciation"].length; i++){
-//         yValuesNM3.push(props.newModel3["depreciation"][i]* props.newModel3["listPrice"]);
-//         console.log(props.newModel3["depreciation"][i]* props.newModel3["listPrice"]);
-//     }
-//
-//     var yValuesNM4 = [];
-//     for (let i = 0; i < props.newModel4["depreciation"].length; i++){
-//         yValuesNM4.push(props.newModel4["depreciation"][i]* props.newModel4["listPrice"]);
-//         console.log(props.newModel4["depreciation"][i]* props.newModel4["listPrice"]);
-//     }
-//
-//     var yValuesUM1 = [];
-//     for (let i = 0; i < props.usedModel1["depreciation"].length; i++){
-//         yValuesUM1.push(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//         console.log(props.usedModel1["depreciation"][i]* props.usedModel1["listPrice"]);
-//     }
-//
-//     var yValuesUM2 = [];
-//     for (let i = 0; i < usedModel2["depreciation"].length; i++){
-//         yValuesUM2.push(usedModel2["depreciation"][i]* usedModel2["listPrice"]);
-//         console.log(usedModel2["depreciation"][i]* usedModel2["listPrice"]);
-//     }
-//
-//     var yValuesUM3 = [];
-//     for (let i = 0; i < props.usedModel3["depreciation"].length; i++){
-//         yValuesUM3.push(props.usedModel3["depreciation"][i]* props.usedModel3["listPrice"]);
-//         console.log(props.usedModel3["depreciation"][i]* props.usedModel3["listPrice"]);
-//     }
-//
-//     var yValuesUM4 = [];
-//     for (let i = 0; i < props.usedModel4["depreciation"].length; i++){
-//         yValuesUM4.push(props.usedModel4["depreciation"][i]* props.usedModel4["listPrice"]);
-//         console.log(props.usedModel4["depreciation"][i]* props.usedModel4["listPrice"]);
-//     }
-//
-//     //line chart data
-//     var data = {
-//         labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
-//         datasets: [
-//             {
-//                 label: props.newModel1["model"]+ " New",
-//                 data: yValuesNM1,
-//                 backgroundColor: "blue",
-//                 borderColor: "lightblue",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel2["model"]+ " New",
-//                 data: yValuesNM2,
-//                 backgroundColor: "gray",
-//                 borderColor: "lightgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel3["model"]+ " New",
-//                 data: yValuesNM3,
-//                 backgroundColor: "gray",
-//                 borderColor: "darkgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.newModel4["model"]+ " New",
-//                 data: yValuesNM4,
-//                 backgroundColor: "green",
-//                 borderColor: "darkgreen",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel1["model"]+ " Used",
-//                 data: yValuesUM1,
-//                 backgroundColor: "pink",
-//                 borderColor: "lightpink",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel2["model"]+ " Used",
-//                 data: yValuesUM2,
-//                 backgroundColor: "green",
-//                 borderColor: "lightgreen",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel3["model"]+ " Used",
-//                 data: yValuesUM3,
-//                 backgroundColor: "black",
-//                 borderColor: "darkgray",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             },
-//             {
-//                 label: props.usedModel4["model"]+ " Used",
-//                 data: yValuesUM4,
-//                 backgroundColor: "blue",
-//                 borderColor: "darkblue",
-//                 fill: false,
-//                 lineTension: 0,
-//                 radius: 5
-//             }
-//         ]
-//     };
-//
-//     //options
-//     var options = {
-//         responsive: true,
-//         title: {
-//             display: true,
-//             position: "top",
-//             text: "Vehicle Depreciation Projection",
-//             fontSize: 18,
-//             fontColor: "#111"
-//         },
-//         legend: {
-//             display: true,
-//             position: "bottom",
-//             labels: {
-//                 fontColor: "#333",
-//                 fontSize: 16
-//             }
-//         }
-//     };
-//
-//     //create Chart class object
-//     return <Line options={options} data={data}  type={"line"}/>;
-//     // var chart = new Chart(ctx2, {
-//     //     type: "line",
-//     //     data: data,
-//     //     options: options
-//     // });
-// }
+export function Graph2Models(props) {
+    //get the line chart canvas
+    var yValuesM1 = [];
+    for (let i = 0; i < props.model1["depreciation"].length; i++){
+        yValuesM1.push(props.model1["depreciation"][i]* props.model1["listPrice"]);
+        console.log(props.model1["depreciation"][i]* props.model1["listPrice"]);
+    }
+
+    var yValuesM2 = [];
+    for (let i = 0; i < props.model2["depreciation"].length; i++){
+        yValuesM2.push(props.model2["depreciation"][i]* props.model2["listPrice"]);
+        console.log(props.model2["depreciation"][i]* props.model2["listPrice"]);
+    }
+
+    //line chart data
+    var data = {
+        labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
+        datasets: [
+            {
+                label: props.model1["model"]+ " New",
+                data: yValuesM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model2["model"]+ " New",
+                data: yValuesM2,
+                backgroundColor: "gray",
+                borderColor: "lightgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Depreciation Projection",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+    return <Line options={options} data={data}  type={"line"}/>;
+    //create Chart class object
+    // var chart = new Chart(ctx1, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+}
+
+// graph2Models({"listPrice": 27600, "model": "Honda CR-V",
+//     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 27600, "model": "Honda CR-V",
+//     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  27600, "model": "Honda Clarity",
+//     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 27600, "model": "Honda CR-V",
+//     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
+export function Graph3Models(props) {
+
+    //get the line chart canvas
+    var yValuesM1 = [];
+    for (let i = 0; i < props.model1["depreciation"].length; i++){
+        yValuesM1.push(props.model1["depreciation"][i]* props.model1["listPrice"]);
+        console.log(props.model1["depreciation"][i]* props.model1["listPrice"]);
+    }
+
+    var yValuesM2 = [];
+    for (let i = 0; i < props.model2["depreciation"].length; i++){
+        yValuesM2.push(props.model2["depreciation"][i]* props.model2["listPrice"]);
+        console.log(props.model2["depreciation"][i]* props.model2["listPrice"]);
+    }
+
+    var yValuesM3 = [];
+    for (let i = 0; i < props.model3["depreciation"].length; i++){
+        yValuesM3.push(props.model3["depreciation"][i]* props.model3["listPrice"]);
+        console.log(props.model3["depreciation"][i]* props.model3["listPrice"]);
+    }
+
+
+    //line chart data
+    var data = {
+        labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
+        datasets: [
+            {
+                label: props.model1["model"],
+                data: yValuesM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model2["model"],
+                data: yValuesM2,
+                backgroundColor: "gray",
+                borderColor: "lightgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model3["model"],
+                data: yValuesM3,
+                backgroundColor: "gray",
+                borderColor: "darkgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Depreciation Projection",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+    return <Line options={options} data={data}  type={"line"}/>;
+    // //create Chart class object
+    // var chart = new Chart(ctx2, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+}
+// graph3Models({"listPrice": 27600, "model": "Honda CR-V",
+//     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 23600, "model": "Honda CR-V",
+//     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  37600, "model": "Honda Clarity",
+//     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 21600, "model": "Honda CR-V",
+//     "depreciation": [0.85, 0.83, 0.81, 0.79, 0.73, 0.67, 0.64, 0.57, 0.48, 0.44]}, {"listPrice": 36600, "model": "Honda CR-V",
+//     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]}, {"listPrice": 24600, "model": "Honda CR-V",
+//     "depreciation": [0.91, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
+export function Graph4Models(props) {
+    //get the line chart canvas
+    var yValuesM1 = [];
+    for (let i = 0; i < props.model1["depreciation"].length; i++){
+        yValuesM1.push(props.model1["depreciation"][i]* props.model1["listPrice"]);
+        console.log(props.model1["depreciation"][i]* props.model1["listPrice"]);
+    }
+
+    var yValuesM2 = [];
+    for (let i = 0; i < props.model2["depreciation"].length; i++){
+        yValuesM2.push(props.model2["depreciation"][i]* props.model2["listPrice"]);
+        console.log(props.model2["depreciation"][i]* props.model2["listPrice"]);
+    }
+
+    var yValuesM3 = [];
+    for (let i = 0; i < props.model3["depreciation"].length; i++){
+        yValuesM3.push(props.model3["depreciation"][i]* props.model3["listPrice"]);
+        console.log(props.model3["depreciation"][i]* props.model3["listPrice"]);
+    }
+
+    var yValuesM4 = [];
+    for (let i = 0; i < props.model4["depreciation"].length; i++){
+        yValuesM4.push(props.model4["depreciation"][i]* props.model4["listPrice"]);
+        console.log(props.model4["depreciation"][i]* props.model4["listPrice"]);
+    }
+
+
+    //line chart data
+    var data = {
+        labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
+        datasets: [
+            {
+                label: props.model1["model"],
+                data: yValuesM1,
+                backgroundColor: "blue",
+                borderColor: "lightblue",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model2["model"],
+                data: yValuesM2,
+                backgroundColor: "gray",
+                borderColor: "lightgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model3["model"],
+                data: yValuesM3,
+                backgroundColor: "gray",
+                borderColor: "darkgray",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            },
+            {
+                label: props.model4["model"],
+                data: yValuesM4,
+                backgroundColor: "green",
+                borderColor: "darkgreen",
+                fill: false,
+                lineTension: 0,
+                radius: 5
+            }
+        ]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        title: {
+            display: true,
+            position: "top",
+            text: "Vehicle Depreciation Projection",
+            fontSize: 18,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 16
+            }
+        }
+    };
+
+    //create Chart class object
+    return <Line options={options} data={data}  type={"line"}/>;
+    // var chart = new Chart(ctx2, {
+    //     type: "line",
+    //     data: data,
+    //     options: options
+    // });
+}
 
 // // graph4Models({"listPrice": 27600, "model": "Honda CR-V",
 // //     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 23600, "model": "Honda CR-V",
