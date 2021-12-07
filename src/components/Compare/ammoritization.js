@@ -26,13 +26,13 @@ export function GraphCapitalOneModel(props) {
     var xValues = [];
     var yValuesM1 = [];
     const num_installments = props.model["installments"].length
-    const installments = props.model["installments"][0]["capital"]
+    const installments = props.model["installments"][0]["remain"]
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM1.push(props.model["installments"][i]["capital"]);
-        console.log(props.model["installments"][i]["capital"]);
+        yValuesM1.push(props.model["installments"][i]["remain"]);
+        console.log(props.model["installments"][i]["remain"]);
     }
 
     //line chart data
@@ -88,18 +88,18 @@ export function GraphCapitalTwoModels(props) {
     var yValuesM2 = [];
     const num_installments = props.model1["installments"].length
     console.log(num_installments)
-    const installments = props.model1["installments"][0]["capital"]
+    const installments = props.model1["installments"][0]["remain"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM1.push(props.model1["installments"][i]["capital"]);
-        console.log(props.model1["installments"][i]["capital"]);
+        yValuesM1.push(props.model1["installments"][i]["remain"]);
+        console.log(props.model1["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM2.push(props.model2["installments"][i]["capital"]);
-        console.log(props.model2["installments"][i]["capital"]);
+        yValuesM2.push(props.model2["installments"][i]["remain"]);
+        console.log(props.model2["installments"][i]["remain"]);
     }
 
     //line chart data
@@ -164,21 +164,21 @@ export function GraphCapitalThreeModels(props) {
     var yValuesM2 = [];
     var yValuesM3 = [];
     const num_installments = props.model1["installments"].length
-    const installments = props.model1["installments"][0]["capital"]
+    const installments = props.model1["installments"][0]["remain"]
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM1.push(props.model1["installments"][i]["capital"]);
-        console.log(props.model1["installments"][i]["capital"]);
+        yValuesM1.push(props.model1["installments"][i]["remain"]);
+        console.log(props.model1["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM2.push(props.model2["installments"][i]["capital"]);
-        console.log(props.model2["installments"][i]["capital"]);
+        yValuesM2.push(props.model2["installments"][i]["remain"]);
+        console.log(props.model2["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM3.push(props.model3["installments"][i]["capital"]);
-        console.log(props.model3["installments"][i]["capital"]);
+        yValuesM3.push(props.model3["installments"][i]["remain"]);
+        console.log(props.model3["installments"][i]["remain"]);
     }
 
 
@@ -256,26 +256,26 @@ export function GraphCapitalFourModels(props) {
     var yValuesM4 = [];
     const num_installments = props.model1["installments"].length
     console.log(num_installments)
-    const installments = props.model1["installments"][0]["capital"]
+    const installments = props.model1["installments"][0]["remain"]
     console.log(installments)
     for(let i = 1; i <= num_installments; i++){
         xValues.push(i);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM1.push(props.model1["installments"][i]["capital"]);
-        console.log(props.model1["installments"][i]["capital"]);
+        yValuesM1.push(props.model1["installments"][i]["remain"]);
+        console.log(props.model1["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM2.push(props.model2["installments"][i]["capital"]);
-        console.log(props.model2["installments"][i]["capital"]);
+        yValuesM2.push(props.model2["installments"][i]["remain"]);
+        console.log(props.model2["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM3.push(props.model3["installments"][i]["capital"]);
-        console.log(props.model3["installments"][i]["capital"]);
+        yValuesM3.push(props.model3["installments"][i]["remain"]);
+        console.log(props.model3["installments"][i]["remain"]);
     }
     for (let i = 0; i < num_installments; i++){
-        yValuesM4.push(props.model4["installments"][i]["capital"]);
-        console.log(props.model4["installments"][i]["capital"]);
+        yValuesM4.push(props.model4["installments"][i]["remain"]);
+        console.log(props.model4["installments"][i]["remain"]);
     }
 
     //line chart data
