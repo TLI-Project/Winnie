@@ -36,42 +36,47 @@ const Compare = () => {
     //     }
     //     fetchCarMeta();
     // }, [])
-    const requestOptions = {
+    const depreciationRequestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: carList
+        body: 1
     };
+
+    const inputData = {
+        loanAmount: finance.loanAmount,
+        pytBudget: finance.monthlyBudget,
+        downPayment: finance.downPayment,
+        address: finance.address,
+        postalCode: finance.postalCode,
+        city: finance.city,
+        province: finance.province,
+        dateOfBirth: finance.dateOfBirth,
+        sinNumber: finance.sinNumber
+      }
+
+    const loanRequestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: inputData
+    };
+
+
+    // you will just want to put this in a for loop for each id in carList
     useEffect(() => {
         // fetch data
 
-        const fetchCarData = async () => {
-            const res = await fetch('http://localhost:8080/carDepreciation', requestOptions);
-            const data = await res.json();
+        // const fetchCarDepreciation = async () => {
+        //     const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+        //     const data = await res.json();
+        //     console.log(data)
+        // }
+        const fetchCarLoan = async () => {
+            const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
+            const data = await res;
             console.log(data)
-            // set data as state
-            // const carData = {
-            //     id: data.id,
-            //     carModel: data.carModel,
-            //     carDescription: data.carDescription,
-            //     carMake: data.carMake,
-            //     price: data.listPrice,
-            //     year: data.year,
-            //     kms: data.kms,
-            //     color: data.color,
-            //     condition: data.condition,
-            //     depreciation: data.depreciation,
-            //     imageUrl: data.imageURL,
-            //     interior: data.interior,
-            //     interiorDescription: data.interiorDescription,
-            //     engine: data.engine,
-            //     engineDescription: data.engineDescription,
-            //     performancePackage: data.performancePackage,
-            //     performancePackageDescription: data.performancePackageDescription
-            // }
-            // setCarData(carData)
-            // console.log(carData)
         }
-        fetchCarData();
+
+        fetchCarLoan();
     }, [])
 
     return(
