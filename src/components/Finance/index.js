@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
+import "./styles.scss";
+
 /* Vehicle mileage should be 0*/
 const Finance = ({ setToken }) => {
   const [loanAmount, setLoanAmount] = useState('');
@@ -94,7 +96,7 @@ const Finance = ({ setToken }) => {
   }
 
   return (
-    <div className="page page-finance">
+    <div className="page" id="page-finance">
       <img className="ellipse-blue" src={blueEllipse} />
       <img className="ellipse-green" src={greenEllipse} />
       <h1>Tell us a bit about yourself...</h1>

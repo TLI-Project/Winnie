@@ -24,6 +24,8 @@ import Email from '../../img/landing/footer/mail.png';
 import Phone from '../../img/landing/footer/phone.png';
 import Location from '../../img/landing/footer/location.png';
 
+import "./styles.scss";
+
 const Chunk3Card = ({ num, imgSrc, title, desc }) =>
     <div className='card'>
         <p className='big-num'>{num}</p>
