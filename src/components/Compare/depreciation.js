@@ -66,24 +66,14 @@ export function Graph1Model(props) {
                 }
             }
         }
-    }
+    };
 
 
 
         return <Line options={options} data={data}  type={"line"}/>;
-    // return <graph1Model props />;
-    // var chart = new Chart(ctx, {
-    //     type: "line",
-    //     data: data,
-    //     options: options
-    // });
-}
-//TEST
-// return(graph1Model(newModel = {"listPrice": 27600, "model": "Honda CR-V",
-//     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, usedModel = {"listPrice":  27600, "model": "Honda Clarity",
-//     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}))
 
-//
+}
+
 export function Graph2Models(props) {
     //get the line chart canvas
     var yValuesM1 = [];
@@ -161,19 +151,9 @@ export function Graph2Models(props) {
         }
     };
     return <Line options={options} data={data}  type={"line"}/>;
-    //create Chart class object
-    // var chart = new Chart(ctx1, {
-    //     type: "line",
-    //     data: data,
-    //     options: options
-    // });
+
 }
 
-// graph2Models({"listPrice": 27600, "model": "Honda CR-V",
-//     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 27600, "model": "Honda CR-V",
-//     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  27600, "model": "Honda Clarity",
-//     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 27600, "model": "Honda CR-V",
-//     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
 export function Graph3Models(props) {
 
     //get the line chart canvas
@@ -252,20 +232,9 @@ export function Graph3Models(props) {
         }
     };
     return <Line options={options} data={data}  type={"line"}/>;
-    // //create Chart class object
-    // var chart = new Chart(ctx2, {
-    //     type: "line",
-    //     data: data,
-    //     options: options
-    // });
+
 }
-// graph3Models({"listPrice": 27600, "model": "Honda CR-V",
-//     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 23600, "model": "Honda CR-V",
-//     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  37600, "model": "Honda Clarity",
-//     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 21600, "model": "Honda CR-V",
-//     "depreciation": [0.85, 0.83, 0.81, 0.79, 0.73, 0.67, 0.64, 0.57, 0.48, 0.44]}, {"listPrice": 36600, "model": "Honda CR-V",
-//     "depreciation": [0.88, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]}, {"listPrice": 24600, "model": "Honda CR-V",
-//     "depreciation": [0.91, 0.83, 0.82, 0.79, 0.71, 0.63, 0.54, 0.54, 0.48, 0.44]})
+
 export function Graph4Models(props) {
     //get the line chart canvas
     var yValuesM1 = [];
@@ -360,19 +329,5 @@ export function Graph4Models(props) {
 
     //create Chart class object
     return <Line options={options} data={data}  type={"line"}/>;
-    // var chart = new Chart(ctx2, {
-    //     type: "line",
-    //     data: data,
-    //     options: options
-    // });
-}
 
-// // graph4Models({"listPrice": 27600, "model": "Honda CR-V",
-// //     "depreciation": [0.78, 0.73, 0.72, 0.69, 0.61, 0.53, 0.44, 0.44, 0.38, 0.34]}, {"listPrice": 23600, "model": "Honda CR-V",
-// //     "depreciation": [0.60, 0.53, 0.42, 0.39, 0.31, 0.23, 0.14, 0.14, 0.08, 0.04]}, {"listPrice":  37600, "model": "Honda Clarity",
-// //     "depreciation": [0.86, 0.81, 0.78, 0.75, 0.72, 0.71, 0.69, 0.65, 0.61, 0.55]}, {"listPrice": 21600, "model": "Honda CR-V",
-// //     "depreciation": [0.85, 0.83, 0.81, 0.76, 0.73, 0.67, 0.64, 0.57, 0.48, 0.46]}, {"listPrice": 36600, "model": "Honda CR-V",
-// //     "depreciation": [0.88, 0.83, 0.80, 0.74, 0.70, 0.66, 0.58, 0.52, 0.49, 0.47]}, {"listPrice": 24600, "model": "Honda CR-V",
-// //     "depreciation": [0.91, 0.83, 0.82, 0.79, 0.75, 0.63, 0.57, 0.54, 0.52, 0.45]}, {"listPrice": 46600, "model": "Honda CR-V",
-// //     "depreciation": [0.89, 0.86, 0.84, 0.78, 0.76, 0.65, 0.54, 0.53, 0.51, 0.40]}, {"listPrice": 26600, "model": "Honda CR-V",
-// //     "depreciation": [0.88, 0.84, 0.81, 0.77, 0.74, 0.64, 0.59, 0.51, 0.50, 0.38]})
+}
