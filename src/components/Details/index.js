@@ -69,11 +69,11 @@ const Details = () => {
                                  <button id="trigger-interior">{carData.interior}</button>
                                  <div class="hidden-interior">{carData.interiorDescription}</div>
 
-                                 <button id="trigger-">{carData.engine}</button>
+                                 <button id="trigger-engine">{carData.engine}</button>
                                  <div class="hidden-engine">{carData.engineDescription}</div>
 
                                  <button id="trigger-performance">{carData.performancePackage}</button>
-                                 <div class="hidden-engine">{carData.performancePackageDescription}</div>
+                                 <div class="hidden-performance">{carData.performancePackageDescription}</div>
                              </div>
 
 
