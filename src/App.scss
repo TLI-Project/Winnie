@@ -202,6 +202,10 @@ a {
             font-size: 3.6rem;
             text-align: center;
             width: 80%;
+            font-weight: 400;
+            b {
+              font-weight: 800;
+            }
           }
           p {
             font-size: 1.6rem;
@@ -262,7 +266,7 @@ a {
             height: 60%;
             max-width: 100%;
             border-radius: 1rem;
-            align-self: center;
+            // align-self: center;
             z-index: 1;
           }
           h3 {
@@ -294,6 +298,10 @@ a {
           justify-content: center;
           h2 {
             font-size: 3.5rem;
+            font-weight: 600;
+            b {
+              font-weight: 800;
+            }
           }
           p {
             font-size: 1.8rem;
@@ -378,7 +386,7 @@ a {
         .right {
           display: flex;
           flex-direction: column;
-          justify-content:center;
+          justify-content: center;
           align-items: center;
           width: 50%;
           z-index: 2;
@@ -386,13 +394,13 @@ a {
           padding-top: 3rem;
           .item {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
             a {
               color: #e7e7e7;
               font-size: 1.6rem;
-              
+
               // color: white;
             }
           }

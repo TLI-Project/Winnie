@@ -106,9 +106,13 @@ const Home = () => {
             <div className='chunk chunk-1'>
                 <img src={DetailCar} />
                 <div className='text-container'>
-                    <h3>Lorem ipsum dolor amet avc abca cba cbac abc</h3>
+                    <h3>buying a car is a <b>complicated decision</b>, and we're here to help.</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Customers have inherent biases when buying cars, such as the choice between always buying second-hand cars versus always buying new vehicles.
+                        As a consequence, they may make worse purchasing decisions (for instance, buying a new car when a used car may suffice in their situation),
+                        which can create problems for retailers (e.g. having to order a custom car as opposed to moving a car out of their lot).
+                        <b> Senso Education helps Mercedes retailers by educating customers in the choice between second-hand
+                            models available in the dealer's lot, versus purchasing a new, custom car.</b>
                     </p>
                     <Link>Learn more</Link>
                 </div>
@@ -116,29 +120,36 @@ const Home = () => {
 
             <div className='chunk chunk-2'>
                 <h2>How it works</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <p> <b>The question: </b>
+                    Let's say that you are looking for a new Mercedes SUV.
+                    How do you choose between the GLB SUV (mid-range) and the GLS SUV (high-end),
+                    or maybe between the GLS from 2018, versus the new GLS that was just released this year?
+                    You could buy the GLS from this year (which maxes out your budget), or maybe you can pick the GLS AMG (the sports version) from 2018
+                    with a premium interior, or possibly even the maxed-out GLB which ultimately comes in at the same price as the new GLS.
                 </p>
             </div>
 
             <div className='chunk chunk-3'>
-                <Chunk3Card num='1' imgSrc={Step1ImgSrc} title='lorem ipsum dolor sit amet' desc='lorem ipsum dolor sit amet consectur' />
-                <Chunk3Card num='2' imgSrc={Step2ImgSrc} title='lorem ipsum dolor sit amet' desc='lorem ipsum dolor sit amet consectur' />
-                <Chunk3Card num='3' imgSrc={Step3ImgSrc} title='lorem ipsum dolor sit amet' desc='lorem ipsum dolor sit amet consectur' />
-                <Chunk3Card num='4' imgSrc={Step4ImgSrc} title='lorem ipsum dolor sit amet' desc='lorem ipsum dolor sit amet consectur' />
+                <Chunk3Card num='1' imgSrc={Step1ImgSrc} title='the client visits the retailer, looking to buy a car' desc='They have an estimate of their budget & preferred cars.' />
+                <Chunk3Card num='2' imgSrc={Step2ImgSrc} title='the salesperson inputs financial info into the app' desc='They are presented with cars that the client is eligible for.' />
+                <Chunk3Card num='3' imgSrc={Step3ImgSrc} title='they select their preferred car (e.g. the new GLS)' desc='The salesperson also selects cars in a similar price range.' />
+                <Chunk3Card num='4' imgSrc={Step4ImgSrc} title='Senso Education graphs difference between the cars' desc='The salesperson can sell to the client using the graphs as an aid.' />
             </div>
 
             <div className='chunk chunk-4'>
                 <div className='left'>
-                    <h2>Why Senso Education</h2>
+                    <h2><b>Why</b> Senso Education</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Buying a car is a complicated decision that takes into account various factors, such as your budget,
+                        car lifespan expectancy, and so on.
+                        Senso Education educates the customer on the <b>actual differences</b> between a base model,
+                        a used model, and a specced-out model.
                     </p>
                     <div className='cards'>
-                        <Chunk4Card imgSrc={Stat1Img} title='Lorem Ipsum' desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.' />
-                        <Chunk4Card imgSrc={Stat1Img} title='Lorem Ipsum' desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.' />
-                        <Chunk4Card imgSrc={Stat1Img} title='Lorem Ipsum' desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.' />
-                        <Chunk4Card imgSrc={Stat1Img} title='Lorem Ipsum' desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntut lab.' />
+                        <Chunk4Card imgSrc={Stat1Img} title='Empower the Customer' desc='Clients will be educated on the difference between new and second-hand cars, tiers, perks, etc.' />
+                        <Chunk4Card imgSrc={Stat1Img} title='Empower the Retailer' desc='Senso Education enables retailers to move along their display cars as quickly as possible.' />
+                        <Chunk4Card imgSrc={Stat1Img} title='Empower the Manufacturer' desc='Car manufacturers can maximize their ability to make and sell cars, particularly base models.' />
+                        <Chunk4Card imgSrc={Stat1Img} title='Keep the Stakeholders Happy' desc='Senso Educations benefits investors, financial institutions, suppliers, partners, and much more!' />
                     </div>
                 </div>
                 <img src={WhySensoCarImgSrc} />
