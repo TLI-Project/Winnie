@@ -22,56 +22,73 @@ const Compare = () => {
     // useEffect(() => {
     //     const fetchCarMeta = async () => {
     //         for (let i = 0; i < carList.length; i++) {
-
-                // const requestOptions = {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: parseInt(carList[i])
-                // };
+    //
+    //             const requestOptions = {
+    //                 method: 'POST',
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 body: parseInt(carList[i])
+    //             };
     //             const res = await fetch('http://localhost:8080/carDepreciation', requestOptions);
-    //             // const data = await res.json();
+    //             // add data to some constant to graph later
+    //             // depreciationDataForGraph {
+    //             // id1: [...],
+    //             // id2: [...],
+    //             // ...
+    //             // }
     //             console.log(res)
     //         }
-           
+    //
     //     }
     //     fetchCarMeta();
     // }, [])
-    const requestOptions = {
+
+    const depreciationRequestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: carList
+        body: 1
     };
+
+    const inputData = {
+        carId: 1,
+        loanAmount: finance.loanAmount,
+        pytBudget: finance.monthlyBudget,
+        downPayment: finance.downPayment,
+        address: finance.address,
+        postalCode: finance.postalCode,
+        city: finance.city,
+        province: finance.province,
+        dateOfBirth: finance.dateOfBirth,
+        sinNumber: finance.sinNumber
+      }
+    // const inputData = {
+    //     "id": 1,
+    //     "name": "John"
+    // }
+
+    const loanRequestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(inputData)
+    };
+
+
+    // you will just want to put this in a for loop for each id in carList
     useEffect(() => {
         // fetch data
 
-        const fetchCarData = async () => {
-            const res = await fetch('http://localhost:8080/carDepreciation', requestOptions);
+        // const fetchCarDepreciation = async () => {
+        //     const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+        //     const data = await res.json();
+        //     console.log(data)
+        // }
+        const fetchCarLoan = async () => {
+            const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
             const data = await res.json();
             console.log(data)
-            // set data as state
-            // const carData = {
-            //     id: data.id,
-            //     carModel: data.carModel,
-            //     carDescription: data.carDescription,
-            //     carMake: data.carMake,
-            //     price: data.listPrice,
-            //     year: data.year,
-            //     kms: data.kms,
-            //     color: data.color,
-            //     condition: data.condition,
-            //     depreciation: data.depreciation,
-            //     imageUrl: data.imageURL,
-            //     interior: data.interior,
-            //     interiorDescription: data.interiorDescription,
-            //     engine: data.engine,
-            //     engineDescription: data.engineDescription,
-            //     performancePackage: data.performancePackage,
-            //     performancePackageDescription: data.performancePackageDescription
-            // }
-            // setCarData(carData)
-            // console.log(carData)
         }
-        fetchCarData();
+
+        fetchCarLoan();
     }, [])
 
     return(
