@@ -3,6 +3,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
+import "./styles.scss";
+
 const Selection = () => {
     const [selected, setSelected] = useState([])
     const history = useHistory();
@@ -65,7 +67,7 @@ const Selection = () => {
     };
 
     return (
-        <div className="page page-catalogue">
+        <div className="page" id="page-catalogue">
             <img className="ellipse-blue" src={blueEllipse} />
             <img className="ellipse-green" src={greenEllipse} />
             <h1>Browse for your desired vehicle</h1>

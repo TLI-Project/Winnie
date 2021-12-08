@@ -6,6 +6,8 @@ import { Line } from 'react-chartjs-2';
 import { Graph1Model, Graph2Models, Graph3Models, Graph4Models } from "./depreciation";
 import { GraphCapitalOneModel, GraphCapitalTwoModels, GraphCapitalThreeModels, GraphCapitalFourModels } from "./ammoritization"
 
+import "./styles.scss";
+
 const Compare = () => {
     //passing states:
     const location = useLocation();
@@ -140,7 +142,7 @@ const Compare = () => {
 //         // Ammoritization
 //         var modelA = { "remain": carList[0].remain, "model": carList[0].model }
 //         return (
-//             <div className="page page-compare">
+//             <div className="page" id="page-compare">
 //                 <img className="ellipse-blue" src={blueEllipse} />
 //                 <img className="ellipse-green" src={greenEllipse} />
 //                 <div className="graphContainer" id="graphContainer ">
