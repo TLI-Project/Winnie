@@ -22,20 +22,26 @@ const Compare = () => {
     // useEffect(() => {
     //     const fetchCarMeta = async () => {
     //         for (let i = 0; i < carList.length; i++) {
-
-                // const requestOptions = {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: parseInt(carList[i])
-                // };
+    //
+    //             const requestOptions = {
+    //                 method: 'POST',
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 body: parseInt(carList[i])
+    //             };
     //             const res = await fetch('http://localhost:8080/carDepreciation', requestOptions);
-    //             // const data = await res.json();
+    //             // add data to some constant to graph later
+    //             // depreciationDataForGraph {
+    //             // id1: [...],
+    //             // id2: [...],
+    //             // ...
+    //             // }
     //             console.log(res)
     //         }
-           
+    //
     //     }
     //     fetchCarMeta();
     // }, [])
+
     const depreciationRequestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,6 +49,7 @@ const Compare = () => {
     };
 
     const inputData = {
+        carId: 1,
         loanAmount: finance.loanAmount,
         pytBudget: finance.monthlyBudget,
         downPayment: finance.downPayment,
@@ -53,11 +60,16 @@ const Compare = () => {
         dateOfBirth: finance.dateOfBirth,
         sinNumber: finance.sinNumber
       }
+    // const inputData = {
+    //     "id": 1,
+    //     "name": "John"
+    // }
 
     const loanRequestOptions = {
-        method: 'PUT',
+        method: 'POST',
+        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
-        body: inputData
+        body: JSON.stringify(inputData)
     };
 
 
@@ -72,7 +84,7 @@ const Compare = () => {
         // }
         const fetchCarLoan = async () => {
             const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-            const data = await res;
+            const data = await res.json();
             console.log(data)
         }
 
