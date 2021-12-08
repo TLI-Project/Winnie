@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import './details.scss';
+// import './details.scss';
 import { useParams } from 'react-router';
 /*Needs car dataset to display the pictures, price points, model and name etc*/
 
@@ -23,16 +23,23 @@ const Details = () => {
             console.log(data)
             // set data as state
             const carData = {
-                carId: data.carId,
+                id: data.id,
                 carModel: data.carModel,
+                carDescription: data.carDescription,
                 carMake: data.carMake,
                 price: data.listPrice,
                 year: data.year,
                 kms: data.kms,
                 color: data.color,
                 condition: data.condition,
+                depreciation: data.depreciation,
                 imageUrl: data.imageURL,
-                features: data.features
+                interior: data.interior,
+                interiorDescription: data.interiorDescription,
+                engine: data.engine,
+                engineDescription: data.engineDescription,
+                performancePackage: data.performancePackage,
+                performancePackageDescription: data.performancePackageDescription
             }
             setCarData(carData)
             console.log(carData)
@@ -55,9 +62,11 @@ const Details = () => {
                             <div className="product-description">
                                 <span>{carData.carMake}</span>
                                 <h1>{carData.carModel}</h1>
+                                <h1>{carData.interior}</h1>
+                                <h1>{carData.carDescription}</h1>
                                 <p>{carData.features}</p>
                             </div>
-                        
+
 
                             <div className="product-price">
                                 <span>${carData.price}</span>
