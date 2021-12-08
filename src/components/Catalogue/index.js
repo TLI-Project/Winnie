@@ -17,9 +17,9 @@ const Selection = () => {
         const fetchCarMeta = async () => {
             const res = await fetch('http://localhost:8080/carMetaData', requestOptions);
             const data = await res.json();
-            console.log(data)
+            console.log(data[1])
             const processed = []
-            for (let i = 1; i < 13; i++) {
+            for (let i = 1; i < 21; i++) {
                 processed.push(JSON.parse(data[i]))
             }
             console.log(processed)

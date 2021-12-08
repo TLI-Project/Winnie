@@ -72,7 +72,7 @@ const Home = () => {
                     <Link className='nav-btn'>Contact</Link>
                 </nav>
 
-                <Link className='cta-btn'>Let's go</Link>
+                <button onClick={submit}>Let's go</button>
             </header>
 
             <div className='chunk chunk-0'>
@@ -81,7 +81,7 @@ const Home = () => {
                     <p>introducing <b>Senso Education</b>: informing car-buyers on the selection and financing of their vehicles, all in under five minutes.</p>
                     <div className='email-container'>
                         <input type='email' />
-                        <button>Let's go</button>
+                        <button onClick={submit}>Let's go</button>
                     </div>
                     <div className='stats'>
                         <div className='stat'>
@@ -114,7 +114,7 @@ const Home = () => {
                         <b> Senso Education helps Mercedes retailers by educating customers in the choice between second-hand
                             models available in the dealer's lot, versus purchasing a new, custom car.</b>
                     </p>
-                    <Link>Learn more</Link>
+                    <button onClick={submit}>Learn More</button>
                 </div>
             </div>
 
