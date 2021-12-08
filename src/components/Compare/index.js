@@ -19,109 +19,201 @@ const Compare = () => {
 
     //****/carDepreciation 
     // returns a list of 10 values, where each one is the percentage of total value remaining responding to year
+    //****/userCarLoan */
+    // Senso api result
 
-
-    // useEffect(() => {
-    //     const fetchCarMeta = async () => {
-    //         for (let i = 0; i < carList.length; i++) {
-    //
-    //             const requestOptions = {
-    //                 method: 'POST',
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 body: parseInt(carList[i])
-    //             };
-    //             const res = await fetch('http://localhost:8080/carDepreciation', requestOptions);
-    //             // add data to some constant to graph later
-    //             // depreciationDataForGraph {
-    //             // id1: [...],
-    //             // id2: [...],
-    //             // ...
-    //             // }
-    //             console.log(res)
-    //         }
-    //
-    //     }
-    //     fetchCarMeta();
-    // }, [])
-
-    const depreciationRequestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: 1
-    };
-
-    const inputData = {
-        carId: 1,
-        loanAmount: finance.loanAmount,
-        pytBudget: finance.monthlyBudget,
-        downPayment: finance.downPayment,
-        address: finance.address,
-        postalCode: finance.postalCode,
-        city: finance.city,
-        province: finance.province,
-        dateOfBirth: finance.dateOfBirth,
-        sinNumber: finance.sinNumber
-      }
-    // const inputData = {
-    //     "id": 1,
-    //     "name": "John"
-    // }
-
-    const loanRequestOptions = {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(inputData)
-    };
-
-
-    // you will just want to put this in a for loop for each id in carList
     useEffect(() => {
-        // fetch data
+        if (carList[0] !== null) {
 
-        // const fetchCarDepreciation = async () => {
-        //     const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
-        //     const data = await res.json();
-        //     console.log(data)
-        // }
-        const fetchCarLoan = async () => {
-            const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-            const data = await res.json();
-            console.log(data)
+            const inputData = {
+                carId: carList[0],
+                loanAmount: finance.loanAmount,
+                pytBudget: finance.monthlyBudget,
+                downPayment: finance.downPayment,
+                address: finance.address,
+                postalCode: finance.postalCode,
+                city: finance.city,
+                province: finance.province,
+                dateOfBirth: finance.dateOfBirth,
+                sinNumber: finance.sinNumber
+            }
+
+            const depreciationRequestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[0]
+            };
+
+
+            const loanRequestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputData)
+            };
+            const fetchCarLoan = async () => {
+                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
+                const data = await res.json();
+                const carOneLoan = data;
+                console.log(carOneLoan)
+            }
+
+            const fetchCarDepreciation = async () => {
+                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+                const data = await res.json();
+                const carOneDepreciation = data;
+                console.log(carOneDepreciation)
+            }
+
+            fetchCarLoan();
+            fetchCarDepreciation();
+
+
         }
 
-        fetchCarLoan();
-    }, [])
+        if (carList[1] !== null) {
 
-    return(
-        <h1>asdf</h1>
+            const inputData = {
+                carId: carList[1],
+                loanAmount: finance.loanAmount,
+                pytBudget: finance.monthlyBudget,
+                downPayment: finance.downPayment,
+                address: finance.address,
+                postalCode: finance.postalCode,
+                city: finance.city,
+                province: finance.province,
+                dateOfBirth: finance.dateOfBirth,
+                sinNumber: finance.sinNumber
+            }
+
+            const depreciationRequestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[1]
+            };
+
+
+            const loanRequestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputData)
+            };
+            const fetchCarLoan = async () => {
+                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
+                const data = await res.json();
+                const carTwoLoan = data;
+                console.log(carTwoLoan)
+            }
+
+            const fetchCarDepreciation = async () => {
+                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+                const data = await res.json();
+                const carTwoDepreciation = data;
+                console.log(carTwoDepreciation)
+            }
+
+            fetchCarLoan();
+            fetchCarDepreciation();
+
+
+        }
+
+
+        if (carList[2] !== null) {
+
+            const inputData = {
+                carId: carList[2],
+                loanAmount: finance.loanAmount,
+                pytBudget: finance.monthlyBudget,
+                downPayment: finance.downPayment,
+                address: finance.address,
+                postalCode: finance.postalCode,
+                city: finance.city,
+                province: finance.province,
+                dateOfBirth: finance.dateOfBirth,
+                sinNumber: finance.sinNumber
+            }
+
+            const depreciationRequestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[2]
+            };
+
+
+            const loanRequestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputData)
+            };
+            const fetchCarLoan = async () => {
+                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
+                const data = await res.json();
+                const carThreeLoan = data;
+                console.log(carThreeLoan)
+            }
+
+            const fetchCarDepreciation = async () => {
+                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+                const data = await res.json();
+                const carThreeDepreciation = data;
+                console.log(carThreeDepreciation)
+            }
+            fetchCarLoan();
+            fetchCarDepreciation();
+        }
+
+
+        if (carList[3] !== null) {
+
+            const inputData = {
+                carId: carList[3],
+                loanAmount: finance.loanAmount,
+                pytBudget: finance.monthlyBudget,
+                downPayment: finance.downPayment,
+                address: finance.address,
+                postalCode: finance.postalCode,
+                city: finance.city,
+                province: finance.province,
+                dateOfBirth: finance.dateOfBirth,
+                sinNumber: finance.sinNumber
+            }
+
+            const depreciationRequestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[3]
+            };
+
+
+            const loanRequestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputData)
+            };
+            const fetchCarLoan = async () => {
+                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
+                const data = await res.json();
+                const carFourLoan = data;
+                console.log(carFourLoan)
+            }
+
+            const fetchCarDepreciation = async () => {
+                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
+                const data = await res.json();
+                const carFourDepreciation = data;
+                console.log(carFourDepreciation)
+            }
+            fetchCarLoan();
+            fetchCarDepreciation();
+        }
+    }, []);
+    return (
+        <h1></h1>
     )
-    //****/userCarLoan
-    // inputs: loanAmount, pytBudget, carID, downPayment, address, postalCode, city, province, dateOfBirth, sinNumber
-    // const inputData = {
-    //     loanAmount: loanAmount,
-    //     pytBudget: monthlyBudget,
-    //     downPayment: downPayment,
-    //     address: address,
-    //     postalCode: postalCode,
-    //     city: city,
-    //     province: province,
-    //     dateOfBirth: dateOfBirth,
-    //     sinNumber: sinNumber
-    //   }
-
-    // const allRequestOptions = {
-    //     method: "PUT",
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify(inputData)
-    // };
-
-    // const submitHandler = (e) => {
-    //     e.preventDefault()
-    //     fetch('http://localhost:8080/userCarLoan', allRequestOptions)
-    //         .then(response => console.log(response.json()))
-    // }
-
 
     //*****How to access the financial information:*****
     //Address: finance.address
@@ -136,267 +228,267 @@ const Compare = () => {
     //...etc
 
 
-//     if (carList.length === 1) {
-//         //Depreciation
-//         var modelD = { "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice, "model": carList[0].model }
-//         // Ammoritization
-//         var modelA = { "remain": carList[0].remain, "model": carList[0].model }
-//         return (
-//             <div className="page" id="page-compare">
-//                 <img className="ellipse-blue" src={blueEllipse} />
-//                 <img className="ellipse-green" src={greenEllipse} />
-//                 <div className="graphContainer" id="graphContainer ">
-//                     <div className="section-container instruction-container">
-//                         <div className='detail-right'>
-//                             <div className="row">
-//                                 <div className="rightcolumn">
-//                                     <h2>Depreciation Graph</h2>
-//                                     <p>Depreciation is the difference between a car's value when you buy it and when you
-//                                         come to sell it.
-//                                         This drop in value varies between makes and models and the depreciation of each
-//                                         model is depicted
-//                                         on the graph for each year of ownership.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //     if (carList.length === 1) {
+    //         //Depreciation
+    //         var modelD = { "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice, "model": carList[0].model }
+    //         // Ammoritization
+    //         var modelA = { "remain": carList[0].remain, "model": carList[0].model }
+    //         return (
+    //             <div className="page" id="page-compare">
+    //                 <img className="ellipse-blue" src={blueEllipse} />
+    //                 <img className="ellipse-green" src={greenEllipse} />
+    //                 <div className="graphContainer" id="graphContainer ">
+    //                     <div className="section-container instruction-container">
+    //                         <div className='detail-right'>
+    //                             <div className="row">
+    //                                 <div className="rightcolumn">
+    //                                     <h2>Depreciation Graph</h2>
+    //                                     <p>Depreciation is the difference between a car's value when you buy it and when you
+    //                                         come to sell it.
+    //                                         This drop in value varies between makes and models and the depreciation of each
+    //                                         model is depicted
+    //                                         on the graph for each year of ownership.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
 
 
-//                                 </div>
+    //                                 </div>
 
-//                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
-//                                     <p>
-//                                         Amortization describes the process of gradually paying off your auto loan. In an
-//                                         amortizing loan,
-//                                         for each of your monthly payments, a portion is applied towards the amount of
-//                                         the loan – the
-//                                         principal – and a portion of the payment is applied towards paying the finance
-//                                         charge –
-//                                         the interest.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <br>
-
-
-//                 </br>
-//                 <Graph1Model model={modelD} />
-//                 <GraphCapitalOneModel model={modelA} />
+    //                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
+    //                                     <p>
+    //                                         Amortization describes the process of gradually paying off your auto loan. In an
+    //                                         amortizing loan,
+    //                                         for each of your monthly payments, a portion is applied towards the amount of
+    //                                         the loan – the
+    //                                         principal – and a portion of the payment is applied towards paying the finance
+    //                                         charge –
+    //                                         the interest.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <br>
 
 
-
-//             </div>
-
-//         )
-//     }
-//     else if (carList.length === 2) {
-//         var modelD1 = {
-//             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
-//             "model": carList[0].model
-//         }
-//         var modelD2 = {
-//             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
-//             "model": carList[1].model
-//         }
-//         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
-//         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
-//         return (
-//             <div className="page page-compare">
-//                 <img className="ellipse-blue" src={blueEllipse} />
-//                 <img className="ellipse-green" src={greenEllipse} />
-//                 <div className="graphContainer" id="graphContainer ">
-//                     <div className="section-container instruction-container">
-//                         <div className='detail-right'>
-//                             <div className="row">
-//                                 <div className="rightcolumn">
-//                                     <h2>Depreciation Graph</h2>
-//                                     <p>Depreciation is the difference between a car's value when you buy it and when you
-//                                         come to sell it.
-//                                         This drop in value varies between makes and models and the depreciation of each
-//                                         model is depicted
-//                                         on the graph for each year of ownership.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
-
-
-//                                 </div>
-
-//                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
-//                                     <p>
-//                                         Amortization describes the process of gradually paying off your auto loan. In an
-//                                         amortizing loan,
-//                                         for each of your monthly payments, a portion is applied towards the amount of
-//                                         the loan – the
-//                                         principal – and a portion of the payment is applied towards paying the finance
-//                                         charge –
-//                                         the interest.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <br>
-
-
-//                 </br>
-//                 <Graph2Models model1={modelD1} model2={modelD2} />
-//                 <GraphCapitalTwoModels model1={modelA1} model2={modelA2} />
+    //                 </br>
+    //                 <Graph1Model model={modelD} />
+    //                 <GraphCapitalOneModel model={modelA} />
 
 
 
-//             </div>
+    //             </div>
 
-//         )
-//     }
-//     else if (carList.length === 3) {
-//         var modelD1 = {
-//             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
-//             "model": carList[0].model
-//         }
-//         var modelD2 = {
-//             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
-//             "model": carList[1].model
-//         }
-//         var modelD3 = {
-//             "depreciation": carList[2].depreciation, "listPrice": carList[2].listPrice,
-//             "model": carList[2].model
-//         }
-//         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
-//         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
-//         var modelA3 = { "remain": carList[2].remain, "model": carList[2].model }
-//         return (
-//             <div className="page page-compare">
-//                 <img className="ellipse-blue" src={blueEllipse} />
-//                 <img className="ellipse-green" src={greenEllipse} />
-//                 <div className="graphContainer" id="graphContainer ">
-//                     <div className="section-container instruction-container">
-//                         <div className='detail-right'>
-//                             <div className="row">
-//                                 <div className="rightcolumn">
-//                                     <h2>Depreciation Graph</h2>
-//                                     <p>Depreciation is the difference between a car's value when you buy it and when you
-//                                         come to sell it.
-//                                         This drop in value varies between makes and models and the depreciation of each
-//                                         model is depicted
-//                                         on the graph for each year of ownership.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //         )
+    //     }
+    //     else if (carList.length === 2) {
+    //         var modelD1 = {
+    //             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
+    //             "model": carList[0].model
+    //         }
+    //         var modelD2 = {
+    //             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
+    //             "model": carList[1].model
+    //         }
+    //         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
+    //         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
+    //         return (
+    //             <div className="page page-compare">
+    //                 <img className="ellipse-blue" src={blueEllipse} />
+    //                 <img className="ellipse-green" src={greenEllipse} />
+    //                 <div className="graphContainer" id="graphContainer ">
+    //                     <div className="section-container instruction-container">
+    //                         <div className='detail-right'>
+    //                             <div className="row">
+    //                                 <div className="rightcolumn">
+    //                                     <h2>Depreciation Graph</h2>
+    //                                     <p>Depreciation is the difference between a car's value when you buy it and when you
+    //                                         come to sell it.
+    //                                         This drop in value varies between makes and models and the depreciation of each
+    //                                         model is depicted
+    //                                         on the graph for each year of ownership.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
 
 
-//                                 </div>
+    //                                 </div>
 
-//                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
-//                                     <p>
-//                                         Amortization describes the process of gradually paying off your auto loan. In an
-//                                         amortizing loan,
-//                                         for each of your monthly payments, a portion is applied towards the amount of
-//                                         the loan – the
-//                                         principal – and a portion of the payment is applied towards paying the finance
-//                                         charge –
-//                                         the interest.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <br>
+    //                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
+    //                                     <p>
+    //                                         Amortization describes the process of gradually paying off your auto loan. In an
+    //                                         amortizing loan,
+    //                                         for each of your monthly payments, a portion is applied towards the amount of
+    //                                         the loan – the
+    //                                         principal – and a portion of the payment is applied towards paying the finance
+    //                                         charge –
+    //                                         the interest.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <br>
 
 
-//                 </br>
-//                 <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3} />
-//                 <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3} />
+    //                 </br>
+    //                 <Graph2Models model1={modelD1} model2={modelD2} />
+    //                 <GraphCapitalTwoModels model1={modelA1} model2={modelA2} />
 
 
 
-//             </div>
+    //             </div>
 
-//         )
-//     }
-//     else {
-//         var modelD1 = {
-//             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
-//             "model": carList[0].model
-//         }
-//         var modelD2 = {
-//             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
-//             "model": carList[1].model
-//         }
-//         var modelD3 = {
-//             "depreciation": carList[2].depreciation, "listPrice": carList[2].listPrice,
-//             "model": carList[2].model
-//         }
-//         var modelD4 = {
-//             "depreciation": carList[3].depreciation, "listPrice": carList[3].listPrice,
-//             "model": carList[3].model
-//         }
-//         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
-//         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
-//         var modelA3 = { "remain": carList[2].remain, "model": carList[2].model }
-//         var modelA4 = { "remain": carList[3].remain, "model": carList[3].model }
-//         return (
-//             <div className="page page-compare">
-//                 <img className="ellipse-blue" src={blueEllipse} />
-//                 <img className="ellipse-green" src={greenEllipse} />
-//                 <div className="graphContainer" id="graphContainer ">
-//                     <div className="section-container instruction-container">
-//                         <div className='detail-right'>
-//                             <div className="row">
-//                                 <div className="rightcolumn">
-//                                     <h2>Depreciation Graph</h2>
-//                                     <p>Depreciation is the difference between a car's value when you buy it and when you
-//                                         come to sell it.
-//                                         This drop in value varies between makes and models and the depreciation of each
-//                                         model is depicted
-//                                         on the graph for each year of ownership.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //         )
+    //     }
+    //     else if (carList.length === 3) {
+    //         var modelD1 = {
+    //             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
+    //             "model": carList[0].model
+    //         }
+    //         var modelD2 = {
+    //             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
+    //             "model": carList[1].model
+    //         }
+    //         var modelD3 = {
+    //             "depreciation": carList[2].depreciation, "listPrice": carList[2].listPrice,
+    //             "model": carList[2].model
+    //         }
+    //         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
+    //         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
+    //         var modelA3 = { "remain": carList[2].remain, "model": carList[2].model }
+    //         return (
+    //             <div className="page page-compare">
+    //                 <img className="ellipse-blue" src={blueEllipse} />
+    //                 <img className="ellipse-green" src={greenEllipse} />
+    //                 <div className="graphContainer" id="graphContainer ">
+    //                     <div className="section-container instruction-container">
+    //                         <div className='detail-right'>
+    //                             <div className="row">
+    //                                 <div className="rightcolumn">
+    //                                     <h2>Depreciation Graph</h2>
+    //                                     <p>Depreciation is the difference between a car's value when you buy it and when you
+    //                                         come to sell it.
+    //                                         This drop in value varies between makes and models and the depreciation of each
+    //                                         model is depicted
+    //                                         on the graph for each year of ownership.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
 
 
-//                                 </div>
+    //                                 </div>
 
-//                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
-//                                     <p>
-//                                         Amortization describes the process of gradually paying off your auto loan. In an
-//                                         amortizing loan,
-//                                         for each of your monthly payments, a portion is applied towards the amount of
-//                                         the loan – the
-//                                         principal – and a portion of the payment is applied towards paying the finance
-//                                         charge –
-//                                         the interest.</p>
-//                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
-//                                         graph </p>
-//                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <br>
+    //                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
+    //                                     <p>
+    //                                         Amortization describes the process of gradually paying off your auto loan. In an
+    //                                         amortizing loan,
+    //                                         for each of your monthly payments, a portion is applied towards the amount of
+    //                                         the loan – the
+    //                                         principal – and a portion of the payment is applied towards paying the finance
+    //                                         charge –
+    //                                         the interest.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <br>
 
 
-//                 </br>
-//                 <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3} model4={modelD4} />
-//                 <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3} model4={modelA4} />
+    //                 </br>
+    //                 <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3} />
+    //                 <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3} />
 
 
 
-//             </div>
+    //             </div>
 
-//         )
-//     }
+    //         )
+    //     }
+    //     else {
+    //         var modelD1 = {
+    //             "depreciation": carList[0].depreciation, "listPrice": carList[0].listPrice,
+    //             "model": carList[0].model
+    //         }
+    //         var modelD2 = {
+    //             "depreciation": carList[1].depreciation, "listPrice": carList[1].listPrice,
+    //             "model": carList[1].model
+    //         }
+    //         var modelD3 = {
+    //             "depreciation": carList[2].depreciation, "listPrice": carList[2].listPrice,
+    //             "model": carList[2].model
+    //         }
+    //         var modelD4 = {
+    //             "depreciation": carList[3].depreciation, "listPrice": carList[3].listPrice,
+    //             "model": carList[3].model
+    //         }
+    //         var modelA1 = { "remain": carList[0].remain, "model": carList[0].model }
+    //         var modelA2 = { "remain": carList[1].remain, "model": carList[1].model }
+    //         var modelA3 = { "remain": carList[2].remain, "model": carList[2].model }
+    //         var modelA4 = { "remain": carList[3].remain, "model": carList[3].model }
+    //         return (
+    //             <div className="page page-compare">
+    //                 <img className="ellipse-blue" src={blueEllipse} />
+    //                 <img className="ellipse-green" src={greenEllipse} />
+    //                 <div className="graphContainer" id="graphContainer ">
+    //                     <div className="section-container instruction-container">
+    //                         <div className='detail-right'>
+    //                             <div className="row">
+    //                                 <div className="rightcolumn">
+    //                                     <h2>Depreciation Graph</h2>
+    //                                     <p>Depreciation is the difference between a car's value when you buy it and when you
+    //                                         come to sell it.
+    //                                         This drop in value varies between makes and models and the depreciation of each
+    //                                         model is depicted
+    //                                         on the graph for each year of ownership.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+
+
+    //                                 </div>
+
+    //                                 <div className="leftcolumn"><h2>Ammoritization Graph</h2>
+    //                                     <p>
+    //                                         Amortization describes the process of gradually paying off your auto loan. In an
+    //                                         amortizing loan,
+    //                                         for each of your monthly payments, a portion is applied towards the amount of
+    //                                         the loan – the
+    //                                         principal – and a portion of the payment is applied towards paying the finance
+    //                                         charge –
+    //                                         the interest.</p>
+    //                                     <p>-Toggle on each model's name at the bottom to remove it's data from the
+    //                                         graph </p>
+    //                                     <p>-Hover above datapoints (circles on the graph) for further insights</p>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <br>
+
+
+    //                 </br>
+    //                 <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3} model4={modelD4} />
+    //                 <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3} model4={modelA4} />
+
+
+
+    //             </div>
+
+    //         )
+    //     }
 }
 
 
