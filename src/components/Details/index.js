@@ -58,9 +58,9 @@ const Details = () => {
                                 <h3>{carData.condition}</h3>
                                 <h3>{carData.year}</h3>
                             </div>
-                            <h1>{carData.model}</h1>
+                            <h1>{carData.carModel}</h1>
                             <div className="make-color">
-                                <h2>{carData.make}</h2>
+                                <h2>{carData.carMake}</h2>
                                 <h3>{carData.color}</h3>
                             </div>
                              
@@ -82,7 +82,7 @@ const Details = () => {
                         <div className="right">
                             <img src={carData.imageUrl}/>
                             <div className="price-info">
-                                <h2>{carData.listPrice}</h2>
+                                <h2>${carData.price}</h2>
                                 <button id="trigger">+</button>
                                 <div class="hidden">{carData.carDescription}</div>
 

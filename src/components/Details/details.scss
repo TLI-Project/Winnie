@@ -1,55 +1,78 @@
-#trigger {
+.container {
+    display: flex;
+    flex-direction: row;
+    .left {
+        padding-top: 15rem;
+        padding-left: 15rem;
+        background: red;
+        .condition-year{
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+        }
+        .make-color {
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+            border-bottom: 2px solid rgb(127, 143, 196);
+        }
 
-}
+        #trigger-interior {
+        }
 
-div.hidden {
-     display:none; 
-     font-size: 2rem;
+        div.hidden-interior {
+            display: none;
+            font-size: 2rem;
+        }
+
+        #trigger-interior:hover + div.hidden-interior {
+            display: block;
+        }
+
+        #trigger-engine {
+        }
+
+        div.hidden-engine {
+            display: none;
+            font-size: 2rem;
+        }
+
+        #trigger-engine:hover + div.hidden-engine {
+            display: block;
+        }
+
+        #trigger-performance {
+        }
+
+        div.hidden-performance {
+            display: none;
+            font-size: 2rem;
+        }
+
+        #trigger-performance:hover + div.hidden-performance {
+            display: block;
+        }
     }
 
-/* Target the hidden div when the target div is being hovered over */
-#trigger:hover + div.hidden {
-    display:block;
-   }
+    .right {
+        background-color: blue;
+        padding-top: 15rem;
+        padding-right: 15rem;
+        width: 40%;
 
-#trigger-interior {
+        img {
+            width: 90rem;
+        }
+        #trigger {
+        }
 
-}
+        div.hidden {
+            display: none;
+            font-size: 2rem;
+        }
 
-div.hidden-interior {
-    display:none; 
-    font-size: 2rem;
-}
-
-#trigger-interior:hover + div.hidden-interior {
-    display:block;
-
-}
-
-#trigger-engine {
-
-}
-
-div.hidden-engine {
-    display:none; 
-    font-size: 2rem;
-}
-
-#trigger-engine:hover + div.hidden-engine {
-    display:block;
-
-}
-
-#trigger-performance {
-
-}
-
-div.hidden-performance {
-    display:none; 
-    font-size: 2rem;
-}
-
-#trigger-performance:hover + div.hidden-performance {
-    display:block;
-
+        /* Target the hidden div when the target div is being hovered over */
+        #trigger:hover + div.hidden {
+            display: block;
+        }
+    }
 }
