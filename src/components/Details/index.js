@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-// import './details.scss';
+import './details.scss';
 import { useParams } from 'react-router';
 /*Needs car dataset to display the pictures, price points, model and name etc*/
 
@@ -53,23 +53,39 @@ const Details = () => {
             <main className="container">
                 {carData !== null &&
                     <Fragment>
-                        <div className="left-column">
-                            <img src={carData.imageUrl}>
-                            </img>
+                        <div className="left">
+                            <div className="condition-year">
+                                <h3>{carData.condition}</h3>
+                                <h3>{carData.year}</h3>
+                            </div>
+                            <h1>{carData.model}</h1>
+                            <div className="make-color">
+                                <h2>{carData.make}</h2>
+                                <h3>{carData.color}</h3>
+                            </div>
+                             
+                             <h2>Specs:</h2>
+                             <div className="specs">
+                                 <button id="trigger-interior">{carData.interior}</button>
+                                 <div class="hidden-interior">{carData.interiorDescription}</div>
+
+                                 <button id="trigger-">{carData.engine}</button>
+                                 <div class="hidden-engine">{carData.engineDescription}</div>
+
+                                 <button id="trigger-performance">{carData.performancePackage}</button>
+                                 <div class="hidden-engine">{carData.performancePackageDescription}</div>
+                             </div>
+
+
                         </div>
 
-                        <div className="right-column">
-                            <div className="product-description">
-                                <span>{carData.carMake}</span>
-                                <h1>{carData.carModel}</h1>
-                                <h1>{carData.interior}</h1>
-                                <h1>{carData.carDescription}</h1>
-                                <p>{carData.features}</p>
-                            </div>
+                        <div className="right">
+                            <img src={carData.imageUrl}/>
+                            <div className="price-info">
+                                <h2>{carData.listPrice}</h2>
+                                <button id="trigger">+</button>
+                                <div class="hidden">{carData.carDescription}</div>
 
-
-                            <div className="product-price">
-                                <span>${carData.price}</span>
                             </div>
                         </div>
 
