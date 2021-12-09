@@ -17,6 +17,24 @@ const Compare = () => {
     console.log(carList)
     console.log(finance)
 
+    const [car1, setCar1] = useState(null)
+    const [car2, setCar2] = useState(null)
+    const [car3, setCar3] = useState(null)
+    const [car4, setCar4] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const car1Ok = carList[0] === null ? true : car1 !== null ? true : false;
+        const car2Ok = carList[1] === null ? true : car2 !== null ? true : false;
+        const car3Ok = carList[2] === null ? true : car3 !== null ? true : false;
+        const car4Ok = carList[3] === null ? true : car4 !== null ? true : false;
+        // if all ok, setloading to false
+
+        if (car1Ok == true && car2Ok == true && car3Ok == true && car4Ok == true) {
+            setLoading(false);
+        }
+    }, [car1, car2, car3, car4])
+
     //****/carDepreciation 
     // returns a list of 10 values, where each one is the percentage of total value remaining responding to year
     //****/userCarLoan */
@@ -51,26 +69,16 @@ const Compare = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
-            const fetchCarLoan = async () => {
-                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-                const data = await res.json();
-                const carOneLoan = data;
-                console.log(carOneLoan)
+            const fetchData = async () => {
+                const carOneLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
+                const carOneDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
+                setCar1({ loan: carOneLoan, depreciation: carOneDepreciation })
             }
 
-            const fetchCarDepreciation = async () => {
-                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
-                const data = await res.json();
-                const carOneDepreciation = data;
-                console.log(carOneDepreciation)
-            }
-
-            fetchCarLoan();
-            fetchCarDepreciation();
+            fetchData();
 
 
         }
-
         if (carList[1] !== null) {
 
             const inputData = {
@@ -99,26 +107,16 @@ const Compare = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
-            const fetchCarLoan = async () => {
-                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-                const data = await res.json();
-                const carTwoLoan = data;
-                console.log(carTwoLoan)
+            const fetchData = async () => {
+                const carTwoLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
+                const carTwoDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
+                setCar2({ loan: carTwoLoan, depreciation: carTwoDepreciation })
             }
 
-            const fetchCarDepreciation = async () => {
-                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
-                const data = await res.json();
-                const carTwoDepreciation = data;
-                console.log(carTwoDepreciation)
-            }
-
-            fetchCarLoan();
-            fetchCarDepreciation();
+            fetchData();
 
 
         }
-
 
         if (carList[2] !== null) {
 
@@ -148,24 +146,16 @@ const Compare = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
-            const fetchCarLoan = async () => {
-                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-                const data = await res.json();
-                const carThreeLoan = data;
-                console.log(carThreeLoan)
+            const fetchData = async () => {
+                const carThreeLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
+                const carThreeDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
+                setCar3({ loan: carThreeLoan, depreciation: carThreeDepreciation })
             }
 
-            const fetchCarDepreciation = async () => {
-                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
-                const data = await res.json();
-                const carThreeDepreciation = data;
-                console.log(carThreeDepreciation)
-            }
-            fetchCarLoan();
-            fetchCarDepreciation();
+            fetchData();
+
+
         }
-
-
         if (carList[3] !== null) {
 
             const inputData = {
@@ -194,25 +184,34 @@ const Compare = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
-            const fetchCarLoan = async () => {
-                const res = await fetch('http://localhost:8080/userCarLoan', loanRequestOptions);
-                const data = await res.json();
-                const carFourLoan = data;
-                console.log(carFourLoan)
+            const fetchData = async () => {
+                const carFourLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
+                const carFourDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
+                setCar4({ loan: carFourLoan, depreciation: carFourDepreciation })
             }
 
-            const fetchCarDepreciation = async () => {
-                const res = await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions);
-                const data = await res.json();
-                const carFourDepreciation = data;
-                console.log(carFourDepreciation)
-            }
-            fetchCarLoan();
-            fetchCarDepreciation();
+            fetchData();
+
+
         }
     }, []);
+
+    //test
+    console.log(car1.loan)
+    console.log(car2.loan)
+    console.log(car1.depreciation)
+
     return (
-        <h1></h1>
+        <div>
+            {loading ?
+                <p>Loading</p>
+                :
+                <div>
+                    {/* All your content */}
+
+                </div>
+            }
+        </div>
     )
 
     //*****How to access the financial information:*****
