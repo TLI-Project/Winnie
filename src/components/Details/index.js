@@ -62,6 +62,7 @@ const Details = () => {
                             <div className="make-color">
                                 <h2>{carData.carMake}</h2>
                                 <h3>{carData.color}</h3>
+                                <h2 id="price">${carData.price}</h2>
                             </div>
                              
                              <h2>Specs:</h2>
@@ -82,7 +83,7 @@ const Details = () => {
                         <div className="right">
                             <img src={carData.imageUrl}/>
                             <div className="price-info">
-                                <h2>${carData.price}</h2>
+
                                 <button id="trigger">+</button>
                                 <div class="hidden">{carData.carDescription}</div>
 
