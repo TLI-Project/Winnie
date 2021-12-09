@@ -82,7 +82,7 @@ const Selection = () => {
                             </Link>
                             <h2 className="name">{`${entry.year} ${entry.carMake} ${entry.carModel}`}</h2>
                             <div className='price-btn-container'>
-                                <p className='price'>{entry.listPrice}</p>
+                                <p className='price'>${entry.listPrice}</p>
                                 <button onClick={() => handleAddCar(entry.id)}>Select</button>
                             </div>
                         </div>
