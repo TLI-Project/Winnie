@@ -31,8 +31,8 @@ export function GraphCapitalOneModel(props) {
     }
     for (let i = 0; i < num_remain; i++){
         yValuesM1.push(props.model["remain"][i]);
-        console.log(props.model["remain"][i]);
     }
+    console.log(yValuesM1)
 
     //line chart data
     var data = {
@@ -94,6 +94,8 @@ export function GraphCapitalTwoModels(props) {
         yValuesM2.push(props.model2["remain"][i]);
         console.log(props.model2["remain"][i]);
     }
+    console.log(yValuesM1)
+    console.log(yValuesM2)
 
     //line chart data
     var data = {
@@ -168,7 +170,9 @@ export function GraphCapitalThreeModels(props) {
         yValuesM3.push(props.model3["remain"][i]);
         console.log(props.model3["remain"][i]);
     }
-
+    console.log(yValuesM1)
+    console.log(yValuesM2)
+    console.log(yValuesM3)
 
     //line chart data
     var data = {
@@ -258,7 +262,10 @@ export function GraphCapitalFourModels(props) {
         yValuesM4.push(props.model4["remain"][i]);
         console.log(props.model4["remain"][i]);
     }
-
+    console.log(yValuesM1)
+    console.log(yValuesM2)
+    console.log(yValuesM3)
+    console.log(yValuesM4)
     //line chart data
     var data = {
         labels: xValues,

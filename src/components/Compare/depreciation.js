@@ -27,7 +27,6 @@ export function Graph1Model(props) {
     var yValues = [];
     for (let i = 0; i < props.model["depreciation"].length; i++){
         yValues.push(props.model["depreciation"][i]* props.model["listPrice"]);
-        console.log(props.model["depreciation"][i]* props.model["listPrice"]);
     }
 
     //line chart data
