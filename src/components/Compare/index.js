@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import { Graph1Model, Graph2Models, Graph3Models, Graph4Models } from "./depreciation";
 import { GraphCapitalOneModel, GraphCapitalTwoModels, GraphCapitalThreeModels, GraphCapitalFourModels } from "./ammoritization"

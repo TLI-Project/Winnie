@@ -16,7 +16,6 @@ const Details = () => {
 
     useEffect(() => {
         // fetch data
-
         const fetchCarData = async () => {
             const res = await fetch('http://localhost:8080/carDetails', requestOptions);
             const data = await res.json();

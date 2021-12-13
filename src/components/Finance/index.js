@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
 import "./styles.scss";
 
 /* Vehicle mileage should be 0*/
-const Finance = ({ setToken }) => {
+const Finance = () => {
   const [loanAmount, setLoanAmount] = useState('');
   const [monthlyBudget, setMonthlyBudget] = useState('');
   const [downPayment, setDownPayment] = useState('');
@@ -73,19 +73,6 @@ const Finance = ({ setToken }) => {
 
 
   const submit = () => {
-    // fetch to verify, if ok, history.push
-    // Credit score must be [300, 850] inclusive in order to be accepted by the senso api
-    // if (!(300 <= creditScore <= 850)) {
-    //   alert('please enter a valid credit score');
-    // } else if (!(loanAmount > 0)) {
-    //   alert('please enter a valid loan amount');
-    // } else if (!(monthlyBudget > 0)) {
-    //   alert('please enter a valid monthly budget');
-    // } else if (!(yearlyIncome > 0)) {
-    //   alert('please enter a valid yearly income');
-    // } else if (!(downPayment > 0)) {
-    //   alert('please enter a valid down payment amount')
-    // } else {
       history.push({
         pathname: '/catalogue', 
         state: { 
@@ -118,13 +105,10 @@ const Finance = ({ setToken }) => {
       {/* sin no. */}
       <p>SIN Number</p>
       <input type="text" onChange={handleSinNumberChange} value={sinNumber} />
-
-      <p>Loan Amount</p>
-      <input type="text" onChange={handleLoanAmountChange} value={loanAmount} />
-
+      {/* monthly budget */}
       <p>Monthly budget</p>
       <input type="text" onChange={handleMonthlyBudgetChange} value={monthlyBudget} />
-
+      {/* down payment */}
       <p>Down payment</p>
       <input type="text" onChange={handleDownPaymentChange} value={downPayment} />
 
