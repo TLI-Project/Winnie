@@ -45,7 +45,6 @@ const Compare = () => {
 
             const inputData = {
                 carId: carList[0],
-                loanAmount: finance.loanAmount,
                 pytBudget: finance.monthlyBudget,
                 downPayment: finance.downPayment,
                 address: finance.address,
@@ -91,7 +90,6 @@ const Compare = () => {
 
             const inputData = {
                 carId: carList[1],
-                loanAmount: finance.loanAmount,
                 pytBudget: finance.monthlyBudget,
                 downPayment: finance.downPayment,
                 address: finance.address,
@@ -136,7 +134,6 @@ const Compare = () => {
 
             const inputData = {
                 carId: carList[2],
-                loanAmount: finance.loanAmount,
                 pytBudget: finance.monthlyBudget,
                 downPayment: finance.downPayment,
                 address: finance.address,
@@ -181,7 +178,6 @@ const Compare = () => {
 
             const inputData = {
                 carId: carList[3],
-                loanAmount: finance.loanAmount,
                 pytBudget: finance.monthlyBudget,
                 downPayment: finance.downPayment,
                 address: finance.address,

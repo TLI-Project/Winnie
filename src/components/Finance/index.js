@@ -19,9 +19,6 @@ const Finance = () => {
 
   const history = useHistory();
 
-  const handleLoanAmountChange = e => {
-    setLoanAmount(e.target.value)
-  }
 
   const handleAddressChange = e => {
     setAddress(e.target.value)
@@ -56,7 +53,6 @@ const Finance = () => {
   }
 
   const inputData = {
-    loanAmount: loanAmount,
     monthlyBudget: monthlyBudget,
     downPayment: downPayment,
     address: address,
@@ -79,6 +75,7 @@ const Finance = () => {
           inputData
         }
       })
+
 
   }
 
@@ -106,6 +103,7 @@ const Finance = () => {
       <p>SIN Number</p>
       <input type="text" onChange={handleSinNumberChange} value={sinNumber} />
       {/* monthly budget */}
+
       <p>Monthly budget</p>
       <input type="text" onChange={handleMonthlyBudgetChange} value={monthlyBudget} />
       {/* down payment */}
