@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
 
 import "./styles.scss";
 
 /* Vehicle mileage should be 0*/
-const Finance = ({ setToken }) => {
+const Finance = () => {
+  const [loanAmount, setLoanAmount] = useState('');
   const [monthlyBudget, setMonthlyBudget] = useState('');
   const [downPayment, setDownPayment] = useState('');
   const [address, setAddress] = useState('');
@@ -68,12 +69,13 @@ const Finance = ({ setToken }) => {
 
 
   const submit = () => {
-    history.push({
-      pathname: '/catalogue',
-      state: {
-        inputData
-      }
-    })
+      history.push({
+        pathname: '/catalogue', 
+        state: { 
+          inputData
+        }
+      })
+
 
   }
 
@@ -100,10 +102,11 @@ const Finance = ({ setToken }) => {
       {/* sin no. */}
       <p>SIN Number</p>
       <input type="text" onChange={handleSinNumberChange} value={sinNumber} />
+      {/* monthly budget */}
 
       <p>Monthly budget</p>
       <input type="text" onChange={handleMonthlyBudgetChange} value={monthlyBudget} />
-
+      {/* down payment */}
       <p>Down payment</p>
       <input type="text" onChange={handleDownPaymentChange} value={downPayment} />
 

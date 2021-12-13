@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import blueEllipse from '../../img/landing/background/Ellipse-blue.png';
 import greenEllipse from '../../img/landing/background/Ellipse-green.png';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import { Graph1Model, Graph2Models, Graph3Models, Graph4Models } from "./depreciation";
 import { GraphCapitalOneModel, GraphCapitalTwoModels, GraphCapitalThreeModels, GraphCapitalFourModels } from "./ammoritization"
@@ -11,7 +11,7 @@ import "./styles.scss";
 const Compare = () => {
     //passing states:
     const location = useLocation();
-    const {state} = location;
+    const { state } = location;
     const finance = state.inputData;
     const carList = state.selected;
     console.log(carList)
@@ -57,7 +57,13 @@ const Compare = () => {
 
             const depreciationRequestOptions = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[0]
+            };
+
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: carList[0]
             };
 
@@ -65,13 +71,14 @@ const Compare = () => {
             const loanRequestOptions = {
                 method: 'POST',
                 mode: 'cors',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
             const fetchData = async () => {
                 const carOneLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
                 const carOneDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
-                setCar1({loan: carOneLoan, depreciation: carOneDepreciation})
+                const carOneModel = await (await fetch('http://localhost:8080/carDetails', requestOptions)).json();
+                setCar1({ loan: carOneLoan, depreciation: carOneDepreciation, model: carOneModel })
             }
 
             fetchData();
@@ -92,10 +99,14 @@ const Compare = () => {
                 dateOfBirth: finance.dateOfBirth,
                 sinNumber: finance.sinNumber
             }
-
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[1]
+            };
             const depreciationRequestOptions = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: carList[1]
             };
 
@@ -103,13 +114,14 @@ const Compare = () => {
             const loanRequestOptions = {
                 method: 'POST',
                 mode: 'cors',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
             const fetchData = async () => {
                 const carTwoLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
                 const carTwoDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
-                setCar2({loan: carTwoLoan, depreciation: carTwoDepreciation})
+                const carTwoModel = await (await fetch('http://localhost:8080/carDetails', requestOptions)).json();
+                setCar2({ loan: carTwoLoan, depreciation: carTwoDepreciation, model: carTwoModel })
             }
 
             fetchData();
@@ -131,10 +143,15 @@ const Compare = () => {
                 dateOfBirth: finance.dateOfBirth,
                 sinNumber: finance.sinNumber
             }
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[2]
+            };
 
             const depreciationRequestOptions = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: carList[2]
             };
 
@@ -142,13 +159,14 @@ const Compare = () => {
             const loanRequestOptions = {
                 method: 'POST',
                 mode: 'cors',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
             const fetchData = async () => {
                 const carThreeLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
                 const carThreeDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
-                setCar3({loan: carThreeLoan, depreciation: carThreeDepreciation})
+                const carThreeModel = await (await fetch('http://localhost:8080/carDetails', requestOptions)).json();
+                setCar3({ loan: carThreeLoan, depreciation: carThreeDepreciation, model: carThreeModel })
             }
 
             fetchData();
@@ -169,10 +187,15 @@ const Compare = () => {
                 dateOfBirth: finance.dateOfBirth,
                 sinNumber: finance.sinNumber
             }
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: carList[3]
+            };
 
             const depreciationRequestOptions = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: carList[3]
             };
 
@@ -180,13 +203,14 @@ const Compare = () => {
             const loanRequestOptions = {
                 method: 'POST',
                 mode: 'cors',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(inputData)
             };
             const fetchData = async () => {
                 const carFourLoan = await (await fetch('http://localhost:8080/userCarLoan', loanRequestOptions)).json()
                 const carFourDepreciation = await (await fetch('http://localhost:8080/carDepreciation', depreciationRequestOptions)).json();
-                setCar4({loan: carFourLoan, depreciation: carFourDepreciation})
+                const carFourModel = await (await fetch('http://localhost:8080/carDetails', requestOptions)).json();
+                setCar4({ loan: carFourLoan, depreciation: carFourDepreciation, model: carFourModel })
             }
 
             fetchData();
@@ -205,7 +229,7 @@ const Compare = () => {
     // Create a list of the remaining sum (use a for loop to iterate over
 
 
-    if(!loading) {
+    if (!loading) {
 
         if (carList.length === 1) {
             // Depreciation
@@ -218,7 +242,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car1.loan["capitalSum"]),
                 "model": JSON.stringify(car1.carModel)
             }
-            var modelA = {"remain":remainingSum, "model": JSON.stringify(car1.carModel)}
+            var modelA = { "remain": remainingSum, "model": JSON.stringify(car1.carModel) }
 
 
             {/* All your content */
@@ -231,8 +255,8 @@ const Compare = () => {
                         :
                         <div>
                             <div className="page" id="page-compare">
-                                <img className="ellipse-blue" src={blueEllipse}/>
-                                <img className="ellipse-green" src={greenEllipse}/>
+                                <img className="ellipse-blue" src={blueEllipse} />
+                                <img className="ellipse-green" src={greenEllipse} />
                                 <div className="graphContainer" id="graphContainer ">
                                     <div className="section-container instruction-container">
                                         <div className='detail-right'>
@@ -281,8 +305,8 @@ const Compare = () => {
 
 
                                 </br>
-                                <Graph1Model model={modelD}/>
-                                <GraphCapitalOneModel model={modelA}/>
+                                <Graph1Model model={modelD} />
+                                <GraphCapitalOneModel model={modelA} />
 
 
                             </div>
@@ -304,7 +328,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car1.loan["capitalSum"]),
                 "model": JSON.stringify(car1.carModel)
             }
-            var modelA1 = {"remain":remainingSum1, "model": JSON.stringify(car1.carModel)}
+            var modelA1 = { "remain": remainingSum1, "model": JSON.stringify(car1.carModel) }
 
             // Second car
             var remainingSum2 = [];
@@ -316,7 +340,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car2.loan["capitalSum"]),
                 "model": JSON.stringify(car2.carModel)
             }
-            var modelA2 = {"remain": remainingSum2, "model": JSON.stringify(car2.carModel)}
+            var modelA2 = { "remain": remainingSum2, "model": JSON.stringify(car2.carModel) }
 
             {/* All your content */
             }
@@ -328,8 +352,8 @@ const Compare = () => {
                         :
                         <div>
                             <div className="page" id="page-compare">
-                                <img className="ellipse-blue" src={blueEllipse}/>
-                                <img className="ellipse-green" src={greenEllipse}/>
+                                <img className="ellipse-blue" src={blueEllipse} />
+                                <img className="ellipse-green" src={greenEllipse} />
                                 <div className="graphContainer" id="graphContainer ">
                                     <div className="section-container instruction-container">
                                         <div className='detail-right'>
@@ -378,8 +402,8 @@ const Compare = () => {
 
 
                                 </br>
-                                <Graph2Models model1={modelD1} model2={modelD2}/>
-                                <GraphCapitalTwoModels model1={modelA1} model2={modelA2}/>
+                                <Graph2Models model1={modelD1} model2={modelD2} />
+                                <GraphCapitalTwoModels model1={modelA1} model2={modelA2} />
 
 
                             </div>
@@ -401,7 +425,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car1.loan["capitalSum"]),
                 "model": JSON.stringify(car1.carModel)
             }
-            var modelA1 = {"remain":remainingSum1, "model": JSON.stringify(car1.carModel)}
+            var modelA1 = { "remain": remainingSum1, "model": JSON.stringify(car1.carModel) }
 
             // Second car
             var remainingSum2 = [];
@@ -413,7 +437,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car2.loan["capitalSum"]),
                 "model": JSON.stringify(car2.carModel)
             }
-            var modelA2 = {"remain": remainingSum2, "model": JSON.stringify(car2.carModel)}
+            var modelA2 = { "remain": remainingSum2, "model": JSON.stringify(car2.carModel) }
 
 
             // Third car
@@ -426,7 +450,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car3.loan["capitalSum"]),
                 "model": JSON.stringify(car3.carModel)
             }
-            var modelA3 = {"remain": remainingSum3, "model": JSON.stringify(car3.carModel)}
+            var modelA3 = { "remain": remainingSum3, "model": JSON.stringify(car3.carModel) }
 
             {/* All your content */
             }
@@ -438,8 +462,8 @@ const Compare = () => {
                         :
                         <div>
                             <div className="page" id="page-compare">
-                                <img className="ellipse-blue" src={blueEllipse}/>
-                                <img className="ellipse-green" src={greenEllipse}/>
+                                <img className="ellipse-blue" src={blueEllipse} />
+                                <img className="ellipse-green" src={greenEllipse} />
                                 <div className="graphContainer" id="graphContainer ">
                                     <div className="section-container instruction-container">
                                         <div className='detail-right'>
@@ -488,8 +512,8 @@ const Compare = () => {
 
 
                                 </br>
-                                <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3}/>
-                                <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3}/>
+                                <Graph3Models model1={modelD1} model2={modelD2} model3={modelD3} />
+                                <GraphCapitalThreeModels model1={modelA1} model2={modelA2} model3={modelA3} />
 
 
                             </div>
@@ -500,7 +524,7 @@ const Compare = () => {
 
             )
         }
-        else if(carList.length === 4){
+        else if (carList.length === 4) {
             // First car
             var remainingSum1 = [];
             for (let i = 0; i < car1.loan["installments"].length; i++) {
@@ -511,7 +535,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car1.loan["capitalSum"]),
                 "model": JSON.stringify(car1.carModel)
             }
-            var modelA1 = {"remain":remainingSum1, "model": JSON.stringify(car1.carModel)}
+            var modelA1 = { "remain": remainingSum1, "model": JSON.stringify(car1.carModel) }
 
             // Second car
             var remainingSum2 = [];
@@ -523,7 +547,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car2.loan["capitalSum"]),
                 "model": JSON.stringify(car2.carModel)
             }
-            var modelA2 = {"remain": remainingSum2, "model": JSON.stringify(car2.carModel)}
+            var modelA2 = { "remain": remainingSum2, "model": JSON.stringify(car2.carModel) }
 
 
             // Third car
@@ -536,7 +560,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car3.loan["capitalSum"]),
                 "model": JSON.stringify(car3.carModel)
             }
-            var modelA3 = {"remain": remainingSum3, "model": JSON.stringify(car3.carModel)}
+            var modelA3 = { "remain": remainingSum3, "model": JSON.stringify(car3.carModel) }
 
             // Fourth car
             var remainingSum4 = [];
@@ -548,7 +572,7 @@ const Compare = () => {
                 "listPrice": parseFloat(car4.loan["capitalSum"]),
                 "model": JSON.stringify(car4.carModel)
             }
-            var modelA4 = {"remain": remainingSum4, "model": JSON.stringify(car4.carModel)}
+            var modelA4 = { "remain": remainingSum4, "model": JSON.stringify(car4.carModel) }
             {/* All your content */
             }
             // return(<p> Hi</p>)
@@ -559,8 +583,8 @@ const Compare = () => {
                         :
                         <div>
                             <div className="page" id="page-compare">
-                                <img className="ellipse-blue" src={blueEllipse}/>
-                                <img className="ellipse-green" src={greenEllipse}/>
+                                <img className="ellipse-blue" src={blueEllipse} />
+                                <img className="ellipse-green" src={greenEllipse} />
                                 <div className="graphContainer" id="graphContainer ">
                                     <div className="section-container instruction-container">
                                         <div className='detail-right'>
@@ -609,8 +633,8 @@ const Compare = () => {
 
 
                                 </br>
-                                <Graph4Models model1={modelD1} model2={modelD2} model3={modelD3} model4={modelD4}/>
-                                <GraphCapitalFourModels model1={modelA1} model2={modelA2} model3={modelA3} model4={modelA4}/>
+                                <Graph4Models model1={modelD1} model2={modelD2} model3={modelD3} model4={modelD4} />
+                                <GraphCapitalFourModels model1={modelA1} model2={modelA2} model3={modelA3} model4={modelA4} />
 
 
                             </div>
@@ -623,8 +647,8 @@ const Compare = () => {
         }
 
     }
-    else{
-        return(<div></div>)
+    else {
+        return (<div></div>)
     }
 
 }
